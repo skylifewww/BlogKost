@@ -16,7 +16,7 @@ import dj_database_url
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -188,13 +188,22 @@ USE_L10N = True
 USE_TZ = True
 
 
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'article/static'),
-    # ("static", "/Users/vladimirnybozhinsky/Documents/DjangoProjects/blogKostEnv/blogKost11"),
-    # ("static", "/Users/vladimirnybozhinsky/Documents/DjangoProjects/blogKostEnv/blogKost11/article/"),
 )
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),
+)
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
 IMAGE_UPLOAD_DIR = "img"
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
