@@ -156,22 +156,22 @@ WSGI_APPLICATION = 'blogKost.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 # 
 # # we only need the engine name, as heroku takes care of the rest
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-    }
-}
-
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'blogkost',
-#         'USER': 'skylife',
-#         'PASSWORD': 'skywww123',
-#         'HOST': '',
-#         'PORT': '',
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'blogkost',
+        'USER': 'skylife',
+        'PASSWORD': 'skywww123',
+        'HOST': '',
+        'PORT': '',
+    }
+}
 
 
 # Internationalization
