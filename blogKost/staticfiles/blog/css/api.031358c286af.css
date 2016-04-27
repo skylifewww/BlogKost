@@ -103,7 +103,7 @@ h1 span{
   position:relative;
   width:100%;
   height:100%;
-  background:url('../img/background/start-page_1.jpg') #c0c0c0 bottom center fixed no-repeat;
+  background:url("../img/background/start-page_1.dfc8978a30b5.jpg") #c0c0c0 bottom center fixed no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -193,7 +193,7 @@ h1 span{
   margin-left: -10px;
   width: 21px;
   height: 29px;
-  background: url(../img/arrow-down.png) no-repeat center center;
+  background: url("../img/arrow-down.cb092961c5bb.png") no-repeat center center;
   display: block;
   -webkit-animation: bounce-fade 1.2s infinite; /* Safari 4+ */
   -moz-animation:    bounce-fade 1.2s infinite; /* Fx 5+ */
@@ -430,7 +430,7 @@ h1 span{
   position:relative;
   margin:0 auto;
   border:2px solid #f0f0f0;
-  background: url(../img/icons/responsive.png) white no-repeat center center;
+  background: url("../img/icons/responsive.b4b7b252e196.png") white no-repeat center center;
   -moz-border-radius:100px;
   -webkit-border-radius:100px;
   border-radius: 100px;
@@ -461,7 +461,7 @@ h1 span{
   position:relative;
   margin:0 auto;
   border:2px solid #f0f0f0;
-  background: url(../img/icons/minimalist.png) white no-repeat center center;
+  background: url("../img/icons/minimalist.3206bb799760.png") white no-repeat center center;
   -moz-border-radius:100px;
   -webkit-border-radius:100px;
   border-radius: 100px;
@@ -492,7 +492,7 @@ h1 span{
   position:relative;
   margin:0 auto;
   border:2px solid #f0f0f0;
-  background: url(../img/icons/free.png) white no-repeat center center;
+  background: url("../img/icons/free.e4528679aecc.png") white no-repeat center center;
   -moz-border-radius:100px;
   -webkit-border-radius:100px;
   border-radius: 100px;
@@ -663,7 +663,7 @@ h1 span{
   position:relative;
   width:100%;
   height:400px;
-  background:url('../img/background/partners.jpg') 0px 0px fixed;
+  background:url("../img/background/partners.c7cafba8ebe0.jpg") 0px 0px fixed;
     -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
