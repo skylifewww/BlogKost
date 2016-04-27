@@ -98,6 +98,8 @@ INSTALLED_APPS = (
     'guardian',
     'easy_thumbnails',
     'mptt',
+    'storages',
+    'boto',
     # 'social_auth',
 )
 
@@ -202,6 +204,14 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = (
     os.path.join(BASE_DIR, 'media')
 )
+
+# if not DEBUG:
+#    AWS_STORAGE_BUCKET_NAME = os.environ['blogkost']
+#    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+#    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+#    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+#    S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+#    STATIC_URL = S3_URL
 
 deploy_env = os.environ.get('DEPLOYMENT_ENVIRONMENT', '')
 if deploy_env == 'production':
