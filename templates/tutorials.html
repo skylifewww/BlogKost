@@ -1,0 +1,71 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+{% block tutorials %}
+
+
+<section class="tutorials" id="tutorials">
+  
+  <div class="content">
+  
+    <h1>TUTORIALS</h1>
+    <hr/>
+    <p class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+
+
+
+      <div class="column-one">
+
+             {% if art_page_number %}
+				<li><a href="/articles/videos/page/{{ art_page_number }}/"><div class="circle-one"></div></a></li>
+            {% else %}
+				<li><a href="/articles/videos/page/{{ 1 }}/"><div class="circle-one"></div></a></li>
+             {% endif %}
+
+    {% if art_page_number %}
+				<a href="/articles/videos/page/{{ art_page_number }}/"><h2>VIDEO</h2></a>
+            {% else %}
+				<a href="/articles/videos/page/{{ 1 }}/"><h2>VIDEO</h2></a>
+             {% endif %}
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+    
+      </div>
+
+
+
+      <div class="column-two">
+
+          {% if art_page_number %}
+				<li><a href="/articles/writtens/page/{{ art_page_number }}/"><div class="circle-two"></div></a></li>
+            {% else %}
+				<li><a href="/articles/writtens/page/{{ 1 }}/"><div class="circle-two"></div></a></li>
+             {% endif %}
+
+      {% if art_page_number %}
+				<a href="/articles/writtens/page/{{ art_page_number }}/"><h2>WRITTEN</h2></a>
+            {% else %}
+				<a href="/articles/writtens/page/{{ 1 }}/"><h2>WRITTEN</h2></a>
+             {% endif %}
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+    
+      </div>
+  
+
+
+
+      <div class="column-three">
+  
+        <div class="circle-three"></div>
+    
+        <h2>FAQ</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+    
+    </div>  
+    
+  </div>
+  
+  </section>
+
+{% endblock %}

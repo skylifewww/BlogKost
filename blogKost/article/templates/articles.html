@@ -1,0 +1,116 @@
+{#{% extends "index.html" %}#}
+{#{% load staticfiles %}#}
+{#{% load embed_video_tags %}#}
+{##}
+{#{% block article %}#}
+{# <!---start-tutorials----->#}
+{#    <section class="contact" id="contact">#}
+{##}
+{#  <div class="content">#}
+{##}
+{##}
+{#{% for article in articles %}#}
+{#  <div class="form">#}
+{#    <div class="column-2">#}
+{#            {% video article.article_video '220x160' %}#}
+{#            <h6>Дата публикации: {{ article.article_date }}</h6>#}
+{#          <h6>Автор публикации: {{ article.article_author }}</h6>#}
+{#            </div>#}
+{# </div>#}
+{##}
+{#    <div class="column-3">#}
+{#    <h2><a href="/articles/videos/get/{{ article.id }}/{{ art_page_number }}/">{{ article.article_title }}</a></h2></br>#}
+{#       <p>{{ article.short_text_ru }}</p>#}
+{##}
+{#    </div>#}
+{##}
+{#<div class="clear"></div>#}
+{#            <hr>#}
+{#<div class="clear"></div>#}
+{##}
+{#            {% endfor %}#}
+{##}
+{##}
+{##}
+{#            <ul class="pagination" role="menubar" aria-label="Pagination">#}
+{#                {% if articles.has_previous %}#}
+{#                <li class="arrow"><a href="/articles/videos/page/{{ articles.previous_page_number }}/">&laquo; Назад</a></li>#}
+{#                {% else %}#}
+{#                <li class="arrow unavailable"><a href="">&laquo;</a></li>#}
+{#                {% endif %}#}
+{#                {% for page in articles.paginator.page_range %}#}
+{#                    {% if page == articles.number %}#}
+{#                        <li class="current"><a href="/articles/videos/page/{{ page }}/">{{ page }}</a></li>#}
+{#                    {% else %}#}
+{#                        <li><a href="/articles/videos/page/{{ page }}/">{{ page }}</a></li>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
+{#                {% if articles.has_next %}#}
+{#                <li class="arrow"><a href="/articles/videos/page/{{ articles.next_page_number }}/">Вперед &raquo;</a></li>#}
+{#                {% else %}#}
+{#                <li class="arrow unavailable"><a href="">&raquo;</a></li>#}
+{#                {% endif %}#}
+{#            </ul>#}
+{##}
+{# </div>#}
+{#    </section>#}
+{#{% endblock %}#}
+
+{% extends "index.html" %}
+{% load staticfiles %}
+{% load embed_video_tags %}
+
+{% block article %}
+ <!---start-tutorials----->
+    <div class="articles">
+    <div class="content">
+{% for article in articles %}
+
+<div class="img">
+
+            {% video article.article_video '220x160' %}
+
+{#    <p><a href="/articles/page/{{ articles.number }}/article/addlike/{{ article.id }}/"><img src="{% static 'article/like.jpg' %}" width="25px" height="30px"></a> {{ article.article_likes }}</p>#}
+
+    </div>
+<div class="text">
+    <div class="left">
+    <h8><l>Дата публикации: {{ article.article_date }}</l></h8>
+        <h8><r>Автор публикации: {{ article.article_author }}</r></h8>
+
+    <h6><a href="/articles/videos/get/{{ article.id }}/{{ art_page_number }}/">{{ article.article_title }}</a></h6>
+        <h10>{{ article.short_text_ru|safe }}</h10>
+
+    </div>
+</div>
+<div class="clear"></div>
+            <hr>
+<div class="clear"></div>
+
+            {% endfor %}
+
+
+            <div class="txt-center">
+            <ul class="pagination" role="menubar" aria-label="Pagination">
+                {% if articles.has_previous %}
+                <li class="arrow"><a href="/articles/videos/page/{{ articles.previous_page_number }}/">&laquo; Назад</a></li>
+                {% else %}
+                <li class="arrow unavailable"><a href="">&laquo;</a></li>
+                {% endif %}
+                {% for page in articles.paginator.page_range %}
+                    {% if page == articles.number %}
+                        <li class="current"><a href="/articles/videos/page/{{ page }}/">{{ page }}</a></li>
+                    {% else %}
+                        <li><a href="/articles/videos/page/{{ page }}/">{{ page }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if articles.has_next %}
+                <li class="arrow"><a href="/articles/videos/page/{{ articles.next_page_number }}/">Вперед &raquo;</a></li>
+                {% else %}
+                <li class="arrow unavailable"><a href="">&raquo;</a></li>
+                {% endif %}
+            </ul>
+            </div>
+    </div>
+    </div>
+{% endblock %}

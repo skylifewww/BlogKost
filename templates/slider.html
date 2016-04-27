@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+{% block slider %}
+
+
+<!-- section start-page -->
+
+  <section class="start-page parallax-background" id="home">
+
+    <div class="opacity"></div> <!-- Opacity color -->
+      <div class="content">
+        <div class="text">
+
+          <div class="logo"><img src="{% static 'blog/img/logo_1.png' %}"></div>
+
+          <h1>IOS Dev Curse</h1><hr/>
+          <p>Create IOS apps with us</p>
+
+          <a href="/tutorials/"><div class="read-more">Let's Join!</div></a>
+
+        </div>
+      </div>
+
+  </section>
+{% endblock %}

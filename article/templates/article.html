@@ -1,0 +1,70 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+{% block article_id %}
+
+     <div class="article">
+    <div class="content">
+
+
+<h8>Дата публикации: {{ article.article_date }}</h8>
+<h10><p>Автор публикации: {{ article.article_author }}</p></h10>
+<h1>{{ article.article_title }}</h1>
+<p>{{ article.full_text_ru|safe }}</p>
+<hr>
+
+
+<p>Комментарии:</p>
+
+
+{% for comment in comments %}
+
+    <div class="img">
+ <h4>{{ comment.comments_user }}:</h4>
+    <h8>{{ comment.comments_create }}</h8>
+      </div>
+    <div class="text">
+    <h4>{{ comment.comments_text }}</h4>
+    </div>
+<p></p>
+{% endfor %}
+
+    {% if username %}
+    <form action="/articles/article/addcomment/{{ article.id }}/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" class="button" value="Комментировать">
+    </form>
+    {% endif %}
+
+
+{#    <div class="row">#}
+{#        <div class="large-3 large-offset-5 columns">#}
+{#            <div class="pagination-centered">#}
+{#            <ul class="pagination" role="menubar" aria-label="Pagination">#}
+{#                {% if comments.has_previous %}#}
+{#                <li class="arrow"><a href="/articles/commentspage/{{ comments.previous_page_number }}/">&laquo; Назад</a></li>#}
+{#                {% else %}#}
+{#                <li class="arrow unavailable"><a href="">&laquo;</a></li>#}
+{#                {% endif %}#}
+{#                {% for commentspage in comments.paginator.page_range %}#}
+{#                    {% if commentspage == comments.number %}#}
+{#                        <li class="current"><a href="/articles/commentspage/{{ commentspage }}/">{{ commentspage }}</a></li>#}
+{#                    {% else %}#}
+{#                        <li><a href="/articles/commentspage/{{ commentspage }}/">{{ commentspage }}</a></li>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
+{#                {% if comments.has_next %}#}
+{#                <li class="arrow"><a href="/articles/commentspage/{{ comments.next_page_number }}/">Вперед &raquo;</a></li>#}
+{#                {% else %}#}
+{#                <li class="arrow unavailable"><a href="">&raquo;</a></li>#}
+{#                {% endif %}#}
+{#            </ul>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+
+
+
+     </div>
+ </div>
+{% endblock %}
