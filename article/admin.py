@@ -11,7 +11,7 @@ class CommentsInLine(admin.StackedInline):
 
 
 class ArticleAdmin(AdminVideoMixin, admin.ModelAdmin):
-    fields = ["article_author", "article_title", "article_video", "article_date", 'short_text_ru', 'short_text_en',
+    fields = ["article_author", "article_title", "article_date", 'short_text_ru', 'short_text_en',
               'full_text_ru', 'full_text_en',
               "article_tag", "article_category", 'image']
     inlines = [CommentsInLine]
