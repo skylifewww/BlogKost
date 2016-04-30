@@ -79,10 +79,22 @@ AUTHENTICATION_BACKENDS = (
      'social.backends.open_id.OpenIdAuth',
       'social.backends.vk.VKOAuth2',    
        'django.contrib.auth.backends.ModelBackend',
-       'guardian.backends.ObjectPermissionBackend'
+       'guardian.backends.ObjectPermissionBackend',
+        'social.backends.email.EmailAuth',
+    'social.backends.username.UsernameAuth'
 )
 
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/done/'
+URL_PATH = ''
 SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
+
+SOCIAL_AUTH_EMAIL_FORM_HTML = 'email_signup.html'
+SOCIAL_AUTH_EMAIL_VALIDATION_FUNCTION = 'blogkost.app.mail.send_validation'
+SOCIAL_AUTH_EMAIL_VALIDATION_URL = '/email-sent/'
+# SOCIAL_AUTH_USERNAME_FORM_URL = '/signup-username'
+SOCIAL_AUTH_USERNAME_FORM_HTML = 'username_signup.html'
 
 
 SOCIAL_AUTH_VK_OAUTH2_KEY = '5442665'
@@ -108,6 +120,33 @@ SOCIAL_AUTH_PIPELINE = (
 ANONYMOUS_USER_ID = -1
 
 ROOT_URLCONF = 'blogKost.urls'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    }
+}
+
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 TEMPLATES = [
     {
