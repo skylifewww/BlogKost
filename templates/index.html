@@ -80,6 +80,8 @@
         <li><a href="#about-us">FAQ</a></li>
         <li><a href="/portfolio/">PORTFOLIO</a></li>
         <li><a href="/contact/">CONTACT</a></li>
+
+        <li><a href="{% url 'social:begin' 'vkontakte-oauth2' %}">Enter VK</a></li>
           {% if username %}
                 <li><a href="/auth/logout/">LOGOUT ({{ username }})</a></li>
             {% else %}
