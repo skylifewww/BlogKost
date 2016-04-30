@@ -12,5 +12,5 @@ urlpatterns = [
     url(r'^contact/', contact),
     url(r'^portfolio/', portfolio),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    # url(r'', include('social_auth.urls')),
+    url(r'^social/', include('social_auth.urls')),
 ]

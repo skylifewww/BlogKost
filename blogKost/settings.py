@@ -61,7 +61,7 @@ INSTALLED_APPS = (
     'mptt',
     'storages',
     'boto',
-    # 'social_auth',
+    'social_auth',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -76,9 +76,53 @@ MIDDLEWARE_CLASSES = (
 )
 
 AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.contrib.vkontakte.VKontakteOAuth2Backend',
+    'social_auth.backends.facebook.FacebookBackend',
+    'social_auth.backends.google.GoogleOAuth2Backend',
+    'social_auth.backends.twitter.TwitterBackend',
+    # 'social_auth.backends.contrib.yandex.YandexOAuth2Backend',
+    'social_auth.backends.contrib.mailru.MailruBackend',
+    'social_auth.backends.contrib.odnoklassniki.OdnoklassnikiBackend',
     'django.contrib.auth.backends.ModelBackend',  # default
     'guardian.backends.ObjectPermissionBackend',
 )
+
+  SOCIAL_AUTH_PIPELINE = (
+    'social_auth.backends.pipeline.social.social_auth_user',
+    #'social_auth.backends.pipeline.associate.associate_by_email',
+    'social_auth.backends.pipeline.user.get_username',
+    'social_auth.backends.pipeline.user.create_user',
+    'social_auth.backends.pipeline.social.associate_user',
+    'social_auth.backends.pipeline.social.load_extra_data',
+    'social_auth.backends.pipeline.user.update_user_details'
+)
+
+VK_APP_ID = '5442665'
+VK_API_SECRET = '3G071EhyKWyoQwmIc651'
+
+FACEBOOK_APP_ID = '93345789454'
+FACEBOOK_API_SECRET = 'vksdf78234jmiv90234ms0ds8g54miv9s'
+
+TWITTER_CONSUMER_KEY = 'jJidwMvjasdKLzxcmaaPw'
+TWITTER_CONSUMER_SECRET = 'SjvUJ8Oi8eoJKvskKe9GicIKD931'
+
+GOOGLE_OAUTH2_CLIENT_ID = '19807546895.apps.googleusercontent.com'
+GOOGLE_OAUTH2_CLIENT_SECRET = 'Ksjdaujvx-PoIeq81LxkV893D'
+
+MAILRU_OAUTH2_CLIENT_KEY = '971648'
+MAILRU_OAUTH2_CLIENT_SECRET = 'c93kfks046kcvb8et8f63jig0syw8jfq'
+
+YANDEX_OAUTH2_CLIENT_KEY = 'xcvb7ewrtw7yuud58o3asvsihyeqx'
+YANDEX_OAUTH2_CLIENT_SECRET = 'xybr8q91j235jhnviwytjsgkxp39kshwu'
+
+ODNOKLASSNIKI_OAUTH2_CLIENT_KEY = '59824691'
+ODNOKLASSNIKI_OAUTH2_APP_KEY = 'KLOAPPWIDUDUDUDU'
+ODNOKLASSNIKI_OAUTH2_CLIENT_SECRET = 'D879S7VCIY80234KER8QXOTP2'
+
+# эти три строчки необходимы для нормальной работы Яндекс авторизации
+YANDEX_APP_ID = YANDEX_OAUTH2_CLIENT_KEY
+YANDEX_API_SECRET = YANDEX_OAUTH2_CLIENT_SECRET
+YANDEX_OAUTH2_API_URL = 'https://api-yaru.yandex.ru/me/'
 
 ANONYMOUS_USER_ID = -1
 
