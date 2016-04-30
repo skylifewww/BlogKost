@@ -78,7 +78,8 @@ MIDDLEWARE_CLASSES = (
 AUTHENTICATION_BACKENDS = (
      'social.backends.open_id.OpenIdAuth',
        'social.backends.vkontakte.VKontakteOAuth2Backend',
-       'social.backends.vk.VKOAuth2'
+       'social.backends.vk.VKOAuth2',
+       'django.contrib.auth.backends.ModelBackend',
 )
 
 SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
