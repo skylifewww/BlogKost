@@ -5,5 +5,6 @@ urlpatterns = [
     url(r'^register/', loginsys.views.register),
     url(r'^login/', loginsys.views.login),
     url(r'^logout/', loginsys.views.logout),
+    url('', include('social.apps.django_app.urls', namespace='social')),
 
 ]
