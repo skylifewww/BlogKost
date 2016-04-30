@@ -79,6 +79,7 @@ AUTHENTICATION_BACKENDS = (
      'social.backends.open_id.OpenIdAuth',
       'social.backends.vk.VKOAuth2',    
        'django.contrib.auth.backends.ModelBackend',
+       'guardian.backends.ObjectPermissionBackend'
 )
 
 SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
