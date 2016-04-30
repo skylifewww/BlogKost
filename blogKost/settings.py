@@ -76,77 +76,17 @@ MIDDLEWARE_CLASSES = (
 )
 
 AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.contrib.vkontakte.VKontakteOAuth2Backend',
-    'social_auth.backends.facebook.FacebookBackend',
-    'social_auth.backends.google.GoogleOAuth2Backend',
-    'social_auth.backends.twitter.TwitterBackend',
-    # 'social_auth.backends.contrib.yandex.YandexOAuth2Backend',
-    'social_auth.backends.contrib.mailru.MailruBackend',
-    'social_auth.backends.contrib.odnoklassniki.OdnoklassnikiBackend',
-    'django.contrib.auth.backends.ModelBackend',  # default
-    'guardian.backends.ObjectPermissionBackend',
-    'social_auth.backends.pipeline.social.social_auth_user',
-    #'social_auth.backends.pipeline.associate.associate_by_email',
-    'social_auth.backends.pipeline.user.get_username',
-    'social_auth.backends.pipeline.user.create_user',
-    'social_auth.backends.pipeline.social.associate_user',
-    'social_auth.backends.pipeline.social.load_extra_data',
-    'social_auth.backends.pipeline.user.update_user_details',
      'social.backends.open_id.OpenIdAuth',
        'social.backends.vkontakte.VKontakteOAuth2Backend',
        'social.backends.vk.VKOAuth2'
-    'social.backends.google.GoogleOpenId',
-    'social.backends.google.GoogleOAuth2',
-    'social.backends.google.GoogleOAuth',
-    'social.backends.twitter.TwitterOAuth',
-    'social.backends.facebook.FacebookOAuth2',
 )
 
-
-
-#   SOCIAL_AUTH_PIPELINE = (
-#     'social_auth.backends.pipeline.social.social_auth_user',
-#     #'social_auth.backends.pipeline.associate.associate_by_email',
-#     'social_auth.backends.pipeline.user.get_username',
-#     'social_auth.backends.pipeline.user.create_user',
-#     'social_auth.backends.pipeline.social.associate_user',
-#     'social_auth.backends.pipeline.social.load_extra_data',
-#     'social_auth.backends.pipeline.user.update_user_details'
-# )
-# 
 SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
 SOCIAL_AUTH_STORAGE = 'social.apps.django_app.default.models.DjangoStorage'
 
 
 SOCIAL_AUTH_VK_OAUTH2_KEY = '5442665'
 SOCIAL_AUTH_VK_OAUTH2_SECRET = '3G071EhyKWyoQwmIc651'
-
-SOCIAL_AUTH_VK_APP_KEY = '5442665'
-SOCIAL_AUTH_VK_API_SECRET = '3G071EhyKWyoQwmIc651'
-
-FACEBOOK_APP_ID = '93345789454'
-FACEBOOK_API_SECRET = 'vksdf78234jmiv90234ms0ds8g54miv9s'
-
-TWITTER_CONSUMER_KEY = 'jJidwMvjasdKLzxcmaaPw'
-TWITTER_CONSUMER_SECRET = 'SjvUJ8Oi8eoJKvskKe9GicIKD931'
-
-GOOGLE_OAUTH2_CLIENT_ID = '19807546895.apps.googleusercontent.com'
-GOOGLE_OAUTH2_CLIENT_SECRET = 'Ksjdaujvx-PoIeq81LxkV893D'
-
-MAILRU_OAUTH2_CLIENT_KEY = '971648'
-MAILRU_OAUTH2_CLIENT_SECRET = 'c93kfks046kcvb8et8f63jig0syw8jfq'
-
-YANDEX_OAUTH2_CLIENT_KEY = 'xcvb7ewrtw7yuud58o3asvsihyeqx'
-YANDEX_OAUTH2_CLIENT_SECRET = 'xybr8q91j235jhnviwytjsgkxp39kshwu'
-
-ODNOKLASSNIKI_OAUTH2_CLIENT_KEY = '59824691'
-ODNOKLASSNIKI_OAUTH2_APP_KEY = 'KLOAPPWIDUDUDUDU'
-ODNOKLASSNIKI_OAUTH2_CLIENT_SECRET = 'D879S7VCIY80234KER8QXOTP2'
-
-
-YANDEX_APP_ID = YANDEX_OAUTH2_CLIENT_KEY
-YANDEX_API_SECRET = YANDEX_OAUTH2_CLIENT_SECRET
-YANDEX_OAUTH2_API_URL = 'https://api-yaru.yandex.ru/me/'
 
 
 SOCIAL_AUTH_PIPELINE = (
