@@ -85,9 +85,6 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.contrib.odnoklassniki.OdnoklassnikiBackend',
     'django.contrib.auth.backends.ModelBackend',  # default
     'guardian.backends.ObjectPermissionBackend',
-)
-
-  SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.social.social_auth_user',
     #'social_auth.backends.pipeline.associate.associate_by_email',
     'social_auth.backends.pipeline.user.get_username',
@@ -96,6 +93,17 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.pipeline.social.load_extra_data',
     'social_auth.backends.pipeline.user.update_user_details'
 )
+)
+
+#   SOCIAL_AUTH_PIPELINE = (
+#     'social_auth.backends.pipeline.social.social_auth_user',
+#     #'social_auth.backends.pipeline.associate.associate_by_email',
+#     'social_auth.backends.pipeline.user.get_username',
+#     'social_auth.backends.pipeline.user.create_user',
+#     'social_auth.backends.pipeline.social.associate_user',
+#     'social_auth.backends.pipeline.social.load_extra_data',
+#     'social_auth.backends.pipeline.user.update_user_details'
+# )
 
 VK_APP_ID = '5442665'
 VK_API_SECRET = '3G071EhyKWyoQwmIc651'
