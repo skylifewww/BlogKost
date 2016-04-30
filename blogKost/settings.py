@@ -61,7 +61,7 @@ INSTALLED_APPS = (
     'mptt',
     'storages',
     'boto',
-    'social_auth',
+    'social.apps.django_app.default'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -91,8 +91,17 @@ AUTHENTICATION_BACKENDS = (
     'social_auth.backends.pipeline.user.create_user',
     'social_auth.backends.pipeline.social.associate_user',
     'social_auth.backends.pipeline.social.load_extra_data',
-    'social_auth.backends.pipeline.user.update_user_details'
+    'social_auth.backends.pipeline.user.update_user_details',
+     'social.backends.open_id.OpenIdAuth',
+       'social.backends.vkontakte.VKontakteOAuth2Backend',
+       'social.backends.vk.VKOAuth2'
+    'social.backends.google.GoogleOpenId',
+    'social.backends.google.GoogleOAuth2',
+    'social.backends.google.GoogleOAuth',
+    'social.backends.twitter.TwitterOAuth',
+    'social.backends.facebook.FacebookOAuth2',
 )
+
 
 
 #   SOCIAL_AUTH_PIPELINE = (
@@ -104,9 +113,16 @@ AUTHENTICATION_BACKENDS = (
 #     'social_auth.backends.pipeline.social.load_extra_data',
 #     'social_auth.backends.pipeline.user.update_user_details'
 # )
+# 
+SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
+SOCIAL_AUTH_STORAGE = 'social.apps.django_app.default.models.DjangoStorage'
 
-VK_APP_ID = '5442665'
-VK_API_SECRET = '3G071EhyKWyoQwmIc651'
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = '5442665'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = '3G071EhyKWyoQwmIc651'
+SOCIAL_AUTH_VK_OAUTH2_SCOPE = [...]
+SOCIAL_AUTH_VK_APP_KEY = '5442665'
+SOCIAL_AUTH_VK_API_SECRET = '3G071EhyKWyoQwmIc651'
 
 FACEBOOK_APP_ID = '93345789454'
 FACEBOOK_API_SECRET = 'vksdf78234jmiv90234ms0ds8g54miv9s'
@@ -131,6 +147,23 @@ ODNOKLASSNIKI_OAUTH2_CLIENT_SECRET = 'D879S7VCIY80234KER8QXOTP2'
 YANDEX_APP_ID = YANDEX_OAUTH2_CLIENT_KEY
 YANDEX_API_SECRET = YANDEX_OAUTH2_CLIENT_SECRET
 YANDEX_OAUTH2_API_URL = 'https://api-yaru.yandex.ru/me/'
+
+
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'example.app.pipeline.require_email',
+    'social.pipeline.mail.mail_validation',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.debug.debug',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details',
+    'social.pipeline.debug.debug'
+)
 
 ANONYMOUS_USER_ID = -1
 
