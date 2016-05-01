@@ -82,9 +82,12 @@ AUTHENTICATION_BACKENDS = (
      'django.contrib.auth.backends.ModelBackend',
      'guardian.backends.ObjectPermissionBackend',
      'social.backends.email.EmailAuth',
-     'social.backends.username.UsernameAuth'
+     'social.backends.username.UsernameAuth',
+     'social.backends.facebook.FacebookAppOAuth2',
+    'social.backends.facebook.FacebookOAuth2',
 )
 
+AUTH_USER_MODEL = 'app.CustomUser'
 
 SOCIAL_AUTH_LOGIN_URL = '/login/'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/done/'
