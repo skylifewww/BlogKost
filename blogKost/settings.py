@@ -28,9 +28,8 @@ SECRET_KEY = '(@#jf4_s95tp@=69l!30zzv$_0czq&&vruvm65r7_%6ts!43)o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['blogkost.herokuapp.com']
 
-# ALLOWED_HOSTS = ['blogkost.herokuapp.com']
 
 # DATABASES = { 'default' : dj_database_url.config()}
 
@@ -79,17 +78,17 @@ MIDDLEWARE_CLASSES = (
 
 AUTHENTICATION_BACKENDS = (
      'social.backends.open_id.OpenIdAuth',
-      'social.backends.vk.VKOAuth2',    
-       'django.contrib.auth.backends.ModelBackend',
-       'guardian.backends.ObjectPermissionBackend',
-        'social.backends.email.EmailAuth',
-    'social.backends.username.UsernameAuth'
+     'social.backends.vk.VKOAuth2',    
+     'django.contrib.auth.backends.ModelBackend',
+     'guardian.backends.ObjectPermissionBackend',
+     'social.backends.email.EmailAuth',
+     'social.backends.username.UsernameAuth'
 )
 
 
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/done/'
-URL_PATH = ''
+SOCIAL_AUTH_LOGIN_URL = '/login/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/done/'
+SOCIAL_AUTH_URL_PATH = ''
 SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
 
 SOCIAL_AUTH_EMAIL_FORM_HTML = 'email_signup.html'
