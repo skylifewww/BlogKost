@@ -220,7 +220,7 @@ CKEDITOR_CONFIGS = {
 }
 
 CKEDITOR_RESTRICT_BY_USER = True
-
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
