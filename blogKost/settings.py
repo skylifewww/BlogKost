@@ -87,7 +87,7 @@ AUTHENTICATION_BACKENDS = (
     'social.backends.facebook.FacebookOAuth2',
 )
 
-AUTH_USER_MODEL = 'app.CustomUser'
+
 
 SOCIAL_AUTH_LOGIN_URL = '/login/'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/done/'
