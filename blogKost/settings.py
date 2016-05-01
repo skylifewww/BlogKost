@@ -181,16 +181,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'blogKost.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-# 
-# # we only need the engine name, as heroku takes care of the rest
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -201,6 +191,35 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': [
+            ['Undo', 'Redo',
+             '-', 'Bold', 'Italic', 'Underline',
+             '-', 'Link', 'Unlink', 'Anchor',
+             '-', 'Format',
+             '-', 'Maximize',
+             '-', 'Table',
+             '-', 'Image',
+             '-', 'Source',
+             '-', 'NumberedList', 'BulletedList'
+            ],
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock',
+             '-', 'Font', 'FontSize', 'TextColor',
+             '-', 'Outdent', 'Indent',
+             '-', 'HorizontalRule',
+             '-', 'Blockquote'
+            ]
+        ],
+        'height': 500,
+        'width': '100%',
+        'toolbarCanCollapse': False,
+        'forcePasteAsPlainText': True
+    }
+}
+
+CKEDITOR_RESTRICT_BY_USER = True
 
 
 # Internationalization
@@ -247,13 +266,6 @@ MEDIA_ROOT = (
     os.path.join(BASE_DIR, 'media')
 )
 
-# if not DEBUG:
-#    AWS_STORAGE_BUCKET_NAME = os.environ['blogkost']
-#    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-#    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-#    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-#    S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-#    STATIC_URL = S3_URL
 
 deploy_env = os.environ.get('DEPLOYMENT_ENVIRONMENT', '')
 if deploy_env == 'production':
