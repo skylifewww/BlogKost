@@ -255,16 +255,19 @@ STATICFILES_DIRS = (
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+MEDIA_ROOT = 'media/'
+
+MEDIA_URL = '/media/'
+
+STATICFILES_FINDERS = (
+'django.contrib.staticfiles.finders.FileSystemFinder',
+'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 
 IMAGE_UPLOAD_DIR = "img"
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
-MEDIA_URL = '/media/'
-
-MEDIA_ROOT = (
-    os.path.join(BASE_DIR, 'media')
-)
 
 
 deploy_env = os.environ.get('DEPLOYMENT_ENVIRONMENT', '')
