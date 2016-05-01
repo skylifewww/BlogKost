@@ -195,24 +195,7 @@ DATABASES = {
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': [
-            ['Undo', 'Redo',
-             '-', 'Bold', 'Italic', 'Underline',
-             '-', 'Link', 'Unlink', 'Anchor',
-             '-', 'Format', 'Styles',
-             '-', 'Maximize',
-             '-', 'Table',
-             '-', 'Image',
-             '-', 'Source',
-             '-', 'NumberedList', 'BulletedList'
-            ],
-            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock',
-             '-', 'Font', 'FontSize', 'TextColor',
-             '-', 'Outdent', 'Indent',
-             '-', 'HorizontalRule',
-             '-', 'Blockquote'
-            ]
-        ],
+        'toolbar': 'None',
         'height': 500,
         'width': '100%',
         'toolbarCanCollapse': False,
