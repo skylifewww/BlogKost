@@ -13,9 +13,9 @@ from easy_thumbnails.fields import ThumbnailerImageField
 
 
 def make_upload_path(instance, filename, prefix=False):
-    n1 = random.randint(0.10000)
-    n2 = random.randint(0.10000)
-    n3 = random.randint(0.10000)
+    n1 = random.randint(0, 10000)
+    n2 = random.randint(0, 10000)
+    n3 = random.randint(0, 10000)
     c = filename.split(".")
     filename = str(n1) + "_" + str(n2) + "_" + str(n3) + "." + c[-1]
     return u"%s/%s" % (settings.IMAGE_UPLOAD_DIR, filename)
