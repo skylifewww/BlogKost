@@ -15,6 +15,7 @@ class CommentsInLine(admin.StackedInline):
 class ArticleAdminForm(forms.ModelForm):
     class Meta:
         model = Article
+        fields = "__all__" 
         widgets = {
            'short_text_ru': RedactorEditor(),
            'short_text_en': RedactorEditor(),
