@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^tutorials/', tutorials),
     url(r'^contact/', contact),
     url(r'^portfolio/', portfolio),
-    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+
+    url(r'^redactor/', include('redactor.urls')),
     url(r'', include('social.apps.django_app.urls', namespace='social'))
 )

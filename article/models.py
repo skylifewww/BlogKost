@@ -8,7 +8,7 @@ from mptt.models import MPTTModel, TreeForeignKey
 # from mptt.models import MPTTModel
 import random
 from blogKost import settings
-from ckeditor.fields import RichTextField
+from redactor.fields import RedactorField
 from easy_thumbnails.fields import ThumbnailerImageField
 
 
@@ -68,12 +68,12 @@ class Article(models.Model):
     article_tag = models.ManyToManyField(Tag, related_name="articles", verbose_name=u"Теги")
     article_category = models.ForeignKey(Category, default=0, related_name="articles", verbose_name="Категории")
     article_author = models.CharField(max_length=200, verbose_name="Автор статьи", blank=True)
-    short_text_ru = RichTextField(blank=True, verbose_name="Короткое описание RU")
-    short_text_en = RichTextField(blank=True, verbose_name="Короткое описание EN")
+    short_text_ru = RedactorField(blank=True, verbose_name="Короткое описание RU")
+    short_text_en = RedactorField(blank=True, verbose_name="Короткое описание EN")
     video = models.CharField(max_length=250, blank=True, verbose_name="Видео id в кратком описании")
     image = ThumbnailerImageField(upload_to=make_upload_path, blank=True, verbose_name="Изображение")
-    full_text_ru = RichTextField(blank=True, verbose_name="Полное описание RU")
-    full_text_en = RichTextField(blank=True, verbose_name="Полное описание EN")
+    full_text_ru = RedactorField(blank=True, verbose_name="Полное описание RU")
+    full_text_en = RedactorField(blank=True, verbose_name="Полное описание EN")
     article_video = EmbedVideoField(verbose_name='Видео', help_text='описание видео')
 
     class Meta:

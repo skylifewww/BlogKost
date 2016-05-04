@@ -47,7 +47,7 @@ except Exception as e:
 
 INSTALLED_APPS = (
 
-    'ckeditor',
+    'redactor',
     'embed_video',
     'article',
     'loginsys',
@@ -193,19 +193,9 @@ DATABASES = {
     }
 }
 
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'None',
-        'height': 500,
-        'width': '100%',
-        'toolbarCanCollapse': False,
-        'forcePasteAsPlainText': True
-    }
-}
+REDACTOR_OPTIONS = {'lang': 'en'}
+REDACTOR_UPLOAD = 'uploads/'
 
-CKEDITOR_RESTRICT_BY_USER = True
-CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
-CKEDITOR_IMAGE_BACKEND = 'pillow'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -251,7 +241,6 @@ STATICFILES_FINDERS = (
 
 IMAGE_UPLOAD_DIR = "img"
 
-CKEDITOR_UPLOAD_PATH = "uploads/"
 
 
 
