@@ -22,12 +22,8 @@ class Migration(migrations.Migration):
                 ('article_title', models.CharField(verbose_name='Название статьи', max_length=200)),
                 ('article_date', models.DateTimeField(verbose_name='Дата публикации статьи')),
                 ('article_likes', models.IntegerField(verbose_name='Лайки', default=0)),
-                ('short_text_ru', ckeditor.fields.RichTextField(verbose_name='Короткое описание RU', blank=True)),
-                ('short_text_en', ckeditor.fields.RichTextField(verbose_name='Короткое описание EN', blank=True)),
                 ('video', models.CharField(verbose_name='Видео id в кратком описании', blank=True, max_length=250)),
                 ('image', easy_thumbnails.fields.ThumbnailerImageField(verbose_name='Изображение', blank=True, upload_to=article.models.make_upload_path)),
-                ('full_text_ru', ckeditor.fields.RichTextField(verbose_name='Полное описание RU', blank=True)),
-                ('full_text_en', ckeditor.fields.RichTextField(verbose_name='Полное описание EN', blank=True)),
                 ('article_video', embed_video.fields.EmbedVideoField(help_text='описание видео', verbose_name='Видео')),
             ],
             options={
