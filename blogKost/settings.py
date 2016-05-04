@@ -47,8 +47,8 @@ except Exception as e:
 
 INSTALLED_APPS = (
 
-    'redactor',
     'embed_video',
+    'redactor',
     'article',
     'loginsys',
     'django.contrib.admin',
