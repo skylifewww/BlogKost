@@ -1,21 +1,8 @@
-/* Thomsoon.com - OnePage CSS Responsive theme
--- version 1.0
--- Copyright (c) 2014 Thomsoon.com
--- licensed under the MIT
---
--- http://www.thomsoon.com/
---
-*/
+
 
 /* Font Google - strong reaload time */
 @import url(http://fonts.googleapis.com/css?family=Lato:400,300,100,700,900&subset=latin,latin-ext);
 
-
-/*
- * Theme Name: Onepage
- * Author: Thomsoon
- * Created: 14/11/2014
- */
 
 
 .preloader{
@@ -191,20 +178,6 @@ h1 span{
   border:1px solid #ada074;
 }
 
-/*.start-page .content .arrow-down{*/
-  /*position: absolute;*/
-  /*bottom: 110px;*/
-  /*left: 50%;*/
-  /*margin-left: -10px;*/
-  /*width: 21px;*/
-  /*height: 29px;*/
-  /*background: url(../img/arrow-down.png) no-repeat center center;*/
-  /*display: block;*/
-  /*-webkit-animation: bounce-fade 1.2s infinite; /!* Safari 4+ *!/*/
-  /*-moz-animation:    bounce-fade 1.2s infinite; /!* Fx 5+ *!/*/
-  /*-o-animation:      bounce-fade 1.2s infinite; /!* Opera 12+ *!/*/
-   /*animation:        bounce-fade 1.2s infinite; /!* IE 10+ *!/*/
-/*}*/
 
 
 @-webkit-keyframes bounce-fade {
@@ -463,8 +436,8 @@ h1 span{
   -webkit-border-radius:100px;
   border-radius: 100px;
   width: 100px;
-  /*cursor:pointer;*/
-    -webkit-transition: all 0.2s ease-in;
+  cursor:pointer;
+  -webkit-transition: all 0.2s ease-in;
 	-moz-transition: all 0.2s ease-in;
 	-ms-transition: all 0.2s ease-in;
 	-o-transition: all 0.2s ease-in;
@@ -494,8 +467,8 @@ h1 span{
   -webkit-border-radius:100px;
   border-radius: 100px;
   width: 100px;
-    /*cursor:pointer;*/
-    -webkit-transition: all 0.2s ease-in;
+  cursor:pointer;
+  -webkit-transition: all 0.2s ease-in;
 	-moz-transition: all 0.2s ease-in;
 	-ms-transition: all 0.2s ease-in;
 	-o-transition: all 0.2s ease-in;
@@ -525,7 +498,7 @@ h1 span{
   -webkit-border-radius:100px;
   border-radius: 100px;
   width: 100px;
-  /*cursor:pointer;*/
+  cursor:pointer;
   -webkit-transition: all 0.2s ease-in;
 	-moz-transition: all 0.2s ease-in;
 	-ms-transition: all 0.2s ease-in;
