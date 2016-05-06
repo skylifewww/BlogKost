@@ -17,9 +17,9 @@
       <div class="column-one">
 
              {% if art_page_number %}
-				<li><a href="/articles/videos/page/{{ art_page_number }}/"><div class="circle-one"></div></a></li>
+				<a href="/articles/videos/page/{{ art_page_number }}/"><div class="circle-one"></div></a>
             {% else %}
-				<li><a href="/articles/videos/page/{{ 1 }}/"><div class="circle-one"></div></a></li>
+				<a href="/articles/videos/page/{{ 1 }}/"><div class="circle-one"></div></a>
              {% endif %}
 
     {% if art_page_number %}
@@ -37,9 +37,9 @@
       <div class="column-two">
 
           {% if art_page_number %}
-				<li><a href="/articles/writtens/page/{{ art_page_number }}/"><div class="circle-two"></div></a></li>
+				<a href="/articles/writtens/page/{{ art_page_number }}/"><div class="circle-two"></div></a>
             {% else %}
-				<li><a href="/articles/writtens/page/{{ 1 }}/"><div class="circle-two"></div></a></li>
+				<a href="/articles/writtens/page/{{ 1 }}/"><div class="circle-two"></div></a>
              {% endif %}
 
       {% if art_page_number %}
@@ -58,9 +58,9 @@
       <div class="column-three">
 
         {% if art_page_number %}
-        <li><a href="/articles/writtens/page/{{ art_page_number }}/"><div class="circle-three"></div></a></li>
+        <a href="/articles/writtens/page/{{ art_page_number }}/"><div class="circle-three"></div></a>
             {% else %}
-        <li><a href="/articles/writtens/page/{{ 1 }}/"><div class="circle-three"></div></a></li>
+        <a href="/articles/writtens/page/{{ 1 }}/"><div class="circle-three"></div></a>
              {% endif %}
 
       {% if art_page_number %}
