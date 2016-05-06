@@ -33,28 +33,29 @@
             {% endfor %}
 <div class="text">
 
-           <h8> <div class="left">
-            {# <ul class="pagination" role="menubar" aria-label="Pagination"> #}
+            <div class="left">
+            
                 {% if articles.has_previous %}
-                <li class="arrow"><a href="/articles/videos/page/{{ articles.previous_page_number }}/">&laquo; Назад</a></li>
+                <h8><a href="/articles/videos/page/{{ articles.previous_page_number }}/">&laquo; Назад</a></h8>
                 {% else %}
-                <li class="arrow unavailable"><a href="">&laquo;</a></li>
+                <h8><a href="">&laquo;</a></h8>
                 {% endif %}
                 {% for page in articles.paginator.page_range %}
                     {% if page == articles.number %}
-                        <li class="current"><a href="/articles/videos/page/{{ page }}/">{{ page }}</a></li>
+                        <h8><a href="/articles/videos/page/{{ page }}/">{{ page }}</a></h8>
                     {% else %}
-                        <li><a href="/articles/videos/page/{{ page }}/">{{ page }}</a></li>
+                        <h8><a href="/articles/videos/page/{{ page }}/">{{ page }}</a></h8>
                     {% endif %}
                 {% endfor %}
                 {% if articles.has_next %}
-                <li class="arrow"><a href="/articles/videos/page/{{ articles.next_page_number }}/">Вперед &raquo;</a></li>
+                <h8><a href="/articles/videos/page/{{ articles.next_page_number }}/">Вперед &raquo;</a></h8>
                 {% else %}
-                <li class="arrow unavailable"><a href="">&raquo;</a></li>
+               <h8><a href="">&raquo;</a></h8>
                 {% endif %}
-            {# </ul> #}
-            </div></h8>
+            
             </div>
-    </div>
+        </div>
+
+   </div>
     </div>
 {% endblock %}
