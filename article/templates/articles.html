@@ -36,21 +36,21 @@
             <div class="left">
             
                 {% if articles.has_previous %}
-                <h8><a href="/articles/videos/page/{{ articles.previous_page_number }}/">&laquo; Назад</a></h8>
+                <h10><a href="/articles/videos/page/{{ articles.previous_page_number }}/">&laquo; Назад</a></h10>
                 {% else %}
-                <h8><a href="">&laquo;</a></h8>
+                <h10><a href="">&laquo;</a></h10>
                 {% endif %}
                 {% for page in articles.paginator.page_range %}
                     {% if page == articles.number %}
-                        <h8><a href="/articles/videos/page/{{ page }}/">{{ page }}</a></h8>
+                        <h10><a href="/articles/videos/page/{{ page }}/">{{ page }}</a></h10>
                     {% else %}
-                        <h8><a href="/articles/videos/page/{{ page }}/">{{ page }}</a></h8>
+                        <h10><a href="/articles/videos/page/{{ page }}/">{{ page }}</a></h10>
                     {% endif %}
                 {% endfor %}
                 {% if articles.has_next %}
-                <h8><a href="/articles/videos/page/{{ articles.next_page_number }}/">Вперед &raquo;</a></h8>
+                <h10><a href="/articles/videos/page/{{ articles.next_page_number }}/">Вперед &raquo;</a></h10>
                 {% else %}
-               <h8><a href="">&raquo;</a></h8>
+               <h10><a href="">&raquo;</a></h10>
                 {% endif %}
             
             </div>
