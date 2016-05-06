@@ -463,8 +463,8 @@ h1 span{
   -webkit-border-radius:100px;
   border-radius: 100px;
   width: 100px;
-  cursor:pointer;
-    -webkit-transition: all 0.2s ease-in;
+  /*cursor:pointer;*/
+  -webkit-transition: all 0.2s ease-in;
 	-moz-transition: all 0.2s ease-in;
 	-ms-transition: all 0.2s ease-in;
 	-o-transition: all 0.2s ease-in;
@@ -494,8 +494,8 @@ h1 span{
   -webkit-border-radius:100px;
   border-radius: 100px;
   width: 100px;
-    cursor:pointer;
-    -webkit-transition: all 0.2s ease-in;
+  /*cursor:pointer;*/
+  -webkit-transition: all 0.2s ease-in;
 	-moz-transition: all 0.2s ease-in;
 	-ms-transition: all 0.2s ease-in;
 	-o-transition: all 0.2s ease-in;
@@ -525,7 +525,7 @@ h1 span{
   -webkit-border-radius:100px;
   border-radius: 100px;
   width: 100px;
-  cursor:pointer;
+  /*cursor:pointer;*/
   -webkit-transition: all 0.2s ease-in;
 	-moz-transition: all 0.2s ease-in;
 	-ms-transition: all 0.2s ease-in;
