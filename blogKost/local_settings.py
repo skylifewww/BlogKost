@@ -11,7 +11,7 @@ DATABASES = {
         'NAME': 'blogkost',
         'USER': 'skylife',
         'PASSWORD': 'skywww123',
-        "HOST": "localhost",
-        "PORT": "5432",
+        "HOST": "",
+        "PORT": "",
     }
 }

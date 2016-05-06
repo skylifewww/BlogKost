@@ -31,8 +31,6 @@ DEBUG = False
 ALLOWED_HOSTS = ['blogkost.herokuapp.com']
 
 
-# DATABASES = { 'default' : dj_database_url.config()}
-
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -196,13 +194,17 @@ DATABASES = {
 REDACTOR_OPTIONS = {'lang': 'en'}
 REDACTOR_UPLOAD = 'uploads/'
 
+REDACTOR_FILE_STORAGE = 'my_site.file_storages.StorageClass'
+REDACTOR_AUTH_DECORATOR = 'django.contrib.auth.decorators.login_required'
+REDACTOR_UPLOAD_HANDLER = 'redactor.handlers.DateDirectoryUploader'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 # 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-DATABASES['default'] =  dj_database_url.config()
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
+# DATABASES['default'] =  dj_database_url.config()
 
 LANGUAGE_CODE = 'ru-RU'
 
