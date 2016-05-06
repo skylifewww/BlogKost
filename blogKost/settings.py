@@ -202,9 +202,9 @@ REDACTOR_UPLOAD_HANDLER = 'redactor.handlers.DateDirectoryUploader'
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 # 
-# db_from_env = dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(db_from_env)
-# DATABASES['default'] =  dj_database_url.config()
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+DATABASES['default'] =  dj_database_url.config()
 
 LANGUAGE_CODE = 'ru-RU'
 
