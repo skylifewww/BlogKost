@@ -1,21 +1,8 @@
-/* Thomsoon.com - OnePage CSS Responsive theme
--- version 1.0
--- Copyright (c) 2014 Thomsoon.com
--- licensed under the MIT
---
--- http://www.thomsoon.com/
---
-*/
+
 
 /* Font Google - strong reaload time */
 @import url(http://fonts.googleapis.com/css?family=Lato:400,300,100,700,900&subset=latin,latin-ext);
 
-
-/*
- * Theme Name: Onepage
- * Author: Thomsoon
- * Created: 14/11/2014
- */
 
 
 .preloader{
@@ -435,7 +422,7 @@ h1 span{
   -webkit-border-radius:100px;
   border-radius: 100px;
   width: 100px;
-  cursor:pointer;
+  /*cursor:pointer;*/
     -webkit-transition: all 0.2s ease-in;
 	-moz-transition: all 0.2s ease-in;
 	-ms-transition: all 0.2s ease-in;
@@ -466,7 +453,7 @@ h1 span{
   -webkit-border-radius:100px;
   border-radius: 100px;
   width: 100px;
-    cursor:pointer;
+    /*cursor:pointer;*/
     -webkit-transition: all 0.2s ease-in;
 	-moz-transition: all 0.2s ease-in;
 	-ms-transition: all 0.2s ease-in;
@@ -497,7 +484,7 @@ h1 span{
   -webkit-border-radius:100px;
   border-radius: 100px;
   width: 100px;
-  cursor:pointer;
+  /*cursor:pointer;*/
   -webkit-transition: all 0.2s ease-in;
 	-moz-transition: all 0.2s ease-in;
 	-ms-transition: all 0.2s ease-in;
