@@ -56,11 +56,20 @@
 
 
       <div class="column-three">
-  
-        <div class="circle-three"></div>
-    
-        <h2>FAQ</h2>
-        <p>Create IOS apps with us</p>
+
+        {% if art_page_number %}
+        <li><a href="/articles/writtens/page/{{ art_page_number }}/"><div class="circle-three"></div></a></li>
+            {% else %}
+        <li><a href="/articles/writtens/page/{{ 1 }}/"><div class="circle-two"></div></a></li>
+             {% endif %}
+
+      {% if art_page_number %}
+        <a href="/articles/writtens/page/{{ art_page_number }}/"><h2>FAQ</h2></a>
+            {% else %}
+        <a href="/articles/writtens/page/{{ 1 }}/"><h2>FAQ</h2></a>
+             {% endif %}
+
+          <p>Create IOS apps with us</p>
     
     </div>  
     
