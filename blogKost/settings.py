@@ -250,6 +250,18 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+
+CKEDITOR_CONFIGS = {
+    "default": {
+        "removePlugins": "stylesheetparser",
+        'allowedContent': True,
+        'toolbar': None,
+        'toolbarCanCollapse': False,
+        'forcePasteAsPlainText': True
+    }
+}
+
 MEDIA_ROOT = 'media/'
 
 
