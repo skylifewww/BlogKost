@@ -22,16 +22,16 @@
 
 {% for comment in comments %}
 
-    <div class="img">
+    <div class="comment_img">
     <h4>{{ comment.comments_user }}:</h4>
     <h8>{{ comment.comments_create }}</h8>
     </div>
-    <div class="text">
+    <div class="comment_text">
     <h4>{{ comment.comments_text }}</h4>
     </div>
 <p></p>
 {% endfor %}
-<div class="form">
+<div class="comment_form">
     {% if username %}
     <form action="/articles/article/addcomment/{{ article.id }}/" method="post">
         {% csrf_token %} 
