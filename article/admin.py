@@ -1,8 +1,8 @@
 from django.contrib import admin
 from article.models import *
 from embed_video.admin import AdminVideoMixin
-from redactor.widgets import RedactorEditor
-from django import forms
+# from redactor.widgets import RedactorEditor
+# from django import forms
 
 
 # Register your models here.
