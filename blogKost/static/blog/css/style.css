@@ -789,14 +789,14 @@ h6 a:hover{
 
 
 
-.article .content .text{
+.article .content .comment .text{
 	width: 80%;
 }
 
 .article{
 
 }
-.article.content.img{
+.article .content .comment .img{
 	float: left;
 	width: 70%;
 }
