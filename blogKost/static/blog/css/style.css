@@ -787,21 +787,21 @@ h6 a:hover{
   color:#ada074;
 }
 
-.article .content .comment .comment_img{
+.article .content .comment_img{
   float: left;
   width: 20%;
 }
-.article .content .comment .comment_text{
+.article .content .comment_text{
   float: right;
 	width: 80%;
 }
-.article .content .comment .comment_form{
+.article .content .comment_form{
   float: left;
   width: 70%;
 }
 
 
-.article .content .comment{
+.article .content{
 
 .comment_img h4{
   text-align:center;
