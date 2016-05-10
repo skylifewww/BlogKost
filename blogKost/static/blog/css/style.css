@@ -787,17 +787,19 @@ h6 a:hover{
   color:#ada074;
 }
 
-
-
-.article .content .comment .text{
-  float: right;
-	width: 80%;
-}
-
 .article .content .comment .img{
   float: left;
   width: 20%;
 }
+.article .content .comment .text{
+  float: right;
+	width: 80%;
+}
+.article .content .comment .form{
+  float: left;
+  width: 70%;
+}
+
 
 .article{
 

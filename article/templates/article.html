@@ -22,7 +22,7 @@
 {% for comment in comments %}
 
     <div class="img">
- <h4>{{ comment.comments_user }}:</h4>
+    <h4>{{ comment.comments_user }}:</h4>
     <h8>{{ comment.comments_create }}</h8>
     </div>
     <div class="text">
@@ -30,15 +30,16 @@
     </div>
 <p></p>
 {% endfor %}
-</div>
+<div class="form">
     {% if username %}
     <form action="/articles/article/addcomment/{{ article.id }}/" method="post">
-        {% csrf_token %}
+        {% csrf_token %} 
         {{ form }}
         <input type="submit" class="button" value="Комментировать">
     </form>
     {% endif %}
-
+    </div>
+</div>
 
 {#    <div class="row">#}
 {#        <div class="large-3 large-offset-5 columns">#}
