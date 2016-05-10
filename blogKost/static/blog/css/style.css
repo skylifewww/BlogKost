@@ -695,6 +695,16 @@ h6 a:hover{
   margin: 10px auto;
   overflow: hidden;
 }
+.articles .content .text{
+  float: left;
+  position:center;
+  width: 65%;
+}
+
+.articles .content .tags{
+  float: right;
+  width: 35%;
+}
 
 .article .content h8{
   font-size:14px;
