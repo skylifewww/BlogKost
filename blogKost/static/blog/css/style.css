@@ -803,7 +803,7 @@ h6 a:hover{
 
 .article{
 
-.img h4{
+.comment_img h4{
   text-align:center;
   font-size:20px;
   color:black;
@@ -811,7 +811,7 @@ h6 a:hover{
   font-weight:400;
 }
 
-.img h8{
+.comment_img h8{
   font-size:14px;
   color: #a4a4a4;
   text-align:left;
