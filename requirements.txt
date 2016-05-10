@@ -25,4 +25,4 @@ python-openid==2.2.5
 django-annoying
 django-debug-toolbar
 python-social-auth
-django-wysiwyg-redactor==0.4.9
+django-ckeditor==5.0.0

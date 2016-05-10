@@ -1,9 +1,11 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from blogKost.views import *
+from django.conf.urls.static import static
+from blogKost import settings
 
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^articles/', include("article.urls")),
     url(r'^auth/', include("loginsys.urls")),
@@ -12,6 +14,8 @@ urlpatterns = patterns('',
     url(r'^contact/', contact),
     url(r'^portfolio/', portfolio),
 
-    url(r'^redactor/', include('redactor.urls')),
-    url(r'', include('social.apps.django_app.urls', namespace='social'))
-)
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+
+    # url(r'^redactor/', include('redactor.urls')),
+    # url(r'', include('social.apps.django_app.urls', namespace='social'))
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -35,10 +35,10 @@ ALLOWED_HOSTS = ['blogkost.herokuapp.com']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # try to load local_settings.py if it exists
-try:
-  from local_settings import *
-except Exception as e:
-  pass
+# try:
+#   from local_settings import *
+# except Exception as e:
+#   pass
 
 
 # Application definition
@@ -46,7 +46,9 @@ except Exception as e:
 INSTALLED_APPS = (
 
     'embed_video',
-    'redactor',
+    # 'redactor',
+    'ckeditor',
+    'ckeditor_uploader',
     'article',
     'loginsys',
     'django.contrib.admin',
@@ -87,37 +89,37 @@ AUTHENTICATION_BACKENDS = (
 
 
 
-SOCIAL_AUTH_LOGIN_URL = '/login/'
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/done/'
-SOCIAL_AUTH_URL_PATH = ''
-SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
+# SOCIAL_AUTH_LOGIN_URL = '/login/'
+# SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/done/'
+# SOCIAL_AUTH_URL_PATH = ''
+# SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
 
-SOCIAL_AUTH_EMAIL_FORM_HTML = 'email_signup.html'
-SOCIAL_AUTH_EMAIL_VALIDATION_FUNCTION = 'blogkost.app.mail.send_validation'
-SOCIAL_AUTH_EMAIL_VALIDATION_URL = '/email-sent/'
-# SOCIAL_AUTH_USERNAME_FORM_URL = '/signup-username'
-SOCIAL_AUTH_USERNAME_FORM_HTML = 'username_signup.html'
-
-
-SOCIAL_AUTH_VK_OAUTH2_KEY = '5442665'
-SOCIAL_AUTH_VK_OAUTH2_SECRET = '3G071EhyKWyoQwmIc651'
+# SOCIAL_AUTH_EMAIL_FORM_HTML = 'email_signup.html'
+# SOCIAL_AUTH_EMAIL_VALIDATION_FUNCTION = 'blogkost.app.mail.send_validation'
+# SOCIAL_AUTH_EMAIL_VALIDATION_URL = '/email-sent/'
+# # SOCIAL_AUTH_USERNAME_FORM_URL = '/signup-username'
+# SOCIAL_AUTH_USERNAME_FORM_HTML = 'username_signup.html'
 
 
-SOCIAL_AUTH_PIPELINE = (
-    'social.pipeline.social_auth.social_details',
-    'social.pipeline.social_auth.social_uid',
-    'social.pipeline.social_auth.auth_allowed',
-    'social.pipeline.social_auth.social_user',
-    'social.pipeline.user.get_username',
-    'example.app.pipeline.require_email',
-    'social.pipeline.mail.mail_validation',
-    'social.pipeline.user.create_user',
-    'social.pipeline.social_auth.associate_user',
-    'social.pipeline.debug.debug',
-    'social.pipeline.social_auth.load_extra_data',
-    'social.pipeline.user.user_details',
-    'social.pipeline.debug.debug'
-)
+# SOCIAL_AUTH_VK_OAUTH2_KEY = '5442665'
+# SOCIAL_AUTH_VK_OAUTH2_SECRET = '3G071EhyKWyoQwmIc651'
+
+
+# SOCIAL_AUTH_PIPELINE = (
+#     'social.pipeline.social_auth.social_details',
+#     'social.pipeline.social_auth.social_uid',
+#     'social.pipeline.social_auth.auth_allowed',
+#     'social.pipeline.social_auth.social_user',
+#     'social.pipeline.user.get_username',
+#     'example.app.pipeline.require_email',
+#     'social.pipeline.mail.mail_validation',
+#     'social.pipeline.user.create_user',
+#     'social.pipeline.social_auth.associate_user',
+#     'social.pipeline.debug.debug',
+#     'social.pipeline.social_auth.load_extra_data',
+#     'social.pipeline.user.user_details',
+#     'social.pipeline.debug.debug'
+# )
 
 ANONYMOUS_USER_ID = -1
 
@@ -179,32 +181,44 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blogKost.wsgi.application'
 
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'blogkost',
-        'USER': 'skylife',
-        'PASSWORD': 'skywww123',
-        'HOST': '',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
-REDACTOR_OPTIONS = {'lang': 'en'}
-REDACTOR_UPLOAD = 'uploads/'
+import dj_database_url
 
-REDACTOR_FILE_STORAGE = 'my_site.file_storages.StorageClass'
-REDACTOR_AUTH_DECORATOR = 'django.contrib.auth.decorators.login_required'
-REDACTOR_UPLOAD_HANDLER = 'redactor.handlers.DateDirectoryUploader'
+db_config = dj_database_url.config()
+if db_config:
+    DATABASES['default'] =  db_config
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'blogkost',
+#         'USER': 'skylife',
+#         'PASSWORD': 'skywww123',
+#         'HOST': '',
+#         'PORT': '',
+#     }
+# }
+
+# REDACTOR_OPTIONS = {'lang': 'en'}
+# REDACTOR_UPLOAD = 'uploads/'
+
+# REDACTOR_FILE_STORAGE = 'my_site.file_storages.StorageClass'
+# REDACTOR_AUTH_DECORATOR = 'django.contrib.auth.decorators.login_required'
+# REDACTOR_UPLOAD_HANDLER = 'redactor.handlers.DateDirectoryUploader'
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 # 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-DATABASES['default'] =  dj_database_url.config()
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
+# DATABASES['default'] =  dj_database_url.config()
 
 LANGUAGE_CODE = 'ru-RU'
 
@@ -232,9 +246,13 @@ STATICFILES_DIRS = (
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
 MEDIA_ROOT = 'media/'
 
-MEDIA_URL = '/media/'
+
 
 STATICFILES_FINDERS = (
 'django.contrib.staticfiles.finders.FileSystemFinder',
