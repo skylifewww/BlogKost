@@ -30,7 +30,7 @@
     </div>
 <p></p>
 {% endfor %}
-
+</div>
     {% if username %}
     <form action="/articles/article/addcomment/{{ article.id }}/" method="post">
         {% csrf_token %}
@@ -38,7 +38,7 @@
         <input type="submit" class="button" value="Комментировать">
     </form>
     {% endif %}
-</div>
+
 
 {#    <div class="row">#}
 {#        <div class="large-3 large-offset-5 columns">#}

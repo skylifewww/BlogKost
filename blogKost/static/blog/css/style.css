@@ -794,13 +794,13 @@ h6 a:hover{
 	width: 80%;
 }
 
+.article .content .comment .img{
+  float: left;
+  width: 20%;
+}
+
 .article{
 
-}
-.article .content .comment .img{
-	float: left;
-	width: 20%;
-}
 .img h4{
   text-align:center;
   font-size:20px;
@@ -840,6 +840,7 @@ h6 a{
 }
 h6 a:hover{
 	color:#ada074;
+}
 }
 
 /* Portfolio */
