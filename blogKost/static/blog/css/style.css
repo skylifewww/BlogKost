@@ -695,13 +695,13 @@ h6 a:hover{
   margin: 10px auto;
   overflow: hidden;
 }
-.articles .content .text{
+.article .content .text{
   float: left;
   position:center;
   width: 65%;
 }
 
-.articles .content .tags{
+.article .content .tags{
   float: right;
   width: 35%;
 }
@@ -790,6 +790,7 @@ h6 a:hover{
 
 
 .article  .comment .text{
+  float: right;
 	width: 80%;
 }
 
@@ -798,7 +799,7 @@ h6 a:hover{
 }
 .article .comment .img{
 	float: left;
-	width: 70%;
+	width: 20%;
 }
 .img h4{
   text-align:center;
