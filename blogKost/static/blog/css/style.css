@@ -789,7 +789,7 @@ h6 a:hover{
 
 
 
-.article  .comment .text{
+.article .content .comment .text{
   float: right;
 	width: 80%;
 }
@@ -797,7 +797,7 @@ h6 a:hover{
 .article{
 
 }
-.article .comment .img{
+.article .content .comment .img{
 	float: left;
 	width: 20%;
 }

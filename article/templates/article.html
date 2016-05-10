@@ -15,7 +15,7 @@
  <p>{{ article.full_text_ru|safe }}</p>
 <hr>
 </div>
-</div>
+
 <p>Комментарии:</p>
 
 <div class="comment">
@@ -24,7 +24,7 @@
     <div class="img">
  <h4>{{ comment.comments_user }}:</h4>
     <h8>{{ comment.comments_create }}</h8>
-      </div>
+    </div>
     <div class="text">
     <h4>{{ comment.comments_text }}</h4>
     </div>
@@ -68,6 +68,6 @@
 
 
 
-     
+   </div>  
  </div>
 {% endblock %}
