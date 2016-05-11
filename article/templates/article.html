@@ -5,49 +5,40 @@
      <div class="article">
     <div class="content">
 
-
+<div class="txt">
 <h8>Дата публикации: {{ article.article_date }}</h8>
 <h10><p>Автор публикации: {{ article.article_author }}</p></h10>
 <h1>{{ article.article_title }}</h1>
-
- <div class="text">
-
- <p>{{ article.full_text_ru|safe }}</p>
+<p>{{ article.full_text_ru|safe }}</p>
 <hr>
-
-<p>Комментарии: {% if username %}
-    <h8> </h8>
-    {% else %}
-    <h8>Для комментирования зайдите на сайт или зарегистрируйтесь</p>
-    {% endif %}</h8>
  
-</div>
-
-
-
+<p>Комментарии:</p>
 
 
 {% for comment in comments %}
 
-    <div class="comment_img">
-    <h4>{{ comment.comments_user }}:</h4>
+    <div class="comments_user">
+ <h4>{{ comment.comments_user }}:</h4>
     <h8>{{ comment.comments_create }}</h8>
-    </div>
+      </div>
     <div class="comment_text">
     <h4>{{ comment.comments_text }}</h4>
     </div>
 <p></p>
-<p>
 {% endfor %}
-<div class="comment_form">
+
     {% if username %}
     <form action="/articles/article/addcomment/{{ article.id }}/" method="post">
-        {% csrf_token %} 
+        {% csrf_token %}
         {{ form }}
         <input type="submit" class="button" value="Комментировать">
     </form>
     {% endif %}
-    </div></p>
+   </div>
+
+     </div>
+ </div>
+{% endblock %}
 
 
 {#    <div class="row">#}
@@ -76,8 +67,3 @@
 {#        </div>#}
 {#    </div>#}
 
-
-
-   </div>  
- </div>
-{% endblock %}
