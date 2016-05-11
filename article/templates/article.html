@@ -12,7 +12,11 @@
 <p>{{ article.full_text_ru|safe }}</p>
 <hr>
  
-<p>Комментарии:</p>
+<p>Комментарии: {% if username %}
+    <p></p>
+    {% else %}
+    <h4>Чтобы оставить комментарий зайдите на сайт или зарегистрируйтесь</h4>
+    {% endif %}</p>
 
 
 {% for comment in comments %}
