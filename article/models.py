@@ -9,7 +9,6 @@ from ckeditor_uploader.fields import RichTextUploadingField
 # from mptt.models import MPTTModel
 import random
 from blogKost import settings
-# from redactor.fields import RedactorField
 from easy_thumbnails.fields import ThumbnailerImageField
 
 
@@ -36,17 +35,17 @@ class Category(models.Model):
         return self.category_title
 
 
-# class Author(models.Model):
-#     author_name = models.CharField(max_length=200, verbose_name="Автор статьи")
-#     author_title = models.CharField(max_length=200, verbose_name="Автор статьи транслитом", null=True, blank=True)
-#
-#     class Meta:
-#         db_table = "authors"
-#         verbose_name = "Автор"
-#         verbose_name_plural = "Авторы"
-#
-#     def __str__(self):
-#         return self.author_name
+class Author(models.Model):
+    author_name = models.CharField(max_length=200, verbose_name="Автор статьи")
+    author_title = models.CharField(max_length=200, verbose_name="Автор статьи транслитом", null=True, blank=True)
+
+    class Meta:
+        db_table = "authors"
+        verbose_name = "Автор"
+        verbose_name_plural = "Авторы"
+
+    def __str__(self):
+        return self.author_name
 
 
 class Tag(models.Model):
@@ -68,14 +67,14 @@ class Article(models.Model):
     article_likes = models.IntegerField(default=0, verbose_name="Лайки")
     article_tag = models.ManyToManyField(Tag, related_name="articles", verbose_name=u"Теги")
     article_category = models.ForeignKey(Category, default=0, related_name="articles", verbose_name="Категории")
-    article_author = models.CharField(max_length=200, verbose_name="Автор статьи", blank=True)
+    article_author = models.ForeignKey(Author, related_name="autor", max_length=200, verbose_name="Автор статьи", blank=True)
     short_text_ru = RichTextUploadingField(blank=True, verbose_name="Короткое описание RU")
     short_text_en = RichTextUploadingField(blank=True, verbose_name="Короткое описание EN")
     video = models.CharField(max_length=250, blank=True, verbose_name="Видео id в кратком описании")
     image = ThumbnailerImageField(upload_to=make_upload_path, blank=True, verbose_name="Изображение")
     full_text_ru = RichTextUploadingField(blank=True, verbose_name="Полное описание RU")
     full_text_en = RichTextUploadingField(blank=True, verbose_name="Полное описание EN")
-    article_video = EmbedVideoField(verbose_name='Видео', help_text='описание видео')
+    article_video = EmbedVideoField(verbose_name='Видео', blank=True, help_text='описание видео')
 
     class Meta:
         db_table = 'article'
