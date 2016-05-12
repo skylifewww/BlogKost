@@ -22,5 +22,5 @@ class ArticleAdmin(AdminVideoMixin, admin.ModelAdmin):
 
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Category)
-admin.site.register(Author)
+# admin.site.register(Author)
 admin.site.register(Tag)

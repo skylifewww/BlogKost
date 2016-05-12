@@ -35,17 +35,17 @@ class Category(models.Model):
         return self.category_title
 
 
-class Author(models.Model):
-    author_name = models.CharField(max_length=200, verbose_name="Автор статьи")
-    author_title = models.CharField(max_length=200, verbose_name="Автор статьи транслитом", null=True, blank=True)
+# class Author(models.Model):
+#     author_name = models.CharField(max_length=200, verbose_name="Автор статьи")
+#     author_title = models.CharField(max_length=200, verbose_name="Автор статьи транслитом", null=True, blank=True)
 
-    class Meta:
-        db_table = "authors"
-        verbose_name = "Автор"
-        verbose_name_plural = "Авторы"
+#     class Meta:
+#         db_table = "authors"
+#         verbose_name = "Автор"
+#         verbose_name_plural = "Авторы"
 
-    def __str__(self):
-        return self.author_name
+#     def __str__(self):
+#         return self.author_name
 
 
 class Tag(models.Model):
@@ -67,7 +67,7 @@ class Article(models.Model):
     article_likes = models.IntegerField(default=0, verbose_name="Лайки")
     article_tag = models.ManyToManyField(Tag, related_name="articles", verbose_name=u"Теги")
     article_category = models.ForeignKey(Category, default=0, related_name="articles", verbose_name="Категории")
-    article_author = models.ForeignKey(Author, related_name="autor", max_length=200, verbose_name="Автор статьи", blank=True)
+    article_author = models.CharField(Author, related_name="autor", max_length=200, verbose_name="Автор статьи", blank=True)
     short_text_ru = RichTextUploadingField(blank=True, verbose_name="Короткое описание RU")
     short_text_en = RichTextUploadingField(blank=True, verbose_name="Короткое описание EN")
     video = models.CharField(max_length=250, blank=True, verbose_name="Видео id в кратком описании")
