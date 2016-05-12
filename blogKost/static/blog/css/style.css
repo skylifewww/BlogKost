@@ -271,7 +271,7 @@ h1 span{
 }
 
 .menu-content{
-  width:1500px;
+  width:80%;
   position:relative;
   margin:0 auto;
 }
@@ -308,8 +308,8 @@ h1 span{
 
 .menu-content ul{
 
-  width:800px;
-  left:50%;
+  /*width:800px;*/
+  left:80%;
   float:right;
   text-align:right;
   list-style:none;
