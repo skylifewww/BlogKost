@@ -25,7 +25,7 @@ def make_upload_path(instance, filename, prefix=False):
 # Create your models here.
 class Category(MPTTModel):
     name = models.CharField(max_length=25, verbose_name="Название категории транслитом", null=True, blank=True, default="", unique=True)
-    category_title = models.CharField(max_length=25, verbose_name="Имя категории", blank=True, null=True, default="")
+    category_title = models.CharField(max_length=25, verbose_name="Имя категории", blank=True, default="")
     parent = TreeForeignKey('self', related_name="children", blank=True, null=True, db_index=True, verbose_name="Родительский класс")
 
     class Meta:
@@ -49,7 +49,7 @@ mptt.register(Category, order_insertion_by=['name'])
 
 class Author(MPTTModel):
     name = models.CharField(max_length=200, verbose_name="Автор статьи", null=True, blank=True, default="", unique=True)
-    author_title = models.CharField(max_length=200, verbose_name="Автор статьи транслитом", null=True, blank=True, default="")
+    author_title = models.CharField(max_length=200, verbose_name="Автор статьи транслитом", blank=True, default="")
     parent = TreeForeignKey('self', related_name="children", blank=True, null=True, db_index=True, verbose_name="Родительский класс")
 
     class Meta:
