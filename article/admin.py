@@ -1,6 +1,7 @@
 from django.contrib import admin
 from article.models import *
 from embed_video.admin import AdminVideoMixin
+from mptt.admin import MPTTModelAdmin
 
 
 # Register your models here.
@@ -20,7 +21,16 @@ class ArticleAdmin(AdminVideoMixin, admin.ModelAdmin):
     search_fields = ["article_title", "article_author", "article_category", "article_tag"]
 
 
+class  CategoryAdmin(admin.ModelAdmin):
+      fields = ['name', 'category_title', 'parent']
+
+
+class  AuthorAdmin(admin.ModelAdmin):
+      fields = ['name', 'author_title', 'parent']      
+            
+
+
 admin.site.register(Article, ArticleAdmin)
-admin.site.register(Category)
-# admin.site.register(Author)
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Author, AuthorAdmin)
 admin.site.register(Tag)

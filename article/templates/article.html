@@ -1,6 +1,7 @@
 {% extends "index.html" %}
 {% load staticfiles %}
 {% block article_id %}
+{% load i18n mptt_tags %}
 
      <div class="article">
     <div class="content">
@@ -15,8 +16,10 @@
 <p>Комментарии: {% if username %}
     <h10></h10>
     {% else %}
-    <h10>Чтобы оставить комментарий зайдите на сайт или зарегистрируйтесь!!!</h10>
+    <h10>Чтобы оставить комментарий зайдите на сайт или зарегистрируйтесь</h10>
     {% endif %}</p>
+
+
 
 {% for comment in comments %}
 
@@ -39,9 +42,46 @@
     {% endif %}
    </div>
 
+
+ <ul class="nav">
+
+<ul>
+    {% recursetree nodes %}
+        <li>
+          <p><h8><a  href="/articles/category/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ project }}{% endblocktrans %}">{{ node }}</a></h8></p>
+
+            {% if node.is_root_node %}
+                {% ifequal node.id root_category_id %}
+                    {% if not node.is_leaf_node %}
+                        <ul class="child">
+                            <h10>{{ children }}</h10>
+                        </ul>
+                    {% endif %}
+                {% endifequal %}
+            {% else %}
+                {% if not node.is_leaf_node %}
+                    {% if current_category.id == node.id %}
+                        <ul class="child">
+                            <h10>{{ children }}</h10>
+                        </ul>
+                    {% elif node.level < current_category.level %}
+                        <ul class="child">
+                            <h10>{{ children }}</h10>
+                        </ul>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+</ul>
+ 
+</ul>  
+
      </div>
  </div>
+
 {% endblock %}
+
 
 
 {#    <div class="row">#}

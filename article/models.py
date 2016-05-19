@@ -6,7 +6,8 @@ from embed_video.fields import EmbedVideoField
 from django.core.urlresolvers import reverse
 from mptt.models import MPTTModel, TreeForeignKey
 from ckeditor_uploader.fields import RichTextUploadingField
-# from mptt.models import MPTTModel
+import mptt
+from mptt.fields import TreeForeignKey
 import random
 from blogKost import settings
 from easy_thumbnails.fields import ThumbnailerImageField
@@ -22,30 +23,50 @@ def make_upload_path(instance, filename, prefix=False):
 
 
 # Create your models here.
-class Category(models.Model):
-    category_name = models.CharField(max_length=25, verbose_name="Название категории транслитом")
-    category_title = models.CharField(max_length=25, verbose_name="Имя категории", blank=True, null=True)
+class Category(MPTTModel):
+    name = models.CharField(max_length=25, verbose_name="Название категории транслитом", null=True, blank=True, default="", unique=True)
+    category_title = models.CharField(max_length=25, verbose_name="Имя категории", blank=True, null=True, default="")
+    parent = TreeForeignKey('self', related_name="children", blank=True, null=True, db_index=True, verbose_name="Родительский класс")
 
     class Meta:
         db_table = "category"
         verbose_name = "Категорию"
         verbose_name_plural = "Категории"
+        ordering = ('tree_id','level')
 
     def __str__(self):
         return self.category_title
 
+    class MPTTMeta:
+        # level_attr = 'mptt_level'
+        order_insertion_by = ['name']    
 
-# class Author(models.Model):
-#     author_name = models.CharField(max_length=200, verbose_name="Автор статьи")
-#     author_title = models.CharField(max_length=200, verbose_name="Автор статьи транслитом", null=True, blank=True)
 
-#     class Meta:
-#         db_table = "authors"
-#         verbose_name = "Автор"
-#         verbose_name_plural = "Авторы"
+mptt.register(Category, order_insertion_by=['name'])
 
-#     def __str__(self):
-#         return self.author_name
+
+
+
+class Author(MPTTModel):
+    name = models.CharField(max_length=200, verbose_name="Автор статьи", null=True, blank=True, default="", unique=True)
+    author_title = models.CharField(max_length=200, verbose_name="Автор статьи транслитом", null=True, blank=True, default="")
+    parent = TreeForeignKey('self', related_name="children", blank=True, null=True, db_index=True, verbose_name="Родительский класс")
+
+    class Meta:
+        db_table = "authors"
+        verbose_name = "Автор"
+        verbose_name_plural = "Авторы"
+        ordering = ('tree_id', 'level')
+
+    def __str__(self):
+        return self.author_title
+
+    class MPTTMeta:
+        # level_attr = 'mptt_level'
+        order_insertion_by = ['name']    
+
+
+mptt.register(Author, order_insertion_by=['name'])
 
 
 class Tag(models.Model):
@@ -66,8 +87,8 @@ class Article(models.Model):
     article_date = models.DateTimeField(verbose_name="Дата публикации статьи")
     article_likes = models.IntegerField(default=0, verbose_name="Лайки")
     article_tag = models.ManyToManyField(Tag, related_name="articles", verbose_name=u"Теги")
-    article_category = models.ForeignKey(Category, default=0, related_name="articles", verbose_name="Категории")
-    article_author = models.CharField(max_length=200, verbose_name="Автор статьи", blank=True)
+    article_category = TreeForeignKey(Category, related_name="articles", verbose_name="Категории", default="", blank=True, null=True)
+    article_author = TreeForeignKey(Author, related_name="author", max_length=200, verbose_name="Автор статьи", blank=True, default="", null=True)
     short_text_ru = RichTextUploadingField(blank=True, verbose_name="Короткое описание RU")
     short_text_en = RichTextUploadingField(blank=True, verbose_name="Короткое описание EN")
     video = models.CharField(max_length=250, blank=True, verbose_name="Видео id в кратком описании")
@@ -83,24 +104,6 @@ class Article(models.Model):
 
     def __str__(self):
         return self.article_title
-
-
-# class Video(models.Model):
-#     title = models.CharField(max_length=50)
-#     video = EmbedVideoField(verbose_name='Видео',
-#                             help_text='описание видео')
-#     video_article = models.ForeignKey(Article, verbose_name="Статья")
-#
-#     class Meta:  # метка в базе данных
-#         db_table = 'video'
-#         verbose_name = "Видео"
-#         verbose_name_plural = "Видео"
-#
-#     def __unicode__(self):
-#         return self.title
-#
-#     def get_absolute_url(self):
-#         return reverse('posts:detail', kwargs={'pk': self.pk})
 
 
 class Comments(models.Model):

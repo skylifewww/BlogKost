@@ -37,6 +37,10 @@
             {% endfor %}
 
     <ul class="txt-center" role="menubar" aria-label="Pagination">
+
+                {% if not articles %}
+                <h10>Not articles</h10>
+                {% else %}
                 {% if articles.has_previous %}
                 <li class="arrow"><a href="/articles/videos/page/{{ articles.previous_page_number }}/">&laquo; Назад</a></li>
                 {% else %}
@@ -54,6 +58,7 @@
                 {% else %}
                 <li class="arrow_unavailable"><a href="">&raquo;</a></li>
                 {% endif %}
+                 {% endif %}
     </ul>            
 </div>
 
@@ -89,7 +94,7 @@
     {% endrecursetree %}
 </ul>
  
-</ul>  
+</ul>               
          
     </div>
     </div>
