@@ -125,6 +125,7 @@ ANONYMOUS_USER_ID = -1
 
 ROOT_URLCONF = 'blogKost.urls'
 
+MPTT_ADMIN_LEVEL_INDENT = 40
 
 LOGGING = {
     'version': 1,
