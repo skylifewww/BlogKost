@@ -95,7 +95,7 @@ class Article(models.Model):
     image = ThumbnailerImageField(upload_to=make_upload_path, blank=True, verbose_name="Изображение")
     full_text_ru = RichTextUploadingField(blank=True, verbose_name="Полное описание RU")
     full_text_en = RichTextUploadingField(blank=True, verbose_name="Полное описание EN")
-    article_video = EmbedVideoField(verbose_name='Видео', blank=True, help_text='описание видео')
+    article_video = EmbedVideoField(verbose_name='Видео', blank=True, help_text='описание видео', null=True)
 
     class Meta:
         db_table = 'article'
