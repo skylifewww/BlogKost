@@ -24,7 +24,7 @@ def make_upload_path(instance, filename, prefix=False):
 
 # Create your models here.
 class Category(MPTTModel):
-    name = models.CharField(max_length=25, verbose_name="Название категории транслитом", null=True, blank=True, default="", unique=True)
+    name = models.CharField(max_length=25, verbose_name="Название категории транслитом", blank=True, default="", unique=True)
     category_title = models.CharField(max_length=25, verbose_name="Имя категории", blank=True, default="")
     parent = TreeForeignKey('self', related_name="children", blank=True, null=True, db_index=True, verbose_name="Родительский класс")
 
@@ -48,7 +48,7 @@ mptt.register(Category, order_insertion_by=['name'])
 
 
 class Author(MPTTModel):
-    name = models.CharField(max_length=200, verbose_name="Автор статьи", null=True, blank=True, default="", unique=True)
+    name = models.CharField(max_length=200, verbose_name="Автор статьи", blank=True, default="", unique=True)
     author_title = models.CharField(max_length=200, verbose_name="Автор статьи транслитом", blank=True, default="")
     parent = TreeForeignKey('self', related_name="children", blank=True, null=True, db_index=True, verbose_name="Родительский класс")
 
@@ -87,8 +87,8 @@ class Article(models.Model):
     article_date = models.DateTimeField(verbose_name="Дата публикации статьи")
     article_likes = models.IntegerField(default=0, verbose_name="Лайки")
     article_tag = models.ManyToManyField(Tag, related_name="articles", verbose_name=u"Теги")
-    article_category = TreeForeignKey(Category, related_name="articles", verbose_name="Категории", default="", blank=True, null=True)
-    article_author = TreeForeignKey(Author, related_name="author", max_length=200, verbose_name="Автор статьи", blank=True, default="", null=True)
+    article_category = TreeForeignKey(Category, related_name="articles", verbose_name="Категории", default="", blank=True)
+    article_author = TreeForeignKey(Author, related_name="author", max_length=200, verbose_name="Автор статьи", blank=True, default="")
     short_text_ru = RichTextUploadingField(blank=True, verbose_name="Короткое описание RU")
     short_text_en = RichTextUploadingField(blank=True, verbose_name="Короткое описание EN")
     video = models.CharField(max_length=250, blank=True, verbose_name="Видео id в кратком описании")
