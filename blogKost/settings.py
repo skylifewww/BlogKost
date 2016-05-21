@@ -20,9 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
-db_config = dj_database_url.config()
-if db_config:
-    DATABASES['default'] =  db_config
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -194,7 +192,9 @@ DATABASES = {
     }
 }
 
-
+db_config = dj_database_url.config()
+if db_config:
+    DATABASES['default'] =  db_config
 
 
 # DATABASES = {
