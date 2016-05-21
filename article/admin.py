@@ -19,6 +19,7 @@ class ArticleAdmin(AdminVideoMixin, admin.ModelAdmin):
     inlines = [CommentsInLine]
     list_filter = ["article_date", "article_tag", "article_category", "article_author"]
     search_fields = ["article_title", "article_author", "article_category", "article_tag"]
+    list_display = ["article_title", "article_author", "article_category"]
 
 
 class  CategoryAdmin(admin.ModelAdmin):
