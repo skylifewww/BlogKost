@@ -47,26 +47,26 @@ mptt.register(Category, order_insertion_by=['name'])
 
 
 
-# class Author(MPTTModel):
-#     name = models.CharField(max_length=200, verbose_name="Автор статьи", blank=True, default="", unique=True)
-#     author_title = models.CharField(max_length=200, verbose_name="Автор статьи транслитом", blank=True, default="")
-#     parent = TreeForeignKey('self', related_name="children", blank=True, null=True, db_index=True, verbose_name="Родительский класс")
+class Author(MPTTModel):
+    name = models.CharField(max_length=200, verbose_name="Автор статьи", blank=True, default="", unique=True)
+    author_title = models.CharField(max_length=200, verbose_name="Автор статьи транслитом", blank=True, default="")
+    parent = TreeForeignKey('self', related_name="children", blank=True, null=True, db_index=True, verbose_name="Родительский класс")
 
-#     class Meta:
-#         db_table = "authors"
-#         verbose_name = "Автор"
-#         verbose_name_plural = "Авторы"
-#         ordering = ('tree_id', 'level')
+    class Meta:
+        db_table = "authors"
+        verbose_name = "Автор"
+        verbose_name_plural = "Авторы"
+        ordering = ('tree_id', 'level')
 
-#     def __str__(self):
-#         return self.author_title
+    def __str__(self):
+        return self.author_title
 
-#     class MPTTMeta:
-#         # level_attr = 'mptt_level'
-#         order_insertion_by = ['name']    
+    class MPTTMeta:
+        # level_attr = 'mptt_level'
+        order_insertion_by = ['name']    
 
 
-# mptt.register(Author, order_insertion_by=['name'])
+mptt.register(Author, order_insertion_by=['name'])
 
 
 class Tag(models.Model):
@@ -88,7 +88,7 @@ class Article(models.Model):
     article_likes = models.IntegerField(default=0, verbose_name="Лайки")
     article_tag = models.ManyToManyField(Tag, related_name="articles", verbose_name=u"Теги")
     article_category = TreeForeignKey(Category, related_name="articles", verbose_name="Категории", default="", blank=True)
-    article_author = models.CharField(max_length=200, verbose_name="Автор статьи", blank=True, default="")
+    article_author = TreeForeignKey(Author, related_name="autor", max_length=200, verbose_name="Автор статьи", blank=True, default="")
     short_text_ru = RichTextUploadingField(blank=True, verbose_name="Короткое описание RU")
     short_text_en = RichTextUploadingField(blank=True, verbose_name="Короткое описание EN")
     video = models.CharField(max_length=250, blank=True, verbose_name="Видео id в кратком описании")

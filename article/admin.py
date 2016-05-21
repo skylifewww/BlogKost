@@ -25,12 +25,12 @@ class  CategoryAdmin(admin.ModelAdmin):
       fields = ['name', 'category_title', 'parent']
 
 
-# class  AuthorAdmin(admin.ModelAdmin):
-#       fields = ['name', 'author_title', 'parent']      
+class  AuthorAdmin(admin.ModelAdmin):
+      fields = ['name', 'author_title', 'parent']      
             
 
 
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Category, CategoryAdmin)
-# admin.site.register(Author, AuthorAdmin)
+admin.site.register(Author, AuthorAdmin)
 admin.site.register(Tag)
