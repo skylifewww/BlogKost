@@ -50,7 +50,7 @@ mptt.register(Category, order_insertion_by=['name'])
 class Author(MPTTModel):
     name = models.CharField(max_length=200, verbose_name="Автор статьи", blank=True, default="", unique=True)
     author_title = models.CharField(max_length=200, verbose_name="Автор статьи транслитом", blank=True, default="")
-    # parent = TreeForeignKey('self', related_name="children", blank=True, null=True, db_index=True, verbose_name="Родительский класс")
+    parent = TreeForeignKey('self', related_name="children", blank=True, null=True, db_index=True, verbose_name="Родительский класс")
 
     class Meta:
         db_table = "authors"
