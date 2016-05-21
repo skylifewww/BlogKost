@@ -75,7 +75,7 @@ class Tag(models.Model):
 
     class Meta:
         db_table = "tags"
-        verbose_name = "тега"
+        verbose_name = "теги"
         verbose_name_plural = "тег"
 
     def __str__(self):
