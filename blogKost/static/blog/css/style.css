@@ -596,8 +596,7 @@ h1 span{
   color:#ada074;
 }
 
-
-.article h8 l{
+.article .content .txt .text h8 l{
   font-size:14px;
   color: #a4a4a4;
   text-align:left;
@@ -605,13 +604,25 @@ h1 span{
   font-weight:300;
 }
 
-.article h8 r{
+.article .content .txt .text h8 r{
   font-size:14px;
   color: #a4a4a4;
   text-align:right;
   margin-top: 10px;
-  margin-left: 20px;
+  margin-left: 40px;
   font-weight:300;
+}
+
+.article .content .txt .text h8 r a{
+  font-size:14px;
+  color:black;
+  text-align:right;
+  margin-top: 10px;
+  /*margin-left: 20px;*/
+  font-weight:300;
+}
+.article .content .txt .text h8 r a:hover{
+  color:#ada074;
 }
 
 .article .content .nav{
@@ -622,9 +633,8 @@ h1 span{
   overflow: hidden;
 }
 
-
-.article .content .nav p h8 a{
-  /*margin-top: 20px;*/
+.article .content .nav pc h8 a{
+  margin-top: 30px;
   margin-left: 60px;
   /*text-align:center;*/
   font-size:18px;
@@ -632,7 +642,7 @@ h1 span{
   /*position:relative;*/
   font-weight:400;
 }
-.article .content .nav p h8 a:hover{
+.article .content .nav pc h8 a:hover{
   color:#ada074;
 }
 
@@ -644,6 +654,28 @@ h1 span{
   font-weight:300;
 }
 .article .content .nav .child h10 a:hover{
+  color:#ada074;
+}
+
+.article .content .nav .author pc h8 a{
+  /*margin-top: 40px;*/
+  margin-left: 120px;
+  font-size:16px;
+  color: #333;
+  font-weight:300;
+}
+.article .content .nav .author  pc h8 a:hover{
+  color:#ada074;
+}
+
+.article .content .nav .author  .child h10 a{
+  /*margin-top: 40px;*/
+  margin-left: 120px;
+  font-size:16px;
+  color: #333;
+  font-weight:300;
+}
+.article .content .nav .author  .child h10 a:hover{
   color:#ada074;
 }
 
@@ -667,7 +699,7 @@ h1 span{
   border:0;
 }
 
-.article .content .nav p{
+.article .content .nav pc{
   font-size: 16px;
   color: #333;
   margin-top:0px;
@@ -709,10 +741,21 @@ h1 span{
 
 .article .content .txt h10 p{
   font-size:14px;
-  color: #a4a4a4;
+  color:#a4a4a4;
   text-align:center;
   margin-top: 20px;
   font-weight:200;
+}
+
+.article .content .txt h10 p a{
+  font-size:14px;
+  color:black;
+  text-align:center;
+  margin-top: 20px;
+  font-weight:300;
+}
+.article .content .txt h10 p a:hover{
+  color:#ada074;
 }
 
 .article .content .txt h1{
@@ -743,8 +786,6 @@ h1 span{
   line-height: 26px;
   padding: 1% 0 3%;
 }
-
-
 
 .article p.title{
   color: #a4a4a4;

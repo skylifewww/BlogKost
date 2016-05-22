@@ -26,17 +26,18 @@ def articles(request, page_number=1):
 
     return_path_f(request)
 
-    args = {'articles': current_page.page(page_number), 'username': auth.get_user(request).username,
-            'art_page_number': page_number,
-            }
-    args["nodes"] = Category.objects.all()        
+    args = {}
+    args['articles'] = current_page.page(page_number)
+    args['username'] = auth.get_user(request).username
+    args['art_page_number'] = page_number       
+    args["categories"] = Category.objects.all()  
+    args["authors"] = Author.objects.all()     
+
     return render_to_response("articles.html", args)
 
 
 def article(request, article_id=1, art_page_number=1):
     all_comments = Comments.objects.filter(comments_article_id=article_id)
-    # current_category = Category.objects.get(id=article_id)
-    # root_category_id = current_category.get_root().id
 
     args = {}
     args.update(csrf(request))
@@ -49,9 +50,8 @@ def article(request, article_id=1, art_page_number=1):
     args["form"] = CommentForm
     args["username"] = auth.get_user(request).username
     args["art_page_number"] = art_page_number
-    args["nodes"] = Category.objects.all()
-    # args['current_category'] = current_category
-    # args['root_category_id'] = root_category_id
+    args["categories"] = Category.objects.all()  
+    args["authors"] = Author.objects.all()   
 
     return render_to_response("article.html", args, context_instance=RequestContext(request))
 
@@ -92,10 +92,28 @@ def category(request, category_id=1, page_number=1):
     args = {}
     args['current_category'] = current_category
     args['root_category_id'] = root_category_id
-    args['nodes']=Category.objects.all()
-    args['category'] = Category.objects.get(id=category_id)
+    args['categories'] = Category.objects.all()
+    args['authors'] = Author.objects.all()
     args['articles'] = current_page.page(page_number)
     args['art_page_number'] = page_number
     args['username'] = auth.get_user(request).username
 
     return render_to_response('category.html', args, context_instance=RequestContext(request))    
+
+
+def authors(request, author_id=1, page_number=1):
+    all_article = Article.objects.filter(article_author_id=author_id)
+    current_page = Paginator(all_article, 3)
+    current_author = Author.objects.get(id=author_id)
+    root_author_id = current_author.get_root().id
+    args = {}
+    args['current_author'] = current_author
+    args['root_author_id'] = root_author_id
+    args['authors'] = Author.objects.all()
+    args['categories'] = Category.objects.all()
+    args['articles'] = current_page.page(page_number)
+    args['art_page_number'] = page_number
+    args['username'] = auth.get_user(request).username
+
+    return render_to_response('category.html', args, context_instance=RequestContext(request))    
+

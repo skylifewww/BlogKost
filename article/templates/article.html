@@ -8,7 +8,7 @@
 
 <div class="txt">
 <h8>Дата публикации: {{ article.article_date }}</h8>
-<h10><p>Автор публикации: {{ article.article_author }}</p></h10>
+<h10><p>Автор публикации: <a href="/articles/author/get/{{ article.article_author.id }}/">{{ article.article_author }}</a></p></h10>
 <h1>{{ article.article_title }}</h1>
 <p>{{ article.full_text_ru|safe }}</p>
 <hr>
@@ -45,10 +45,11 @@
 
  <ul class="nav">
 
+<h6>Categories</h6>
 <ul>
-    {% recursetree nodes %}
+    {% recursetree categories %}
         <li>
-          <p><h8><a  href="/articles/category/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ project }}{% endblocktrans %}">{{ node }}</a></h8></p>
+          <pc><h8><a  href="/articles/category/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pc>
 
             {% if node.is_root_node %}
                 {% ifequal node.id root_category_id %}
@@ -74,6 +75,38 @@
         </li>
     {% endrecursetree %}
 </ul>
+<p></p>
+
+<h8>Our authors</h8>
+<ul class="author">
+    {% recursetree authors %}
+        <li>
+          <pc><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pc>
+
+            {% if node.is_root_node %}
+                {% ifequal node.id root_author_id %}
+                    {% if not node.is_leaf_node %}
+                        <ul class="child">
+                            <h10>{{ children }}</h10>
+                        </ul>
+                    {% endif %}
+                {% endifequal %}
+            {% else %}
+                {% if not node.is_leaf_node %}
+                    {% if current_author.id == node.id %}
+                        <ul class="child">
+                            <h10>{{ children }}</h10>
+                        </ul>
+                    {% elif node.level < current_author.level %}
+                        <ul class="child">
+                            <h10>{{ children }}</h10>
+                        </ul>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+</ul>
  
 </ul>  
 
@@ -81,32 +114,3 @@
  </div>
 
 {% endblock %}
-
-
-
-{#    <div class="row">#}
-{#        <div class="large-3 large-offset-5 columns">#}
-{#            <div class="pagination-centered">#}
-{#            <ul class="pagination" role="menubar" aria-label="Pagination">#}
-{#                {% if comments.has_previous %}#}
-{#                <li class="arrow"><a href="/articles/commentspage/{{ comments.previous_page_number }}/">&laquo; Назад</a></li>#}
-{#                {% else %}#}
-{#                <li class="arrow unavailable"><a href="">&laquo;</a></li>#}
-{#                {% endif %}#}
-{#                {% for commentspage in comments.paginator.page_range %}#}
-{#                    {% if commentspage == comments.number %}#}
-{#                        <li class="current"><a href="/articles/commentspage/{{ commentspage }}/">{{ commentspage }}</a></li>#}
-{#                    {% else %}#}
-{#                        <li><a href="/articles/commentspage/{{ commentspage }}/">{{ commentspage }}</a></li>#}
-{#                    {% endif %}#}
-{#                {% endfor %}#}
-{#                {% if comments.has_next %}#}
-{#                <li class="arrow"><a href="/articles/commentspage/{{ comments.next_page_number }}/">Вперед &raquo;</a></li>#}
-{#                {% else %}#}
-{#                <li class="arrow unavailable"><a href="">&raquo;</a></li>#}
-{#                {% endif %}#}
-{#            </ul>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-

@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^writtens/page/(\d+)/$', article.views.articles),
     url(r'^$', article.views.articles),
     url(r'^category/get/(?P<category_id>\d+)/$', article.views.category),
+    url(r'^author/get/(?P<author_id>\d+)/$', article.views.authors),
 ]

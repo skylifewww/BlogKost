@@ -12,14 +12,16 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 import dj_database_url
-
+from django.conf.global_settings import DATABASES
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-
+db_config = dj_database_url.config()
+if db_config:
+    DATABASES['default'] =  db_config
 
 
 # Quick-start development settings - unsuitable for production
@@ -49,7 +51,6 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 INSTALLED_APPS = (
 
     'embed_video',
-    # 'redactor',
     'ckeditor',
     'ckeditor_uploader',
     'article',
@@ -192,36 +193,8 @@ DATABASES = {
     }
 }
 
-db_config = dj_database_url.config()
-if db_config:
-    DATABASES['default'] =  db_config
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'blogkost',
-#         'USER': 'skylife',
-#         'PASSWORD': 'skywww123',
-#         'HOST': '',
-#         'PORT': '',
-#     }
-# }
-
-# REDACTOR_OPTIONS = {'lang': 'en'}
-# REDACTOR_UPLOAD = 'uploads/'
-
-# REDACTOR_FILE_STORAGE = 'my_site.file_storages.StorageClass'
-# REDACTOR_AUTH_DECORATOR = 'django.contrib.auth.decorators.login_required'
-# REDACTOR_UPLOAD_HANDLER = 'redactor.handlers.DateDirectoryUploader'
-
-
-# Internationalization
-# https://docs.djangoproject.com/en/1.8/topics/i18n/
-# 
-# db_from_env = dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(db_from_env)
-# DATABASES['default'] =  dj_database_url.config()
 
 LANGUAGE_CODE = 'ru-RU'
 
