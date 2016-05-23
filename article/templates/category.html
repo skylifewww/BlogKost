@@ -37,9 +37,6 @@
 
                 {% if not articles %}
                 <h10>Материалов по этой теме пока еще нет(((((</h10>
-                 {% else %}
-                {% if not authors %}
-                <h10>Материалов этого автора пока еще нет(((((</h10>
                 {% else %}
                 {% if articles.has_previous %}
                 <li class="arrow"><a href="/articles/videos/page/{{ articles.previous_page_number }}/">&laquo; Назад</a></li>
