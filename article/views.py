@@ -85,10 +85,11 @@ def addcomment(request, article_id):
 
 
 def category(request, category_id=1, page_number=1):
-    all_article = Article.objects.filter(article_category__in=current_category.get_descendants(include_self=True))
-    current_page = Paginator(all_article, 3)
+    
     current_category = Category.objects.get(id=category_id)
     root_category_id = current_category.get_root().id
+    all_article = Article.objects.filter(article_category__in=current_category.get_descendants(include_self=True))
+    current_page = Paginator(all_article, 3)
     args = {}
     args['current_category'] = current_category
     args['root_category_id'] = root_category_id
