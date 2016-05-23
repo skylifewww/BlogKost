@@ -613,7 +613,7 @@ h1 span{
   font-weight:300;
 }
 
-.article .content .txt .text h8 r a{
+.article .content .txt .text h8 l a{
   font-size:14px;
   color:black;
   text-align:left;
@@ -621,7 +621,7 @@ h1 span{
   /*margin-left: 20px;*/
   font-weight:300;
 }
-.article .content .txt .text h8 r a:hover{
+.article .content .txt .text h8 l a:hover{
   color:#ada074;
 }
 
