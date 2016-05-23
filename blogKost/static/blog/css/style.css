@@ -1111,7 +1111,7 @@ h1 span{
   line-height:1.2;
 }
 
-.login .content .form h2 a{
+.login h2{
   font-size:24px;
   color:black;
   text-align:center;
@@ -1121,7 +1121,7 @@ h1 span{
   text-transform:uppercase;
   line-height:1.2;
 }
-.login .content .form h2 a:hover {
+.login h2:hover {
   color:#ada074;
  }
 
