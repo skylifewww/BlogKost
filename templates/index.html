@@ -64,21 +64,21 @@
 
       <ul id="menu">
         <li><a href="/">HOME</a></li>
-          <li><a href="/tutorials/">TUTORIALS</a></li>
+          {# <li><a href="/tutorials/">TUTORIALS</a></li> #}
         {% if art_page_number %}
-				<li><a href="/articles/videos/page/{{ art_page_number }}/">VIDEO</a></li>
+				<li><a href="/articles/videos/page/{{ art_page_number }}/">TUTORIALS</a></li>
             {% else %}
-				<li><a href="/articles/videos/page/{{ 1 }}/">VIDEO</a></li>
+				<li><a href="/articles/videos/page/{{ 1 }}/">TUTORIALS</a></li>
              {% endif %}
 
-        {% if art_page_number %}
-				<li><a href="/articles/writtens/page/{{ art_page_number }}/">WRITTEN</a></li>
-            {% else %}
-				<li><a href="/articles/writtens/page/{{ 1 }}/">WRITTEN</a></li>
-             {% endif %}
+        {# {% if art_page_number %} #}
+				{# <li><a href="/articles/writtens/page/{{ art_page_number }}/">WRITTEN</a></li> #}
+            {# {% else %} #}
+				{# <li><a href="/articles/writtens/page/{{ 1 }}/">WRITTEN</a></li> #}
+             {# {% endif %} #}
 
-        <li><a href="#about-us">FAQ</a></li>
-        <li><a href="/portfolio/">PORTFOLIO</a></li>
+        {# <li><a href="#about-us">FAQ</a></li> #}
+        {# <li><a href="/portfolio/">PORTFOLIO</a></li> #}
         <li><a href="/contact/">CONTACT</a></li>
           {% if username %}
                 <li><a href="/auth/logout/">LOGOUT ({{ username }})</a></li>
