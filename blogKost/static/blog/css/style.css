@@ -1178,7 +1178,7 @@ h1 span{
   letter-spacing:1px;
 }
 
-.login .content .form .column-5 .logo h2{
+.login .content .form .column-3 .logo h2{
   width:455px;
   overflow:hidden;
   color:black;
@@ -1187,7 +1187,7 @@ h1 span{
   text-align:center;
   padding-right:230px;
 }
-.login .content .form .column-5 .logo h2:hover{
+.login .content .form .column-3 .logo h2:hover{
    color:#ada074;
 }
 
