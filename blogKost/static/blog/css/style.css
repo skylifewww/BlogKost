@@ -607,7 +607,7 @@ h1 span{
 .article .content .txt .text h8 r{
   font-size:14px;
   color: #a4a4a4;
-  text-align:right;
+  text-align:left;
   margin-top: 10px;
   margin-left: 40px;
   font-weight:300;
@@ -616,7 +616,7 @@ h1 span{
 .article .content .txt .text h8 r a{
   font-size:14px;
   color:black;
-  text-align:right;
+  text-align:left;
   margin-top: 10px;
   /*margin-left: 20px;*/
   font-weight:300;
@@ -858,6 +858,7 @@ h1 span{
   font-size: 1.4em;
    color:black;
   font-weight: 500;
+  margin-top:10px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;

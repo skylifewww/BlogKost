@@ -20,7 +20,7 @@
 <div class="text">
     
     <h8><l>Дата публикации: {{ article.article_date }}</l></h8>
-        <h8><r>Автор публикации: <a href="/articles/author/get/{{ article.article_author.id }}/">{{ article.article_author }}</a></r></h8>
+        <h8><l>Автор публикации: <a href="/articles/author/get/{{ article.article_author.id }}/">{{ article.article_author }}</a></l></h8>
 
     <h6><a href="/articles/videos/get/{{ article.id }}/{{ art_page_number }}/">{{ article.article_title }}</a></h6>
         <h10>{{ article.short_text_ru|safe }}</h10>
@@ -37,6 +37,8 @@
 
                 {% if not articles %}
                 <h10>Материалов по этой теме пока еще нет(((((</h10>
+                {% if not articles %}
+                <h10>Материалов этого автора пока еще нет(((((</h10>
                 {% else %}
                 {% if articles.has_previous %}
                 <li class="arrow"><a href="/articles/videos/page/{{ articles.previous_page_number }}/">&laquo; Назад</a></li>
