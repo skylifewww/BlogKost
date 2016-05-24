@@ -86,7 +86,7 @@ class Article(models.Model):
     article_title = models.CharField(max_length=200, verbose_name="Название статьи")
     article_date = models.DateTimeField(verbose_name="Дата публикации статьи")
     article_likes = models.IntegerField(default=0, verbose_name="Лайки")
-    article_tag = models.ManyToManyField(Tag, related_name="articles", verbose_name=u"Теги")
+    article_tag = models.ManyToManyField(Tag, related_name="tags", related_query_name="tags", verbose_name=u"Теги")
     article_category = TreeForeignKey(Category, related_name="articles", verbose_name="Категории", default="", blank=True)
     article_author = TreeForeignKey(Author, related_name="autor", max_length=200, verbose_name="Автор статьи", blank=True, default="")
     short_text_ru = RichTextUploadingField(blank=True, verbose_name="Короткое описание RU")

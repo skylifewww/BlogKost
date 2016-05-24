@@ -8,7 +8,7 @@
 
 <div class="txt">
 <h8>Дата публикации: {{ article.article_date }}</h8>
-<h10><p>Автор публикации: <a href="/articles/author/get/{{ article.article_author.id }}/">{{ article.article_author }}</a></p></h10>
+<h8><p>Автор публикации: <a href="/articles/author/get/{{ article.article_author.id }}/">{{ article.article_author }}</a></p></h8>
 <h1>{{ article.article_title }}</h1>
 <p>{{ article.full_text_ru|safe }}</p>
 <hr>
@@ -16,7 +16,7 @@
 <p>Комментарии: {% if username %}
     <h10></h10>
     {% else %}
-    <h10>Чтобы оставить комментарий зайдите на сайт или зарегистрируйтесь)))</h10>
+    <h10>Чтобы оставить комментарий зайдите на сайт или зарегистрируйтесь</h10>
     {% endif %}</p>
 
 
@@ -45,11 +45,15 @@
 
  <ul class="nav">
 
-<h6>Categories</h6>
-<ul>
+<h6>Categories:</h6>
+<ul class="author">
     {% recursetree categories %}
         <li>
-          <pc><h8><a  href="/articles/category/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pc>
+        {% if node == article.article_category %}
+          <pca><h8><a  href="/articles/category/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pca>
+          {% else %}
+          <pa><h8><a  href="/articles/category/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pa>
+           {% endif %}
 
             {% if node.is_root_node %}
                 {% ifequal node.id root_category_id %}
@@ -74,14 +78,19 @@
             {% endif %}
         </li>
     {% endrecursetree %}
-</ul>
-<p></p>
 
-<h8>Our authors</h8>
-<ul class="author">
+<p></p>
+{# </ul> #}
+
+<h6>Our authors:</h6>
+{# <ul class="author"> #}
     {% recursetree authors %}
         <li>
-          <pc><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pc>
+        {% if node == article.article_author %}
+          <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pca>
+          {% else %}
+          <pa><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pa>
+           {% endif %}
 
             {% if node.is_root_node %}
                 {% ifequal node.id root_author_id %}
@@ -107,6 +116,19 @@
         </li>
     {% endrecursetree %}
 </ul>
+
+<p></p>
+ <h6>Tags:</h6>
+ <ul> 
+{% for tag in tags %}
+{% if tag == current_tag %}
+<pct><h10><a href="/articles/tag/get/{{ tag.id }}/">{{ tag }}</a></h10></pct>
+{% else %}
+<pt><h10><a href="/articles/tag/get/{{ tag.id }}/">{{ tag }}</a></h10></pt>
+ {% endif %}
+ {# {% if not forloop.last %},{% endif %} #}
+ {% endfor %}  
+ </ul>
  
 </ul>  
 
@@ -114,3 +136,6 @@
  </div>
 
 {% endblock %}
+
+
+

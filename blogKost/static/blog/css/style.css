@@ -1,8 +1,5 @@
 
-
-/* Font Google - strong reaload time */
 @import url(http://fonts.googleapis.com/css?family=Lato:400,300,100,700,900&subset=latin,latin-ext);
-
 
 
 .preloader{
@@ -91,7 +88,7 @@ h1 span{
   width:100%;
   height:100%;
   z-index:10;
-  background:url('../img/background/start-page.jpg') #c0c0c0 bottom center fixed no-repeat;
+  background:url('../img/background/start-page_1.jpg') #c0c0c0 bottom center fixed no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -166,10 +163,10 @@ h1 span{
   letter-spacing:1px;
   background:none;
   -webkit-transition: all 0.6s ease-in;
-	-moz-transition: all 0.6s ease-in;
-	-ms-transition: all 0.6s ease-in;
-	-o-transition: all 0.6s ease-in;
-	transition: all 0.6s ease-in;
+  -moz-transition: all 0.6s ease-in;
+  -ms-transition: all 0.6s ease-in;
+  -o-transition: all 0.6s ease-in;
+  transition: all 0.6s ease-in;
 }
 
 .start-page .content .text .read-more:hover{
@@ -178,6 +175,20 @@ h1 span{
   border:1px solid #ada074;
 }
 
+/*.start-page .content .arrow-down{*/
+  /*position: absolute;*/
+  /*bottom: 110px;*/
+  /*left: 50%;*/
+  /*margin-left: -10px;*/
+  /*width: 21px;*/
+  /*height: 29px;*/
+  /*background: url(../img/arrow-down.png) no-repeat center center;*/
+  /*display: block;*/
+  /*-webkit-animation: bounce-fade 1.2s infinite; /!* Safari 4+ *!/*/
+  /*-moz-animation:    bounce-fade 1.2s infinite; /!* Fx 5+ *!/*/
+  /*-o-animation:      bounce-fade 1.2s infinite; /!* Opera 12+ *!/*/
+   /*animation:        bounce-fade 1.2s infinite; /!* IE 10+ *!/*/
+/*}*/
 
 
 @-webkit-keyframes bounce-fade {
@@ -248,10 +259,10 @@ h1 span{
   z-index:1000;
   border-bottom:1px solid #f2f2f2;
   -webkit-transition: all 0.2s ease-in;
-	-moz-transition: all 0.2s ease-in;
-	-ms-transition: all 0.2s ease-in;
-	-o-transition: all 0.2s ease-in;
-	transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
  }
 
 .menu-click li:hover {
@@ -271,19 +282,18 @@ h1 span{
 }
 
 .menu-content{
-  width:80%;
+  width:100%;
   position:relative;
   margin:0 auto;
 }
+/*.menu-content .log {
+   left:30%;
+   
+}*/
 
 .menu-content .logoImg {
-   /*color:#333;*/
-   /*font-weight:700;*/
-   /*font-size:24px;*/
-   /*width:35px;*/
-   /*line-height:50px;*/
    float:left;
-   /*list-style: none;*/
+   margin-left:30px;
   padding: 10px;
 }
 
@@ -299,7 +309,6 @@ h1 span{
    line-height:60px;
    float:left;
    list-style: none;
-  /*padding: 0 10px 0 10px;*/
  }
 
 .menu-content .logo:hover{
@@ -307,12 +316,12 @@ h1 span{
 }
 
 .menu-content ul{
-
-  /*width:800px;*/
-  left:80%;
   float:right;
   text-align:right;
   list-style:none;
+  margin-right:30px;
+  line-height:60px;
+
 }
 
 .menu-content li{
@@ -323,14 +332,8 @@ h1 span{
 .menu-content li a{
   color:#333;
   font-size:16px;
-  display: block;
   padding: 0 10px 0 10px;
   line-height:60px;
-  -webkit-transition: all 0.2s ease-in;
-	-moz-transition: all 0.2s ease-in;
-	-ms-transition: all 0.2s ease-in;
-	-o-transition: all 0.2s ease-in;
-	transition: all 0.2s ease-in;
 }
 
 .menu-content li.active a{
@@ -437,11 +440,11 @@ h1 span{
   border-radius: 100px;
   width: 100px;
   cursor:pointer;
-  -webkit-transition: all 0.2s ease-in;
-	-moz-transition: all 0.2s ease-in;
-	-ms-transition: all 0.2s ease-in;
-	-o-transition: all 0.2s ease-in;
-	transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .tutorials .column-one .circle-one:hover{
@@ -467,12 +470,12 @@ h1 span{
   -webkit-border-radius:100px;
   border-radius: 100px;
   width: 100px;
-  cursor:pointer;
-  -webkit-transition: all 0.2s ease-in;
-	-moz-transition: all 0.2s ease-in;
-	-ms-transition: all 0.2s ease-in;
-	-o-transition: all 0.2s ease-in;
-	transition: all 0.2s ease-in;
+    cursor:pointer;
+    -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .tutorials .column-two .circle-two:hover{
@@ -500,10 +503,10 @@ h1 span{
   width: 100px;
   cursor:pointer;
   -webkit-transition: all 0.2s ease-in;
-	-moz-transition: all 0.2s ease-in;
-	-ms-transition: all 0.2s ease-in;
-	-o-transition: all 0.2s ease-in;
-	transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .tutorials .column-three .circle-three:hover{
@@ -536,7 +539,7 @@ h1 span{
 
 .article .content .txt .img{
   float: left;
-  position:center;
+  /*position:center;*/
   width: 35%;
 }
 
@@ -596,6 +599,7 @@ h1 span{
   color:#ada074;
 }
 
+
 .article .content .txt .text h8 l{
   font-size:14px;
   color: #a4a4a4;
@@ -609,19 +613,20 @@ h1 span{
   color: #a4a4a4;
   text-align:left;
   margin-top: 10px;
-  margin-left: 40px;
+  margin-bottom: 5px;
+  margin-left: 30px;
   font-weight:300;
 }
 
-.article .content .txt .text h8 l a{
+.article .content .txt .text h8 r a{
   font-size:14px;
   color:black;
   text-align:left;
   margin-top: 10px;
-  /*margin-left: 20px;*/
+  margin-left: 10px;
   font-weight:300;
 }
-.article .content .txt .text h8 l a:hover{
+.article .content .txt .text h8 r a:hover{
   color:#ada074;
 }
 
@@ -632,8 +637,16 @@ h1 span{
   margin: 10px auto;
   overflow: hidden;
 }
+.article .content .nav h6{
+  margin-top: 0px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  font-size:16px;
+  color:black;
+  font-weight:400;
+}
 
-.article .content .nav pc h8 a{
+.article .content .nav pcc h8 a{
   margin-top: 30px;
   margin-left: 60px;
   /*text-align:center;*/
@@ -642,7 +655,42 @@ h1 span{
   /*position:relative;*/
   font-weight:400;
 }
+.article .content .nav pcc h8 a:hover{
+  color:#ada074;
+}
+
+.article .content .nav pc h8 a{
+  margin-top: 30px;
+  margin-left: 60px;
+  /*text-align:center;*/
+  font-size:18px;
+   color: #333;
+  /*position:relative;*/
+  font-weight:400;
+}
 .article .content .nav pc h8 a:hover{
+  color:#ada074;
+}
+
+.article .content .nav pt h10 a{
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size:16px;
+  color: #333;
+  font-weight:300;
+}
+.article .content .nav pt h10 a:hover{
+  color:#ada074;
+}
+
+.article .content .nav pct h10 a{
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size:16px;
+  color:black;
+  font-weight:400;
+}
+.article .content .nav pct h10 a:hover{
   color:#ada074;
 }
 
@@ -657,19 +705,29 @@ h1 span{
   color:#ada074;
 }
 
-.article .content .nav .author pc h8 a{
+.article .content .nav .author pa h8 a{
   /*margin-top: 40px;*/
-  margin-left: 120px;
+  margin-left: 60px;
   font-size:16px;
   color: #333;
   font-weight:300;
 }
-.article .content .nav .author  pc h8 a:hover{
+.article .content .nav .author  pa h8 a:hover{
+  color:#ada074;
+}
+.article .content .nav .author pca h8 a{
+  /*margin-top: 40px;*/
+  margin-left: 60px;
+  font-size:16px;
+  color:black;
+  font-weight:400;
+}
+.article .content .nav .author  pca h8 a:hover{
   color:#ada074;
 }
 
-.article .content .nav .author  .child h10 a{
-  /*margin-top: 40px;*/
+/*.article .content .nav .author  .child h10 a{
+ 
   margin-left: 120px;
   font-size:16px;
   color: #333;
@@ -677,7 +735,8 @@ h1 span{
 }
 .article .content .nav .author  .child h10 a:hover{
   color:#ada074;
-}
+}*/
+
 
 .article .content .nav h1{
   font-size:28px;
@@ -698,6 +757,14 @@ h1 span{
   width:106px;
   border:0;
 }
+
+.article .content .nav h8{
+  font-size: 20px;
+  color:black;
+  margin-top:0px;
+  font-weight: 300;
+}
+
 
 .article .content .nav pc{
   font-size: 16px;
@@ -739,23 +806,25 @@ h1 span{
   font-weight:200;
 }
 
-.article .content .txt h10 p{
-  font-size:14px;
-  color:#a4a4a4;
-  text-align:center;
-  margin-top: 20px;
-  font-weight:200;
-}
-
-.article .content .txt h10 p a{
+.article .content .txt h8 p a{
   font-size:14px;
   color:black;
   text-align:center;
   margin-top: 20px;
   font-weight:300;
 }
-.article .content .txt h10 p a:hover{
+.article .content .txt h8 p a:hover{
   color:#ada074;
+}
+
+.article .content .txt h10 p{
+  font-size:14px;
+  color:#a4a4a4;
+  text-align:left;
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+  font-weight:200;
 }
 
 .article .content .txt h1{
@@ -786,6 +855,8 @@ h1 span{
   line-height: 26px;
   padding: 1% 0 3%;
 }
+
+
 
 .article p.title{
   color: #a4a4a4;
@@ -854,17 +925,15 @@ h1 span{
   font-weight: 600;
   margin-bottom: 3%;
 }
-.txt h6 a{
+.txt .text h6 a{
   font-size: 1.4em;
    color:black;
   font-weight: 500;
-  margin-top:10px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  text-align:left;
+  margin-top: 20px;
+  margin-left: 30px;
 }
-.txt h6 a:hover{
+.txt .text h6 a:hover{
   color:#ada074;
 }
 
@@ -900,11 +969,11 @@ h1 span{
   font-size:14px;
   background:none;
   -webkit-transition: all 0.6s ease-in;
-	-moz-transition: all 0.6s ease-in;
-	-ms-transition: all 0.6s ease-in;
-	-o-transition: all 0.6s ease-in;
-	transition: all 0.6s ease-in;
-	letter-spacing:1px;
+  -moz-transition: all 0.6s ease-in;
+  -ms-transition: all 0.6s ease-in;
+  -o-transition: all 0.6s ease-in;
+  transition: all 0.6s ease-in;
+  letter-spacing:1px;
 }
 
 .portfolio .portfolio-margin .read-more:hover{
@@ -968,10 +1037,10 @@ h1 span{
   z-index: 2;
   opacity:0;
     -webkit-transition: all 0.6s ease-in;
-	-moz-transition: all 0.6s ease-in;
-	-ms-transition: all 0.6s ease-in;
-	-o-transition: all 0.6s ease-in;
-	transition: all 0.6s ease-in;
+  -moz-transition: all 0.6s ease-in;
+  -ms-transition: all 0.6s ease-in;
+  -o-transition: all 0.6s ease-in;
+  transition: all 0.6s ease-in;
 }
 
 .grid .text:hover {
@@ -986,10 +1055,10 @@ h1 span{
   z-index: 2;
   opacity:0;
   -webkit-transition: all 0.6s ease-in;
-	-moz-transition: all 0.6s ease-in;
-	-ms-transition: all 0.6s ease-in;
-	-o-transition: all 0.6s ease-in;
-	transition: all 0.6s ease-in;
+  -moz-transition: all 0.6s ease-in;
+  -ms-transition: all 0.6s ease-in;
+  -o-transition: all 0.6s ease-in;
+  transition: all 0.6s ease-in;
 }
 
 .grid .no-text:hover {
@@ -1028,7 +1097,7 @@ h1 span{
   width:100%;
   z-index:10;
   height:400px;
-  background:url('../img/background/partner.jpg') 0px 0px fixed;
+  background:url('../img/background/partners.jpg') 0px 0px fixed;
     -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1072,10 +1141,10 @@ h1 span{
 .partners .logo img{
   opacity:0.5;
   -webkit-transition: all 0.2s ease-in;
-	-moz-transition: all 0.2s ease-in;
-	-ms-transition: all 0.2s ease-in;
-	-o-transition: all 0.2s ease-in;
-	transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .partners .logo img:hover{
@@ -1179,16 +1248,15 @@ h1 span{
   letter-spacing:1px;
 }
 
-.login .content .form .column-3 .logo h2{
+.login .content .form .column-5{
   width:455px;
   overflow:hidden;
-  color:black;
   height:auto;
   font-weight:700;
-  text-align:center;
+  float:right;
   padding-right:230px;
 }
-.login .content .form .column-3 .logo h2:hover{
+.login .content .form .column-5:hover{
    color:#ada074;
 }
 
@@ -1226,10 +1294,10 @@ h1 span{
   letter-spacing:1px;
   background:none;
   -webkit-transition: all 0.6s ease-in;
-	-moz-transition: all 0.6s ease-in;
-	-ms-transition: all 0.6s ease-in;
-	-o-transition: all 0.6s ease-in;
-	transition: all 0.6s ease-in;
+  -moz-transition: all 0.6s ease-in;
+  -ms-transition: all 0.6s ease-in;
+  -o-transition: all 0.6s ease-in;
+  transition: all 0.6s ease-in;
 }
 
 .login .content .form .loginUp:hover{
@@ -1302,10 +1370,10 @@ input.submit{
   text-align:left;
   background:none;
   /*-webkit-transition: all 0.6s ease-in;*/
-	/*-moz-transition: all 0.6s ease-in;*/
-	/*-ms-transition: all 0.6s ease-in;*/
-	/*-o-transition: all 0.6s ease-in;*/
-	/*transition: all 0.6s ease-in;*/
+  /*-moz-transition: all 0.6s ease-in;*/
+  /*-ms-transition: all 0.6s ease-in;*/
+  /*-o-transition: all 0.6s ease-in;*/
+  /*transition: all 0.6s ease-in;*/
 }
 input.submit:hover{
   color:white;
@@ -1330,10 +1398,10 @@ input.button{
   text-align:center;
   background:none;
   -webkit-transition: all 0.6s ease-in;
-	-moz-transition: all 0.6s ease-in;
-	-ms-transition: all 0.6s ease-in;
-	-o-transition: all 0.6s ease-in;
-	transition: all 0.6s ease-in;
+  -moz-transition: all 0.6s ease-in;
+  -ms-transition: all 0.6s ease-in;
+  -o-transition: all 0.6s ease-in;
+  transition: all 0.6s ease-in;
 }
 input.button:hover{
   color:white;
@@ -1525,10 +1593,10 @@ input.submit{
   text-align:right;
   background:none;
   -webkit-transition: all 0.6s ease-in;
-	-moz-transition: all 0.6s ease-in;
-	-ms-transition: all 0.6s ease-in;
-	-o-transition: all 0.6s ease-in;
-	transition: all 0.6s ease-in;
+  -moz-transition: all 0.6s ease-in;
+  -ms-transition: all 0.6s ease-in;
+  -o-transition: all 0.6s ease-in;
+  transition: all 0.6s ease-in;
 }
 
 
@@ -1692,10 +1760,10 @@ input.submit{
   text-align:right;
   background:none;
   -webkit-transition: all 0.6s ease-in;
-	-moz-transition: all 0.6s ease-in;
-	-ms-transition: all 0.6s ease-in;
-	-o-transition: all 0.6s ease-in;
-	transition: all 0.6s ease-in;
+  -moz-transition: all 0.6s ease-in;
+  -ms-transition: all 0.6s ease-in;
+  -o-transition: all 0.6s ease-in;
+  transition: all 0.6s ease-in;
 }
 
 /* Footer */
@@ -1734,10 +1802,10 @@ input.submit{
   padding:10px;
   color:#a4a4a4;
   -webkit-transition: all 0.2s ease-in;
-	-moz-transition: all 0.2s ease-in;
-	-ms-transition: all 0.2s ease-in;
-	-o-transition: all 0.2s ease-in;
-	transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .footer .menu-footer a:hover{

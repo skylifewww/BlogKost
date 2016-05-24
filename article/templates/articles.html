@@ -1,3 +1,4 @@
+
 {% extends "index.html" %}
 {% load staticfiles %}
 {% load embed_video_tags %}
@@ -19,8 +20,9 @@
     </div>
 <div class="text">
     
-    <h8><l>Дата публикации: {{ article.article_date }}</l></h8>
+    {# <h8><l>Дата публикации: {{ article.article_date }}</l></h8> #}
         <h8><r>Автор публикации: <a href="/articles/author/get/{{ article.article_author.id }}/">{{ article.article_author }}</a></r></h8>
+        <p></p>
 
     <h6><a href="/articles/videos/get/{{ article.id }}/{{ art_page_number }}/">{{ article.article_title }}</a></h6>
         <h10>{{ article.short_text_ru|safe }}</h10>
@@ -33,34 +35,43 @@
 <p></p>
             {% endfor %}
 
-    <ul class="txt-center" role="menubar" aria-label="Pagination">
-                {% if articles.has_previous %}
-                <li class="arrow"><a href="/articles/videos/page/{{ articles.previous_page_number }}/">&laquo; Назад</a></li>
-                {% else %}
-                <li class="arrow_unavailable"><a href="">&laquo;</a></li>
-                {% endif %}
-                {% for page in articles.paginator.page_range %}
-                    {% if page == articles.number %}
-                        <li class="current"><a href="/articles/videos/page/{{ page }}/">{{ page }}</a></li>
-                    {% else %}
-                        <li class="current_not"><a href="/articles/videos/page/{{ page }}/">{{ page }}</a></li>
-                    {% endif %}
-                {% endfor %}
-                {% if articles.has_next %}
-                <li class="arrow"><a href="/articles/videos/page/{{ articles.next_page_number }}/">Вперед &raquo;</a></li>
-                {% else %}
-                <li class="arrow_unavailable"><a href="">&raquo;</a></li>
-                {% endif %}
-    </ul>            
+    {# <ul class="txt-center" role="menubar" aria-label="Pagination"> #}
+
+                {# {% if not articles %} #}
+                {# <h10>Материалов по этой теме пока еще нет.</h10> #}
+                {# {% else %} #}
+                {# {% if articles.has_previous %} #}
+                {# <li class="arrow"><a href="/articles/videos/page/{{ articles.previous_page_number }}/">&laquo; Назад</a></li> #}
+                {# {% else %} #}
+                {# <li class="arrow_unavailable"><a href="">&laquo;</a></li> #}
+                {# {% endif %} #}
+                {# {% for page in articles.paginator.page_range %} #}
+                    {# {% if page == articles.number %} #}
+                        {# <li class="current"><a href="/articles/videos/page/{{ page }}/">{{ page }}</a></li> #}
+                    {# {% else %} #}
+                        {# <li class="current_not"><a href="/articles/videos/page/{{ page }}/">{{ page }}</a></li> #}
+                    {# {% endif %} #}
+                {# {% endfor %} #}
+                {# {% if articles.has_next %} #}
+                {# <li class="arrow"><a href="/articles/videos/page/{{ articles.next_page_number }}/">Вперед &raquo;</a></li> #}
+                {# {% else %} #}
+                {# <li class="arrow_unavailable"><a href="">&raquo;</a></li> #}
+                {# {% endif %} #}
+                 {# {% endif %} #}
+    {# </ul>                #}
 </div>
 
-<div class="nav">
+<ul class="nav">
+<ul class="author">
+<h6>Courses:</h6>
 
-<h6>Categories</h6>
-<ul>
     {% recursetree categories %}
         <li>
-          <pc><h8><a  href="/articles/category/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pc>
+        {% if node == current_category %}
+          <pca><h8><a  href="/articles/category/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pca>
+          {% else %}
+          <pa><h8><a  href="/articles/category/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pa>
+           {% endif %}
 
             {% if node.is_root_node %}
                 {% ifequal node.id root_category_id %}
@@ -83,16 +94,20 @@
                     {% endif %}
                 {% endif %}
             {% endif %}
-        </li>
+       </li>
     {% endrecursetree %}
-</ul>
+
 <p></p>
 
-<h8>Our authors</h8>
-<ul class="author">
+<h6>Our authors:</h6>
+
     {% recursetree authors %}
         <li>
-          <pc><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pc>
+        {% if node == current_author %}
+          <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pca>
+          {% else %}
+          <pa><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pa>
+           {% endif %}
 
             {% if node.is_root_node %}
                 {% ifequal node.id root_author_id %}
@@ -118,8 +133,21 @@
         </li>
     {% endrecursetree %}
 </ul>
- 
-</div> 
+
+<p></p>
+ <h6>Tags:</h6>
+
+ <ul> 
+{% for tag in tags %}
+{% if tag == current_tag %}
+<pct><h10><a href="/articles/tag/get/{{ tag.id }}/">{{ tag }}</a></h10></pct>
+{% else %}
+<pt><h10><a href="/articles/tag/get/{{ tag.id }}/">{{ tag }}</a></h10></pt>
+ {% endif %}
+ {# {% if not forloop.last %},{% endif %} #}
+ {% endfor %}  
+ </ul>
+ </ul>
          
     </div>
     </div>

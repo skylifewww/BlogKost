@@ -2,10 +2,12 @@ from django.shortcuts import render_to_response, redirect
 from django.contrib import auth
 from django.contrib.auth.forms import UserCreationForm
 from django.template.context_processors import csrf
+from article.models import Category
 
 
 def login(request):
     args = {}
+    args['categories'] = Category.objects.all()
     args.update(csrf(request))
     # print("test")
 
@@ -32,6 +34,7 @@ def logout(request):
 
 def register(request):
     args = {}
+    args['categories'] = Category.objects.all()
     args.update(csrf(request))
     args['form'] = UserCreationForm()
     if request.POST:

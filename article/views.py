@@ -27,6 +27,7 @@ def articles(request, page_number=1):
     return_path_f(request)
 
     args = {}
+    args['tags'] = Tag.objects.all()
     args['articles'] = current_page.page(page_number)
     args['username'] = auth.get_user(request).username
     args['art_page_number'] = page_number       
@@ -46,6 +47,7 @@ def article(request, article_id=1, art_page_number=1):
 
     args["article"] = Article.objects.get(id=article_id)
     args["author"] = Author.objects.filter(id=article_id)
+    args['tags'] = Tag.objects.all()
     args["comments"] = all_comments
     args["form"] = CommentForm
     args["username"] = auth.get_user(request).username
@@ -90,7 +92,9 @@ def category(request, category_id=1, page_number=1):
     root_category_id = current_category.get_root().id
     all_article = Article.objects.filter(article_category__in=current_category.get_descendants(include_self=True))
     current_page = Paginator(all_article, 3)
+    
     args = {}
+    args['tags'] = Tag.objects.all()
     args['current_category'] = current_category
     args['root_category_id'] = root_category_id
     args['categories'] = Category.objects.all()
@@ -98,16 +102,18 @@ def category(request, category_id=1, page_number=1):
     args['articles'] = current_page.page(page_number)
     args['art_page_number'] = page_number
     args['username'] = auth.get_user(request).username
-
-    return render_to_response('category.html', args, context_instance=RequestContext(request))    
+    
+    return render_to_response('articles.html', args, context_instance=RequestContext(request))    
 
 
 def authors(request, author_id=1, page_number=1):
     all_article = Article.objects.filter(article_author_id=author_id)
-    current_page = Paginator(all_article, 3)
+
     current_author = Author.objects.get(id=author_id)
     root_author_id = current_author.get_root().id
+    current_page = Paginator(all_article, 3)
     args = {}
+    args['tags'] = Tag.objects.all()
     args['current_author'] = current_author
     args['root_author_id'] = root_author_id
     args['authors'] = Author.objects.all()
@@ -116,5 +122,23 @@ def authors(request, author_id=1, page_number=1):
     args['art_page_number'] = page_number
     args['username'] = auth.get_user(request).username
 
-    return render_to_response('category.html', args, context_instance=RequestContext(request))    
+    return render_to_response('articles.html', args, context_instance=RequestContext(request))    
+
+
+def tags(request, tag_id=1, page_number=1):
+    
+    current_tag = Tag.objects.get(id=tag_id)
+    args = {}
+    args['tags'] = Tag.objects.all()
+    all_article = Article.objects.filter(article_tag__tag_name__exact=current_tag)
+    current_page = Paginator(all_article, 3)
+    args['current_tag'] = current_tag
+    args['authors'] = Author.objects.all()
+    args['categories'] = Category.objects.all()
+    args['articles'] = current_page.page(page_number)
+    args['art_page_number'] = page_number
+    args['username'] = auth.get_user(request).username
+
+    return render_to_response('articles.html', args, context_instance=RequestContext(request))    
+
 
