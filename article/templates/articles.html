@@ -24,7 +24,11 @@
         <h8><r>Автор публикации: <a href="/articles/author/get/{{ article.article_author.id }}/">{{ article.article_author }}</a></r></h8>
         <p></p>
 
+    {% if article.text_published %}
     <h6><a href="/articles/videos/get/{{ article.id }}/{{ art_page_number }}/">{{ article.article_title }}</a></h6>
+    {% else %}
+    <h6>{{ article.article_title }}</h6>
+    {% endif %}
         <h10>{{ article.short_text_ru|safe }}</h10>
 
     

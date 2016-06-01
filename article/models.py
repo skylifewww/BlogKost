@@ -96,6 +96,8 @@ class Article(models.Model):
     full_text_ru = RichTextUploadingField(blank=True, verbose_name="Полное описание RU")
     full_text_en = RichTextUploadingField(blank=True, verbose_name="Полное описание EN")
     article_video = EmbedVideoField(verbose_name='Видео', blank=True, help_text='описание видео', null=True)
+    video_published = models.BooleanField( blank=True, default="")
+    text_published = models.BooleanField( blank=True, default="")
 
     class Meta:
         db_table = 'article'

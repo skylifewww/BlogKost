@@ -12,14 +12,14 @@ class CommentsInLine(admin.StackedInline):
 
 
 class ArticleAdmin(AdminVideoMixin, admin.ModelAdmin):
-    fields = ["article_author", "article_title", "article_video", "article_date", 'short_text_ru',
-              'full_text_ru',
+    fields = ["article_author", "article_title", "article_video", 'video_published', "article_date", 'short_text_ru',
+              'full_text_ru', 'text_published',
               "article_tag", "article_category"]
 
     inlines = [CommentsInLine]
-    list_filter = ["article_date", "article_tag", "article_category", "article_author"]
-    search_fields = ["article_title", "article_author", "article_category", "article_tag"]
-    list_display = ["article_title", "article_author", "article_category"]
+    list_filter = ["article_date", "article_tag", "article_category", "article_author", 'video_published', 'text_published']
+    search_fields = ["article_title", "article_author", "article_category", "article_tag", 'video_published', 'text_published']
+    list_display = ["article_title", "article_author", "article_category", 'video_published', 'text_published']
 
 
 class  CategoryAdmin(admin.ModelAdmin):
