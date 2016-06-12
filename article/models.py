@@ -84,7 +84,7 @@ class Tag(models.Model):
 
 
 class Article(models.Model):
-    article_title = models.CharField(max_length=200, verbose_name="Название статьи")
+    article_title = models.CharField(max_length=250, verbose_name="Название статьи")
     article_date = models.DateTimeField(verbose_name="Дата публикации статьи")
     article_number = models.IntegerField(default=0, verbose_name="Номер статьи", blank=True, null=True)
     article_likes = models.IntegerField(default=0, verbose_name="Лайки")
@@ -97,7 +97,7 @@ class Article(models.Model):
     image = ThumbnailerImageField(upload_to=make_upload_path, blank=True, verbose_name="Изображение")
     full_text_ru = RichTextUploadingField(blank=True, verbose_name="Полное описание RU")
     full_text_en = RichTextUploadingField(blank=True, verbose_name="Полное описание EN")
-    article_video = EmbedVideoField(verbose_name='Видео', blank=True, help_text='описание видео', null=True)
+    article_video = EmbedVideoField(verbose_name='Видео', blank=True, help_text='URL video', null=True)
     video_published = models.BooleanField( blank=True, default="")
     text_published = models.BooleanField( blank=True, default="")
 
