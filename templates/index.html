@@ -65,11 +65,15 @@
       <ul id="menu">
         <li><a href="/">HOME</a></li>
           {# <li><a href="/tutorials/">TUTORIALS</a></li> #}
-        {% if art_page_number %}
-				<li><a href="/articles/videos/page/{{ art_page_number }}/">TUTORIALS</a></li>
-            {% else %}
-				<li><a href="/articles/videos/page/{{ 1 }}/">TUTORIALS</a></li>
-             {% endif %}
+      
+				<li><a href="/articles/videos/page/">TUTORIALS</a></li>
+        
+
+        {# {% if art_page_number %} #}
+        {# <li><a href="/articles/videos/page/{{ art_page_number }}/">TUTORIALS</a></li> #}
+            {# {% else %} #}
+        {# <li><a href="/articles/videos/page/{{ 1 }}/">TUTORIALS</a></li> #}
+             {# {% endif %}      #}
 
         {# {% if art_page_number %} #}
 				{# <li><a href="/articles/writtens/page/{{ art_page_number }}/">WRITTEN</a></li> #}
