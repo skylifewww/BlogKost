@@ -5,7 +5,7 @@ from blogKost import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    url(r'^videos/get/(?P<article_id>\d+)/(?P<art_page_number>\d+)/$', article.views.article),
+    url(r'^videos/get/(?P<category_id>\d+)/(?P<article_id>\d+)/$' article.views.article),
     url(r'^page/article/addlike/(?P<article_id>\d+)/$', article.views.addlike),
     url(r'^article/addcomment/(?P<article_id>\d+)/$', article.views.addcomment),
     url(r'^videos/page/$', article.views.articles),
