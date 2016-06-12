@@ -21,7 +21,7 @@
 
 <div class="column-two">
 
-          {% if article.article_number < article.article_category.number_articlies %}
+          {% if article.article_number < len_dict %}
       <a href="/articles/article/page/{{ article.next_art }}/{{ current_category.id }}/"><div class="circle-two"></div></a>
             {% else %}
        <h10></h10>
@@ -57,7 +57,7 @@
 
 <div class="column-two">
 
-          {% if article.article_number < article.article_category.number_articlies %}
+          {% if article.article_number < len_dict %}
       <a href="/articles/article/page/{{ article.next_art }}/{{ current_category.id }}/"><div class="circle-two"></div></a>
             {% else %}
        <h10></h10>
@@ -107,7 +107,7 @@
 
 <div class="column-two">
 
-          {% if article.article_number < article.article_category.number_articlies %}
+          {% if article.article_number < len_dict %}
       <a href="/articles/article/page/{{ article.next_art }}/{{ current_category.id }}/"><div class="circle-two"></div></a>
             {% else %}
        <h10></h10>
