@@ -191,7 +191,8 @@ DATABASES = {
     }
 }
 
-db_config = dj_database_url.config()
+db_config = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 if db_config:
     DATABASES['default'] =  db_config
 
