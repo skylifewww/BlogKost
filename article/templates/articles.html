@@ -15,17 +15,40 @@
 
 <div class="img">
 
+{% if article.video_published %}
+    
             {% video article.article_video '220x160' %}
+{% else %} 
+
+    {% if article.image %}
+
+        {% if current_category or current_author or current_tag %}
+
+            <img src="{{ article.image.url}}" width="220px" height="160px">
+
+        {% else %} 
+
+            <img src="{{MEDIA_URL}}{{ article.image.url}}" width="220px" height="160px">
+
+        {% endif %}    
+            
+    {% else %}    
+
+            <img src="{% static 'blog/img/image_fix.png' %}" width="220px" height="160px">    
+
+    {% endif %}
+    
+{% endif %}
 
     </div>
 <div class="text">
     
     {# <h8><l>Дата публикации: {{ article.article_date }}</l></h8> #}
-        <h8><r>Автор публикации: <a href="/articles/author/get/{{ article.article_author.id }}/">{{ article.article_author }}</a></r></h8>
+         <h8><r>Автор публикации: <a href="/articles/author/get/{{ article.article_author.id }}/">{{ article.article_author }}</a></r></h8>
+        <h8><r>Курс: <a href="/articles/category/get/{{ article.article_category.id }}/">{{ article.article_category }}</a></r></h8>
         <p></p>
-
-    {% if article.text_published %}
-    <h6><a href="/articles/videos/get/{{ article.id }}/{{ art_page_number }}/">{{ article.article_title }}</a></h6>
+{% if article.text_published %}
+    <h6><a href="/articles/videos/get/{{ article.article_category.id }}/{{ article.id }}/">{{ article.article_title }}</a></h6>
     {% else %}
     <h6>{{ article.article_title }}</h6>
     {% endif %}

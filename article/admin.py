@@ -13,8 +13,8 @@ class CommentsInLine(admin.StackedInline):
 
 class ArticleAdmin(AdminVideoMixin, admin.ModelAdmin):
     fields = ["article_author", "article_title", "article_video", 'video_published', "article_date", 'short_text_ru',
-              'full_text_ru', 'text_published',
-              "article_tag", "article_category"]
+              'full_text_ru', 'text_published', 'image',
+              "article_tag", "article_category", 'article_number']
 
     inlines = [CommentsInLine]
     list_filter = ["article_date", "article_tag", "article_category", "article_author", 'video_published', 'text_published']
@@ -23,7 +23,7 @@ class ArticleAdmin(AdminVideoMixin, admin.ModelAdmin):
 
 
 class  CategoryAdmin(admin.ModelAdmin):
-      fields = ['name', 'category_title', 'parent']
+      fields = ['name', 'category_title', 'number_articlies', 'parent']
 
 
 class  AuthorAdmin(admin.ModelAdmin):
