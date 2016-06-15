@@ -3,11 +3,15 @@
 {% load mptt_tags %}
 {% block article_id %}
 {% load i18n mptt_tags %}
+{% load social_share %}
+
 
 <div class="article">
 <div class="content">
 
 <div class="txt">
+
+<h8>{% post_to_facebook object_or_url "Post to Facebook!" %}</h8>
 
 <div class="column-one">
 
@@ -44,7 +48,7 @@
 <h1>{{ article.article_title }}</h1>
 <p>{{ article.full_text_ru|safe }}</p>
 <hr>
-
+<h8>{% post_to_facebook object_or_url "Post to Facebook!" %}</h8>
 <div class="column-one">
 
              {% if article.article_number > 1 %}
@@ -95,6 +99,7 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
+<h8>{% post_to_facebook object_or_url "Post to Facebook!" %}</h8>
 <div class="column-one">
 
              {% if article.article_number > 1 %}
