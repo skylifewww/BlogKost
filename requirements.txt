@@ -26,4 +26,4 @@ django-debug-toolbar
 python-social-auth
 django-ckeditor==5.0.0
 django-mptt==0.8.4
-django-social-share-0.1
+django-social-share
