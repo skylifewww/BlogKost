@@ -3,7 +3,7 @@
 {% load mptt_tags %}
 {% block article_id %}
 {% load i18n mptt_tags %}
-{% load social_share %}
+
 
 
 <div class="article">
@@ -12,7 +12,7 @@
 <div class="txt">
 
 
-<h8><a href="http://www.facebook.com/sharer/sharer.php?u=http://blogkost.herokuapp.com{/articles/videos/get/{{ article.article_category.id }}/{{ article.id }}/" target="_blank"><img src="{% static 'blog/img/icons/facebook_butt.png' %}" width="35px" height="35px"></a></h8>
+<h8><a href="http://www.facebook.com/sharer/sharer.php?u=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank"><img src="{% static 'blog/img/icons/facebook_butt.png' %}" width="35px" height="35px"></a></h8>
 
 <h8><a href="https://twitter.com/home?status=New%20IOS%20tutorial:%20{{article.article_title }}%20blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank"><img src="{% static 'blog/img/icons/twitter_button.png' %}" width="35px" height="35px"></a></h8>
 
@@ -57,7 +57,7 @@
 <hr>
 
 
-<h8><a href="http://www.facebook.com/sharer/sharer.php?u=http://blogkost.herokuapp.com{/articles/videos/get/{{ article.article_category.id }}/{{ article.id }}/" target="_blank"><img src="{% static 'blog/img/icons/facebook_butt.png' %}" width="35px" height="35px"></a></h8>
+<h8><a href="http://www.facebook.com/sharer/sharer.php?u=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank"><img src="{% static 'blog/img/icons/facebook_butt.png' %}" width="35px" height="35px"></a></h8>
 
 <h8><a href="https://twitter.com/home?status=New%20IOS%20tutorial:%20{{article.article_title }}%20blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank"><img src="{% static 'blog/img/icons/twitter_button.png' %}" width="35px" height="35px"></a></h8>
 
@@ -116,7 +116,7 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
-<h8><a href="http://www.facebook.com/sharer/sharer.php?u=http://blogkost.herokuapp.com{/articles/videos/get/{{ article.article_category.id }}/{{ article.id }}/" target="_blank"><img src="{% static 'blog/img/icons/facebook_butt.png' %}" width="35px" height="35px"></a></h8>
+<h8><a href="http://www.facebook.com/sharer/sharer.php?u=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank"><img src="{% static 'blog/img/icons/facebook_butt.png' %}" width="35px" height="35px"></a></h8>
 
 <h8><a href="https://twitter.com/home?status=New%20IOS%20tutorial:%20{{article.article_title }}%20blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank"><img src="{% static 'blog/img/icons/twitter_button.png' %}" width="35px" height="35px"></a></h8>
 
