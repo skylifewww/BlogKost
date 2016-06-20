@@ -536,6 +536,20 @@ h1 span{
   margin: 10px auto;
   overflow: hidden;
 }
+
+.article .content .txt h8 a img{
+  opacity:0.5;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.article .content .txt h8 a img:hover{
+  opacity:1;
+}
+
 .article .content .txt .column-one{
   margin-top:0px;
   width:50%;
