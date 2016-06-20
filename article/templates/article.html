@@ -16,14 +16,14 @@
 
 <h8><a href="https://twitter.com/home?status=New%20IOS%20tutorial:%20{{article.article_title }}%20blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank"><img src="{% static 'blog/img/icons/twitter_button.png' %}" width="35px" height="35px"></a></h8>
 
-<h8><a href="http://vk.com/share.php?url=http://blogkost.herokuapp.com{{{ request.get_full_path|urlencode }}" target="_blank"><img src="{% static 'blog/img/icons/vk_button.png' %}" width="35px" height="35px"></a></h8>
+<h8><a href="http://vk.com/share.php?url=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank"><img src="{% static 'blog/img/icons/vk_button.png' %}" width="35px" height="35px"></a></h8>
 
 <div class="clear"></div>  
 
 <div class="column-one">
 
              {% if article.article_number > 1 %}
-        <a href="/articles/article/page/{{ article.prev_art }}/{{ current_category.id }}/"><div class="circle-one"></div></a>
+        <a href="/articles/article/page/{{ article.prev_art }}/{{ article.article_category.id }}/"><div class="circle-one"></div></a>
             {% else %}
          <h10></h10>
              {% endif %}
@@ -34,7 +34,7 @@
 <div class="column-two">
 
           {% if article.article_number < article.article_category.number_articlies %}
-      <a href="/articles/article/page/{{ article.next_art }}/{{ current_category.id }}/"><div class="circle-two"></div></a>
+      <a href="/articles/article/page/{{ article.next_art }}/{{ article.article_category.id }}/"><div class="circle-two"></div></a>
             {% else %}
        <h10></h10>
              {% endif %}
@@ -69,7 +69,7 @@
 <div class="column-one">
 
              {% if article.article_number > 1 %}
-        <a href="/articles/article/page/{{ article.prev_art }}/{{ current_category.id }}/"><div class="circle-one"></div></a>
+        <a href="/articles/article/page/{{ article.prev_art }}/{{ article.article_category.id }}/"><div class="circle-one"></div></a>
             {% else %}
          <h10></h10>
              {% endif %}
@@ -80,7 +80,7 @@
 <div class="column-two">
 
           {% if article.article_number < article.article_category.number_articlies %}
-      <a href="/articles/article/page/{{ article.next_art }}/{{ current_category.id }}/"><div class="circle-two"></div></a>
+      <a href="/articles/article/page/{{ article.next_art }}/{{ article.article_category.id }}/"><div class="circle-two"></div></a>
             {% else %}
        <h10></h10>
              {% endif %}
@@ -128,7 +128,7 @@
 <div class="column-one">
 
              {% if article.article_number > 1 %}
-        <a href="/articles/article/page/{{ article.prev_art }}/{{ current_category.id }}/"><div class="circle-one"></div></a>
+        <a href="/articles/article/page/{{ article.prev_art }}/{{ article.article_category.id }}/"><div class="circle-one"></div></a>
             {% else %}
          <h10></h10>
              {% endif %}
@@ -139,7 +139,7 @@
 <div class="column-two">
 
           {% if article.article_number < article.article_category.number_articlies %}
-      <a href="/articles/article/page/{{ article.next_art }}/{{ current_category.id }}/"><div class="circle-two"></div></a>
+      <a href="/articles/article/page/{{ article.next_art }}/{{ article.article_category.id  }}/"><div class="circle-two"></div></a>
             {% else %}
        <h10></h10>
              {% endif %}

@@ -45,7 +45,7 @@ def article(request, category_id, article_id=1):
     for article in course_articles:
         articles_of_course[article.article_number] = article
 
-    len_dict = len(articles_of_course)
+    # len_dict = len(articles_of_course)
 
     args = {}
 
@@ -53,7 +53,7 @@ def article(request, category_id, article_id=1):
 
     return_path_f(request)
 
-    args["len_dict"] = len_dict
+    # args["len_dict"] = len_dict
     args["article"] = Article.objects.get(id=article_id)
     args["author"] = Author.objects.filter(id=article_id)
     args['current_category'] = current_category
