@@ -51,7 +51,6 @@ INSTALLED_APPS = (
     'embed_video',
     'ckeditor',
     'ckeditor_uploader',
-    # 'django_social_share',
     'article',
     'loginsys',
     'django.contrib.admin',
