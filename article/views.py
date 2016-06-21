@@ -13,6 +13,7 @@ from django.template import loader, Context, RequestContext
 # Create your views here.
 articles_of_course = {} 
 
+
 def return_path_f(request):
     request.session.modified = True
     if 'return_path' in request.session:
