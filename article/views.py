@@ -38,7 +38,7 @@ def video_only(request):
     return render_to_response("articles.html", args)
 
 
-def vwritten_only(request):
+def written_only(request):
 
     return_path_f(request)
 
