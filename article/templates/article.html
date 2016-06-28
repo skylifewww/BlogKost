@@ -19,11 +19,11 @@
 <h8><a href="http://vk.com/share.php?url=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="VKontakte"><img src="{% static 'blog/img/icons/vk_button.png' %}" width="35px" height="35px"></a></h8>
 
 {% if article.video_only %}
-<h8><r><img src="{% static 'blog/img/icons/video.png' %}" width="27px" height="27px" title="Video tutorial"></r></h8>
+<h8><img src="{% static 'blog/img/icons/video.png' %}" width="35px" height="35px" title="Video tutorial"></h8>
 {% endif %}
 
 {% if article.written_only %}
-<h8><r><img src="{% static 'blog/img/icons/written.png' %}" width="27px" height="27px" title="Written tutorial"></r></h8>
+<h8><img src="{% static 'blog/img/icons/written.png' %}" width="35px" height="35px" title="Written tutorial"></h8>
 {% endif %}
 
 <div class="clear"></div>  
