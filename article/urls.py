@@ -7,7 +7,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     url(r'^videos/get/(?P<category_id>\d+)/(?P<article_id>\d+)/$', article.views.article),
     url(r'^page/article/addlike/(?P<article_id>\d+)/$', article.views.addlike),
-    url(r'^article/addcomment/(?P<article_id>\d+)/$', article.views.addcomment),
+    # url(r'^article/addcomment/(?P<article_id>\d+)/$', article.views.addcomment),
     url(r'^videos/page/$', article.views.articles),
     url(r'^videos/only/$', article.views.video_only),
     url(r'^writtens/only/$', article.views.vwritten_only),

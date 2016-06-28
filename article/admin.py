@@ -20,6 +20,7 @@ class ArticleAdmin(AdminVideoMixin, admin.ModelAdmin):
     list_filter = ["article_date", "article_tag", "article_category", "article_author", 'video_published', 'text_published', "video_only", "written_only"]
     search_fields = ["article_title", "article_author", "article_category", "article_tag", 'video_published', 'text_published']
     list_display = ["article_title", "article_author", "article_category", 'video_published', 'text_published', "video_only", "written_only"]
+    list_editable = ['video_published', 'text_published', "video_only", "written_only"]
 
 
 class  CategoryAdmin(admin.ModelAdmin):

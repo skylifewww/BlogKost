@@ -30,7 +30,7 @@ def video_only(request):
 
     args = {}
     args['tags'] = Tag.objects.all()
-    args['articles'] = Article.objects.filter(video_only=1).order_by('ordering')
+    args['articles'] = Article.objects.filter(video_only=1)
     args['username'] = auth.get_user(request).username     
     args["categories"] = Category.objects.all()  
     args["authors"] = Author.objects.all()     
@@ -44,7 +44,7 @@ def vwritten_only(request):
 
     args = {}
     args['tags'] = Tag.objects.all()
-    args['articles'] = Article.objects.filter(vwritten_only=1).order_by('ordering')
+    args['articles'] = Article.objects.filter(vwritten_only=1)
     args['username'] = auth.get_user(request).username     
     args["categories"] = Category.objects.all()  
     args["authors"] = Author.objects.all()     
@@ -58,7 +58,7 @@ def articles(request):
 
     args = {}
     args['tags'] = Tag.objects.all()
-    args['articles'] = Article.objects.all().order_by('ordering')
+    args['articles'] = Article.objects.all()
     args['username'] = auth.get_user(request).username     
     args["categories"] = Category.objects.all()  
     args["authors"] = Author.objects.all()     
@@ -206,16 +206,16 @@ def addlike(request, article_id):
     return redirect(request.META.get('HTTP_REFERER', '/'))
 
 
-def addcomment(request, article_id):
-    if request.POST:
-        form = CommentForm(request.POST)
-        user = auth.get_user(request)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.comments_article = Article.objects.get(id=article_id)
-            comment.comments_user = user
-            form.save()
-    return redirect(request.META.get('HTTP_REFERER', '/'))
+# def addcomment(request, article_id):
+#     if request.POST:
+#         form = CommentForm(request.POST)
+#         user = auth.get_user(request)
+#         if form.is_valid():
+#             comment = form.save(commit=False)
+#             comment.comments_article = Article.objects.get(id=article_id)
+#             comment.comments_user = user
+#             form.save()
+#     return redirect(request.META.get('HTTP_REFERER', '/'))
 
 
 
