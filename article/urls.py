@@ -8,8 +8,6 @@ urlpatterns = [
 
     url(r'^videos/get/(?P<category_id>\d+)/(?P<article_id>\d+)/$', article.views.article),
 
-    url(r'^page/article/addlike/(?P<article_id>\d+)/$', article.views.addlike),
-
     url(r'^videos/page/$', article.views.articles),
 
     url(r'^videos/only/$', article.views.video_only),
@@ -27,10 +25,11 @@ urlpatterns = [
     url(r'^tag/get/(?P<tag_id>\d+)/$', article.views.tags),
 
     # url(r'^article/addcomment/(?P<article_id>\d+)/$', article.views.addcomment),
-    # # url(r'^writtens/page/$', article.views.articles),
+    #  url(r'^page/article/addlike/(?P<article_id>\d+)/$', article.views.addlike),
+    #  url(r'^writtens/page/$', article.views.articles),
     # url(r'^writtens/page/(\d+)/$', article.views.articles),
-    # # url(r'^videos/page/(\d+)/$', article.views.articles),
-    # 
+    # #url(r'^videos/page/(\d+)/$', article.views.articles),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
