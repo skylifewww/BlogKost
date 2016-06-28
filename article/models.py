@@ -100,7 +100,7 @@ class Article(models.Model):
     video_published = models.BooleanField( blank=True, default="")
     text_published = models.BooleanField( blank=True, default="")
     video_only = models.BooleanField( blank=True, default="")
-    article_only = models.BooleanField( blank=True, default="")
+    written_only = models.BooleanField( blank=True, default="")
 
 
     class Meta:

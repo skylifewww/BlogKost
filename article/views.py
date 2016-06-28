@@ -38,13 +38,13 @@ def video_only(request):
     return render_to_response("articles.html", args)
 
 
-def vwrittens_only(request):
+def vwritten_only(request):
 
     return_path_f(request)
 
     args = {}
     args['tags'] = Tag.objects.all()
-    args['articles'] = Article.objects.filter(vwrittens_only=1).order_by('ordering')
+    args['articles'] = Article.objects.filter(vwritten_only=1).order_by('ordering')
     args['username'] = auth.get_user(request).username     
     args["categories"] = Category.objects.all()  
     args["authors"] = Author.objects.all()     
