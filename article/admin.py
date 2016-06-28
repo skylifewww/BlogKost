@@ -14,12 +14,12 @@ from mptt.admin import MPTTModelAdmin
 class ArticleAdmin(AdminVideoMixin, admin.ModelAdmin):
     fields = ["article_author", "article_title", "article_video", 'video_published', "article_date", 'short_text_ru',
               'full_text_ru', 'text_published', 'image',
-              "article_tag", "article_category"]
+              "article_tag", "article_category", "video_only", "written_only"]
 
     # inlines = [CommentsInLine]
-    list_filter = ["article_date", "article_tag", "article_category", "article_author", 'video_published', 'text_published']
+    list_filter = ["article_date", "article_tag", "article_category", "article_author", 'video_published', 'text_published', "video_only", "written_only"]
     search_fields = ["article_title", "article_author", "article_category", "article_tag", 'video_published', 'text_published']
-    list_display = ["article_title", "article_author", "article_category", 'video_published', 'text_published']
+    list_display = ["article_title", "article_author", "article_category", 'video_published', 'text_published', "video_only", "written_only"]
 
 
 class  CategoryAdmin(admin.ModelAdmin):
