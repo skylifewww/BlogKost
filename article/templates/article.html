@@ -12,11 +12,19 @@
 <div class="txt">
 
 
-<h8><a href="http://www.facebook.com/sharer/sharer.php?u=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank"><img src="{% static 'blog/img/icons/facebook_butt.png' %}" width="35px" height="35px"></a></h8>
+<h8><a href="http://www.facebook.com/sharer/sharer.php?u=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Facebook"><img src="{% static 'blog/img/icons/facebook_butt.png' %}" width="35px" height="35px"></a></h8>
 
-<h8><a href="https://twitter.com/home?status=New%20IOS%20tutorial:%20{{article.article_title }}%20blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank"><img src="{% static 'blog/img/icons/twitter_button.png' %}" width="35px" height="35px"></a></h8>
+<h8><a href="https://twitter.com/home?status=New%20IOS%20tutorial:%20{{article.article_title }}%20blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Twitter"><img src="{% static 'blog/img/icons/twitter_button.png' %}" width="35px" height="35px"></a></h8>
 
-<h8><a href="http://vk.com/share.php?url=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank"><img src="{% static 'blog/img/icons/vk_button.png' %}" width="35px" height="35px"></a></h8>
+<h8><a href="http://vk.com/share.php?url=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="VKontakte"><img src="{% static 'blog/img/icons/vk_button.png' %}" width="35px" height="35px"></a></h8>
+
+{% if article.video_only %}
+<h8><r><img src="{% static 'blog/img/icons/video.png' %}" width="27px" height="27px" title="Video tutorial"></r></h8>
+{% endif %}
+
+{% if article.written_only %}
+<h8><r><img src="{% static 'blog/img/icons/written.png' %}" width="27px" height="27px" title="Written tutorial"></r></h8>
+{% endif %}
 
 <div class="clear"></div>  
 
