@@ -754,7 +754,7 @@ h1 span{
 
 .article .content .nav{
   float: right;
-  position:relative;
+  position:fixed;
   width:30%;
   margin: 10px auto;
   overflow: hidden;
