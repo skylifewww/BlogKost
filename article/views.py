@@ -44,7 +44,7 @@ def written_only(request):
 
     args = {}
     args['tags'] = Tag.objects.all()
-    args['articles'] = Article.objects.filter(vwritten_only=1)
+    args['articles'] = Article.objects.filter(written_only=1)
     args['username'] = auth.get_user(request).username     
     args["categories"] = Category.objects.all()  
     args["authors"] = Author.objects.all()     
