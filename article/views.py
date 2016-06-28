@@ -42,11 +42,19 @@ def article(request, category_id, article_id=1):
     all_comments = Comments.objects.filter(comments_article_id=article_id)
     current_category = Category.objects.get(id=category_id)
     course_articles = Article.objects.filter(article_category__in=current_category.get_descendants(include_self=True))
+    article = Article.objects.get(id=article_id)
+    article_number = 1
 
-    for article in course_articles:
-        articles_of_course[article.article_number] = article
+    i = 1
 
-    # len_dict = len(articles_of_course)
+    for art in course_articles:
+        articles_of_course[i] = art
+        if article_id == art.id:
+            article_number = i
+
+        i = i + 1
+
+    len_dict = len(articles_of_course)
 
     args = {}
 
@@ -54,8 +62,9 @@ def article(request, category_id, article_id=1):
 
     return_path_f(request)
 
-    # args["len_dict"] = len_dict
-    args["article"] = Article.objects.get(id=article_id)
+    args["len_dict"] = len_dict
+    args["article_number"] = article_number
+    args["article"] = article
     args["author"] = Author.objects.filter(id=article_id)
     args['current_category'] = current_category
     args['tags'] = Tag.objects.all()
@@ -68,20 +77,31 @@ def article(request, category_id, article_id=1):
     return render_to_response("article.html", args, context_instance=RequestContext(request))
 
 
-def article_left_right(request, art_page_number, category_id):
+def article_left_right(request, art_page_number, left_right):
 
-    art_page_number = int(art_page_number)
-    current_category = Category.objects.get(id=category_id)
-    article = articles_of_course[art_page_number]
+    article_number = 1
+    left_right = int(left_right)
+
+    if left_right == 0:
+        article_number = int(art_page_number) - 1
+
+    if left_right == 1:
+        article_number = int(art_page_number) + 1
+
+    
+    article = articles_of_course[article_number]
     article_id = article.id
-    all_comments = Comments.objects.filter(comments_article_id=article_id)
+    current_category = Category.objects.filter(id=article_id)
+    # all_comments = Comments.objects.filter(comments_article_id=article_id)
    
     args = {}
     args.update(csrf(request))
 
     return_path_f(request)
 
+    args["article_number"] = article_number
     args["article"] = article
+    args["len_dict"] = len(articles_of_course)
     args["author"] = Author.objects.filter(id=article_id)
     args['current_category'] = current_category
     args['tags'] = Tag.objects.all()

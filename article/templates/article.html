@@ -22,8 +22,8 @@
 
 <div class="column-one">
 
-             {% if article.article_number > 1 %}
-        <a href="/articles/article/page/{{ article.prev_art }}/{{ article.article_category.id }}/"><div class="circle-one"></div></a>
+           {% if article_number > 1 %}
+        <a href="/articles/article/page/{{ article_number }}/{{ 0 }}/" title="Назад"><div class="circle-one"></div></a>
             {% else %}
          <h10></h10>
              {% endif %}
@@ -33,8 +33,8 @@
 
 <div class="column-two">
 
-          {% if article.article_number < article.article_category.number_articlies %}
-      <a href="/articles/article/page/{{ article.next_art }}/{{ article.article_category.id }}/"><div class="circle-two"></div></a>
+          {% if article_number < len_dict %}
+      <a href="/articles/article/page/{{ article_number }}/{{ 1 }}/" title="Вперед"><div class="circle-two"></div></a>
             {% else %}
        <h10></h10>
              {% endif %}
@@ -68,8 +68,8 @@
 
 <div class="column-one">
 
-             {% if article.article_number > 1 %}
-        <a href="/articles/article/page/{{ article.prev_art }}/{{ article.article_category.id }}/"><div class="circle-one"></div></a>
+           {% if article_number > 1 %}
+        <a href="/articles/article/page/{{ article_number }}/{{ 0 }}/" title="Назад"><div class="circle-one"></div></a>
             {% else %}
          <h10></h10>
              {% endif %}
@@ -79,8 +79,8 @@
 
 <div class="column-two">
 
-          {% if article.article_number < article.article_category.number_articlies %}
-      <a href="/articles/article/page/{{ article.next_art }}/{{ article.article_category.id }}/"><div class="circle-two"></div></a>
+          {% if article_number < len_dict %}
+      <a href="/articles/article/page/{{ article_number }}/{{ 1 }}/" title="Вперед"><div class="circle-two"></div></a>
             {% else %}
        <h10></h10>
              {% endif %}
@@ -127,19 +127,19 @@
 
 <div class="column-one">
 
-             {% if article.article_number > 1 %}
-        <a href="/articles/article/page/{{ article.prev_art }}/{{ article.article_category.id }}/"><div class="circle-one"></div></a>
+         {% if article_number > 1 %}
+        <a href="/articles/article/page/{{ article_number }}/{{ 0 }}/" title="Назад"><div class="circle-one"></div></a>
             {% else %}
          <h10></h10>
              {% endif %}
     
-      </div>
+</div>
 
 
 <div class="column-two">
 
-          {% if article.article_number < article.article_category.number_articlies %}
-      <a href="/articles/article/page/{{ article.next_art }}/{{ article.article_category.id  }}/"><div class="circle-two"></div></a>
+          {% if article_number < len_dict %}
+      <a href="/articles/article/page/{{ article_number }}/{{ 1 }}/" title="Вперед"><div class="circle-two"></div></a>
             {% else %}
        <h10></h10>
              {% endif %}

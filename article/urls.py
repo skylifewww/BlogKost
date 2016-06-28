@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^article/addcomment/(?P<article_id>\d+)/$', article.views.addcomment),
     url(r'^videos/page/$', article.views.articles),
     # url(r'^videos/page/(\d+)/$', article.views.articles),
-    url(r'^article/page/(?P<art_page_number>\d+)/(?P<category_id>\d+)/$', article.views.article_left_right),
+    url(r'^article/page/(?P<art_page_number>\d+)/(?P<left_right>\d+)/$', article.views.article_left_right),
     url(r'^writtens/page/$', article.views.articles),
     # url(r'^writtens/page/(\d+)/$', article.views.articles),
     url(r'^$', article.views.articles),
