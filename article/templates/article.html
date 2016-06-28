@@ -61,6 +61,11 @@
 <h8>Автор публикации: <a href="/articles/author/get/{{ article.article_author.id }}/">{{ article.article_author }}</a></h8>
 
 <h1>{{ article.article_title }}</h1>
+
+{% if article.video_published %}
+    
+            {% video article.article_video '896x504' %}
+
 <p>{{ article.full_text_ru|safe }}</p>
 <hr>
 
