@@ -6,9 +6,9 @@ from mptt.admin import MPTTModelAdmin
 
 # Register your models here.
 
-class CommentsInLine(admin.StackedInline):
-    model = Comments
-    extra = 0
+# class CommentsInLine(admin.StackedInline):
+#     model = Comments
+#     extra = 0
 
 
 class ArticleAdmin(AdminVideoMixin, admin.ModelAdmin):
@@ -16,7 +16,7 @@ class ArticleAdmin(AdminVideoMixin, admin.ModelAdmin):
               'full_text_ru', 'text_published', 'image',
               "article_tag", "article_category"]
 
-    inlines = [CommentsInLine]
+    # inlines = [CommentsInLine]
     list_filter = ["article_date", "article_tag", "article_category", "article_author", 'video_published', 'text_published']
     search_fields = ["article_title", "article_author", "article_category", "article_tag", 'video_published', 'text_published']
     list_display = ["article_title", "article_author", "article_category", 'video_published', 'text_published']

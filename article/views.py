@@ -2,7 +2,7 @@ from django.http.response import Http404
 from django.shortcuts import render_to_response, redirect
 from article.models import *
 from django.core.exceptions import ObjectDoesNotExist
-from article.forms import CommentForm
+# from article.forms import CommentForm
 from django.template.context_processors import csrf
 from django.contrib import auth
 from django.core.paginator import Paginator
@@ -39,7 +39,7 @@ def articles(request):
 
 def article(request, category_id, article_id=1):
     
-    all_comments = Comments.objects.filter(comments_article_id=article_id)
+    # all_comments = Comments.objects.filter(comments_article_id=article_id)
     current_category = Category.objects.get(id=category_id)
     course_articles = Article.objects.filter(article_category__in=current_category.get_descendants(include_self=True))
     article = Article.objects.get(id=article_id)
@@ -68,8 +68,8 @@ def article(request, category_id, article_id=1):
     args["author"] = Author.objects.filter(id=article_id)
     args['current_category'] = current_category
     args['tags'] = Tag.objects.all()
-    args["comments"] = all_comments
-    args["form"] = CommentForm
+    # args["comments"] = all_comments
+    # args["form"] = CommentForm
     args["username"] = auth.get_user(request).username
     args["categories"] = Category.objects.all()  
     args["authors"] = Author.objects.all()   
@@ -105,8 +105,8 @@ def article_left_right(request, art_page_number, left_right):
     args["author"] = Author.objects.filter(id=article_id)
     args['current_category'] = current_category
     args['tags'] = Tag.objects.all()
-    args["comments"] = all_comments
-    args["form"] = CommentForm
+    # args["comments"] = all_comments
+    # args["form"] = CommentForm
     args["username"] = auth.get_user(request).username
     args["categories"] = Category.objects.all()  
     args["authors"] = Author.objects.all()   

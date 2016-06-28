@@ -115,13 +115,13 @@ class Article(models.Model):
     #     return self.article_number + 1         
 
 
-class Comments(models.Model):
-    comments_create = models.DateTimeField(auto_now_add=True, verbose_name="Дата", null=True, blank=True)
-    comments_text = models.TextField(verbose_name="Добавте Ваш комментарий")
-    comments_article = models.ForeignKey(Article, verbose_name="Статья")
-    comments_user = models.ForeignKey(User, default=True, verbose_name="Пользователь")
+# class Comments(models.Model):
+#     comments_create = models.DateTimeField(auto_now_add=True, verbose_name="Дата", null=True, blank=True)
+#     comments_text = models.TextField(verbose_name="Добавте Ваш комментарий")
+#     comments_article = models.ForeignKey(Article, verbose_name="Статья")
+#     comments_user = models.ForeignKey(User, default=True, verbose_name="Пользователь")
 
-    class Meta:
-        db_table = 'comments'
-        verbose_name = "Комментарий"
-        verbose_name_plural = "Комментарии"
+#     class Meta:
+#         db_table = 'comments'
+#         verbose_name = "Комментарий"
+#         verbose_name_plural = "Комментарии"
