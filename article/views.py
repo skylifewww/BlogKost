@@ -154,7 +154,7 @@ def category(request, category_id=1):
     args['root_category_id'] = root_category_id
     args['categories'] = Category.objects.all()
     args['authors'] = Author.objects.all()
-    args['articles'] = Article.objects.filter(article_category__in=current_category.get_descendants(include_self=True)).order_by('ordering')
+    args['articles'] = Article.objects.filter(article_category__in=current_category.get_descendants(include_self=True))
     args['username'] = auth.get_user(request).username
     
     return render_to_response('articles.html', args, context_instance=RequestContext(request))    
@@ -170,7 +170,7 @@ def authors(request, author_id=1):
     args['root_author_id'] = root_author_id
     args['authors'] = Author.objects.all()
     args['categories'] = Category.objects.all()
-    args['articles'] = Article.objects.filter(article_author_id=author_id).order_by('ordering')
+    args['articles'] = Article.objects.filter(article_author_id=author_id)
     args['username'] = auth.get_user(request).username
 
     return render_to_response('articles.html', args, context_instance=RequestContext(request))    
@@ -184,26 +184,26 @@ def tags(request, tag_id=1):
     args['current_tag'] = current_tag
     args['authors'] = Author.objects.all()
     args['categories'] = Category.objects.all()
-    args['articles'] = Article.objects.filter(article_tag__tag_name__exact=current_tag).order_by('ordering')
+    args['articles'] = Article.objects.filter(article_tag__tag_name__exact=current_tag)
     args['username'] = auth.get_user(request).username
 
     return render_to_response('articles.html', args, context_instance=RequestContext(request))        
 
 
-def addlike(request, article_id):
-    try:
-        if article_id in request.COOKIES:
-            redirect(request.META.get('HTTP_REFERER', '/'))
-        else:
-            article = Article.objects.get(id=article_id)
-            article.article_likes += 1
-            article.save()
-            response = redirect(request.META.get('HTTP_REFERER', '/'))
-            response.set_cookie(article_id, "test")
-            return response
-    except ObjectDoesNotExist:
-        raise Http404
-    return redirect(request.META.get('HTTP_REFERER', '/'))
+# def addlike(request, article_id):
+#     try:
+#         if article_id in request.COOKIES:
+#             redirect(request.META.get('HTTP_REFERER', '/'))
+#         else:
+#             article = Article.objects.get(id=article_id)
+#             article.article_likes += 1
+#             article.save()
+#             response = redirect(request.META.get('HTTP_REFERER', '/'))
+#             response.set_cookie(article_id, "test")
+#             return response
+#     except ObjectDoesNotExist:
+#         raise Http404
+#     return redirect(request.META.get('HTTP_REFERER', '/'))
 
 
 # def addcomment(request, article_id):
