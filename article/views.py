@@ -23,13 +23,42 @@ def return_path_f(request):
         request.session['return_path'] = request.META.get('HTTP_REFERER', '/')
 
 
+
+def video_only(request):
+
+    return_path_f(request)
+
+    args = {}
+    args['tags'] = Tag.objects.all()
+    args['articles'] = Article.objects.filter(video_only=1).order_by('ordering')
+    args['username'] = auth.get_user(request).username     
+    args["categories"] = Category.objects.all()  
+    args["authors"] = Author.objects.all()     
+
+    return render_to_response("articles.html", args)
+
+
+def vwrittens_only(request):
+
+    return_path_f(request)
+
+    args = {}
+    args['tags'] = Tag.objects.all()
+    args['articles'] = Article.objects.filter(vwrittens_only=1).order_by('ordering')
+    args['username'] = auth.get_user(request).username     
+    args["categories"] = Category.objects.all()  
+    args["authors"] = Author.objects.all()     
+
+    return render_to_response("articles.html", args)
+
+
 def articles(request):
 
     return_path_f(request)
 
     args = {}
     args['tags'] = Tag.objects.all()
-    args['articles'] = Article.objects.all()
+    args['articles'] = Article.objects.all().order_by('ordering')
     args['username'] = auth.get_user(request).username     
     args["categories"] = Category.objects.all()  
     args["authors"] = Author.objects.all()     
@@ -114,6 +143,53 @@ def article_left_right(request, art_page_number, left_right):
     return render_to_response("article.html", args, context_instance=RequestContext(request))
 
 
+def category(request, category_id=1):
+    
+    current_category = Category.objects.get(id=category_id)
+    root_category_id = current_category.get_root().id
+    
+    args = {}
+    args['tags'] = Tag.objects.all()
+    args['current_category'] = current_category
+    args['root_category_id'] = root_category_id
+    args['categories'] = Category.objects.all()
+    args['authors'] = Author.objects.all()
+    args['articles'] = Article.objects.filter(article_category__in=current_category.get_descendants(include_self=True)).order_by('ordering')
+    args['username'] = auth.get_user(request).username
+    
+    return render_to_response('articles.html', args, context_instance=RequestContext(request))    
+
+
+def authors(request, author_id=1):
+
+    current_author = Author.objects.get(id=author_id)
+    root_author_id = current_author.get_root().id
+    args = {}
+    args['tags'] = Tag.objects.all()
+    args['current_author'] = current_author
+    args['root_author_id'] = root_author_id
+    args['authors'] = Author.objects.all()
+    args['categories'] = Category.objects.all()
+    args['articles'] = Article.objects.filter(article_author_id=author_id).order_by('ordering')
+    args['username'] = auth.get_user(request).username
+
+    return render_to_response('articles.html', args, context_instance=RequestContext(request))    
+
+
+def tags(request, tag_id=1):
+    
+    current_tag = Tag.objects.get(id=tag_id)
+    args = {}
+    args['tags'] = Tag.objects.all()
+    args['current_tag'] = current_tag
+    args['authors'] = Author.objects.all()
+    args['categories'] = Category.objects.all()
+    args['articles'] = Article.objects.filter(article_tag__tag_name__exact=current_tag).order_by('ordering')
+    args['username'] = auth.get_user(request).username
+
+    return render_to_response('articles.html', args, context_instance=RequestContext(request))        
+
+
 def addlike(request, article_id):
     try:
         if article_id in request.COOKIES:
@@ -142,51 +218,7 @@ def addcomment(request, article_id):
     return redirect(request.META.get('HTTP_REFERER', '/'))
 
 
-def category(request, category_id=1):
-    
-    current_category = Category.objects.get(id=category_id)
-    root_category_id = current_category.get_root().id
-    
-    args = {}
-    args['tags'] = Tag.objects.all()
-    args['current_category'] = current_category
-    args['root_category_id'] = root_category_id
-    args['categories'] = Category.objects.all()
-    args['authors'] = Author.objects.all()
-    args['articles'] = Article.objects.filter(article_category__in=current_category.get_descendants(include_self=True))
-    args['username'] = auth.get_user(request).username
-    
-    return render_to_response('articles.html', args, context_instance=RequestContext(request))    
 
-
-def authors(request, author_id=1):
-
-    current_author = Author.objects.get(id=author_id)
-    root_author_id = current_author.get_root().id
-    args = {}
-    args['tags'] = Tag.objects.all()
-    args['current_author'] = current_author
-    args['root_author_id'] = root_author_id
-    args['authors'] = Author.objects.all()
-    args['categories'] = Category.objects.all()
-    args['articles'] = Article.objects.filter(article_author_id=author_id)
-    args['username'] = auth.get_user(request).username
-
-    return render_to_response('articles.html', args, context_instance=RequestContext(request))    
-
-
-def tags(request, tag_id=1):
-    
-    current_tag = Tag.objects.get(id=tag_id)
-    args = {}
-    args['tags'] = Tag.objects.all()
-    args['current_tag'] = current_tag
-    args['authors'] = Author.objects.all()
-    args['categories'] = Category.objects.all()
-    args['articles'] = Article.objects.filter(article_tag__tag_name__exact=current_tag)
-    args['username'] = auth.get_user(request).username
-
-    return render_to_response('articles.html', args, context_instance=RequestContext(request))    
 
 # def articles(request, page_number=1):
 #     all_article = Article.objects.all()

@@ -99,11 +99,15 @@ class Article(models.Model):
     article_video = EmbedVideoField(verbose_name='Видео', blank=True, help_text='URL video', null=True)
     video_published = models.BooleanField( blank=True, default="")
     text_published = models.BooleanField( blank=True, default="")
+    video_only = models.BooleanField( blank=True, default="")
+    article_only = models.BooleanField( blank=True, default="")
+
 
     class Meta:
         db_table = 'article'
         verbose_name = "Статья"
         verbose_name_plural = "Статьи"
+        ordering = ['-article_date']
 
     # def __str__(self):
     #     return self.article_title
