@@ -26,7 +26,6 @@ def make_upload_path(instance, filename, prefix=False):
 class Category(MPTTModel):
     name = models.CharField(max_length=250, verbose_name="Название категории транслитом", blank=True, default="", unique=True)
     category_title = models.CharField(max_length=250, verbose_name="Имя категории", blank=True, default="")
-    number_articlies = models.IntegerField(default=0, verbose_name="Количество статей в курсе", blank=True, null=True)
     parent = TreeForeignKey('self', related_name="children", blank=True, null=True, db_index=True, verbose_name="Родительский класс")
 
     class Meta:
@@ -86,7 +85,7 @@ class Tag(models.Model):
 class Article(models.Model):
     article_title = models.CharField(max_length=250, verbose_name="Название статьи")
     article_date = models.DateTimeField(verbose_name="Дата публикации статьи")
-    article_number = models.IntegerField(default=0, verbose_name="Номер статьи", blank=True, null=True)
+    # article_number = models.IntegerField(default=0, verbose_name="Номер статьи", blank=True, null=True)
     article_likes = models.IntegerField(default=0, verbose_name="Лайки")
     article_tag = models.ManyToManyField(Tag, related_name="tags", related_query_name="tags", verbose_name=u"Теги")
     article_category = TreeForeignKey(Category, related_name="articles", verbose_name="Категории", default="", blank=True)
@@ -106,14 +105,14 @@ class Article(models.Model):
         verbose_name = "Статья"
         verbose_name_plural = "Статьи"
 
-    def __str__(self):
-        return self.article_title
+    # def __str__(self):
+    #     return self.article_title
 
-    def prev_art(self):
-        return self.article_number - 1   
+    # def prev_art(self):
+    #     return self.article_number - 1   
 
-    def next_art(self):
-        return self.article_number + 1         
+    # def next_art(self):
+    #     return self.article_number + 1         
 
 
 class Comments(models.Model):
