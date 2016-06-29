@@ -565,6 +565,7 @@ h1 span{
 
 .article .content .txt h8 img{
   float: right;
+  margin-right:25px;
   -webkit-transition: all 0.2s ease-in;
   -moz-transition: all 0.2s ease-in;
   -ms-transition: all 0.2s ease-in;
@@ -573,6 +574,8 @@ h1 span{
 }
 
 .article .content .txt h8 a img{
+   float: left;
+   margin-left:25px;
   opacity:0.5;
   -webkit-transition: all 0.2s ease-in;
   -moz-transition: all 0.2s ease-in;
@@ -580,8 +583,6 @@ h1 span{
   -o-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
-
-
 
 .article .content .txt h8 a img:hover{
   opacity:1;
