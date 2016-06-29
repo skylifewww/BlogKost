@@ -575,7 +575,7 @@ h1 span{
 
 .article .content .txt h8 a img{
    float: left;
-   margin-left:15px;
+   margin-left:0px;
   opacity:0.5;
   -webkit-transition: all 0.2s ease-in;
   -moz-transition: all 0.2s ease-in;
