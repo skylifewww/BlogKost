@@ -244,10 +244,32 @@
     {% recursetree authors %}
         <li>
         {% if node == article.article_author %}
+          {% if node.slug %}
           <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pca>
+           <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img src="{{ node.slug }}" height="140px" width="140px" alt="" class="roundpca"></a></h8></pca>
+          
+          
+          
+          {% else %}
+
+          <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pca>
+          <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img src="{% static 'blog/img/image_fix.png' %}" height="140px"  width="140px" alt="" class="roundpca"></a></h8></pca>
+          
+           {% endif %}
+
+        {% else %}
+
+        {% if node.slug %}
+
+        <pa><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pa>
+        <pa><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img src="{{ node.slug }}" height="40px" width="40px" alt="" class="roundpa"></a></h8></pa>       
+          
           {% else %}
           <pa><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pa>
-           {% endif %}
+        <pa><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img src="{% static 'blog/img/image_fix.png' %}" height="40px" width="40px" alt="" class="roundpa"></a></h8></pa> 
+
+          {% endif %}
+        {% endif %}
 
             {% if node.is_root_node %}
                 {% ifequal node.id root_author_id %}

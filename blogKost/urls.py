@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^portfolio/', portfolio),
 
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    
 
     # url(r'', include('social.apps.django_app.urls', namespace='social'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

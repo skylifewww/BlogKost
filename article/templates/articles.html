@@ -3,6 +3,7 @@
 {% load staticfiles %}
 {% load embed_video_tags %}
 {% load i18n mptt_tags %}
+{% load thumbnail %}
 
 {% block article %}
 
@@ -20,15 +21,16 @@
             {% video article.article_video '220x160' %}
 {% else %} 
 
-    {% if article.image %}
+    {% if article.slug %}
 
         {% if current_category or current_author or current_tag %}
 
-            <img src="{{ article.image.url}}" width="220px" height="160px">
+            <img src="{{ article.slug }}" width="220px" height="160px">
 
         {% else %} 
 
-            <img src="{{MEDIA_URL}}{{ article.image.url}}" width="220px" height="160px">
+            <img src="{{ article.slug }}" width="220px" height="160px">
+            {# <img src="{{MEDIA_URL}}{{ article.image.url}}" width="220px" height="160px"> #}
 
         {% endif %}    
             
@@ -157,10 +159,35 @@
     {% recursetree authors %}
         <li>
         {% if node == current_author %}
+
+          {% if node.slug %}
           <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pca>
+           <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img src="{{ node.slug }}" height="140px" width="140px" alt="" class="roundpca"></a></h8></pca>
+           <p><pcaq><h8><a  href="/contact/author/{{ node.id }}/" title="{% blocktrans with project=node %}Задать вопрос {{ node }}{% endblocktrans %}">Задать вопрос автору</a></h8></pcaq></p>
+         <p></p>
+          
+          
+          {% else %}
+
+          <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pca>
+          <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img src="{% static 'blog/img/image_fix.png' %}" height="140px"  width="140px" alt="" class="roundpca"></a></h8></pca>
+          <p></p>
+           {% endif %}
+
+        {% else %}
+
+        {% if node.slug %}
+
+        <pa><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pa>
+        <pa><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img src="{{ node.slug }}" height="40px" width="40px" alt="" class="roundpa"></a></h8></pa>       
+          <p></p>
           {% else %}
           <pa><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pa>
-           {% endif %}
+        <pa><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img src="{% static 'blog/img/image_fix.png' %}" height="40px" width="40px" alt="" class="roundpa"></a></h8></pa> 
+        <p></p>
+
+          {% endif %}
+        {% endif %}
 
             {% if node.is_root_node %}
                 {% ifequal node.id root_author_id %}

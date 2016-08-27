@@ -846,6 +846,18 @@ h1 span{
   color: #333;
   font-weight:300;
 }
+
+.roundpa {
+    border-radius: 30px; /* Радиус скругления */
+    border: 3px #ada074; /* Параметры рамки */
+    /*box-shadow: 0 0 7px #666; /* Параметры тени */*/
+   }
+
+.roundpca {
+    border-radius: 100px; /* Радиус скругления */
+    border: 3px #ada074; /* Параметры рамки */
+    /*box-shadow: 0 0 7px #666; /* Параметры тени */*/
+   }  
 .article .content .nav .author  pa h8 a:hover{
   color:#ada074;
 }
@@ -856,20 +868,22 @@ h1 span{
   color:black;
   font-weight:400;
 }
+
+
 .article .content .nav .author  pca h8 a:hover{
   color:#ada074;
 }
 
-/*.article .content .nav .author  .child h10 a{
- 
-  margin-left: 120px;
-  font-size:16px;
-  color: #333;
-  font-weight:300;
+.article .content .nav .author pcaq h8 a{
+  /*margin-top: 40px;*/
+  margin-left: 60px;
+  font-size:22px;
+  color:green;
+  font-weight:400;
 }
-.article .content .nav .author  .child h10 a:hover{
+.article .content .nav .author  pcaq h8 a:hover{
   color:#ada074;
-}*/
+}
 
 
 .article .content .nav h1{
@@ -1241,7 +1255,7 @@ h1 span{
 .partners .opacity{
   position:absolute;
   width:100%;
-  height:600px;
+  height:450px;
   background:rgba(79,79,79,0.6);
 }
 
@@ -1843,6 +1857,21 @@ strong{
 
 }
 
+.contact .content .contact-text h8 a img{
+   /*float: left;*/
+   /*margin-left:0px;*/
+  opacity:0.5;
+ /* -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  tran*/sition: all 0.2s ease-in;
+}
+
+.contact .content .contact-text h8 a img:hover{
+  opacity:1;
+}
+
 input{
 
   width:180px;
@@ -1891,6 +1920,7 @@ input.submit{
   margin:20px 10px 0 0;
   border:0;
   font-weight:700;
+  font-color:black;
   text-align:right;
   background:none;
   -webkit-transition: all 0.6s ease-in;
@@ -1907,11 +1937,11 @@ input.submit{
   position:fixed;
   bottom:0;
   width:100%;
- /*+ z-index:10;*/
+  z-index:1;
   background:#3c3c3c;
 }
 
-.footer .logo{
+/*.footer .logo{
 
   position:relative;
   width:58px;
@@ -1945,21 +1975,19 @@ input.submit{
 .footer .menu-footer a:hover{
   color:#ada074;
 }
-
+*/
 
 .footer .copyright{
   width:80%;
   position:relative;
   font-weight:300;
   margin:0 auto;
-  padding:30px 0 50px;
+  padding:10px 0 20px;
   text-align:center;
   font-size:14px;
-  line-height:36px;
+  line-height:26px;
   color:#a4a4a4;
 }
 
-    Status API Training Shop Blog About 
 
-    © 2016 GitHub, Inc. Terms Privacy Security Contact Help 
 

@@ -1,0 +1,9 @@
+
+Ваше имя:
+{{ contact_name }}
+
+e-mail:
+{{ contact_email }}
+
+Что Вас интересует:
+{{ form_content|safe|striptags }}

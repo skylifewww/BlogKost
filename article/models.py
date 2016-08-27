@@ -37,6 +37,8 @@ class Category(MPTTModel):
     def __str__(self):
         return self.category_title
 
+
+
     class MPTTMeta:
         # level_attr = 'mptt_level'
         order_insertion_by = ['name']    
@@ -48,8 +50,9 @@ mptt.register(Category, order_insertion_by=['name'])
 
 
 class Author(MPTTModel):
-    name = models.CharField(max_length=200, verbose_name="Автор статьи транслитом", blank=True, default="", unique=True)
-    author_title = models.CharField(max_length=200, verbose_name="Автор статьи", blank=True, default="", unique=True)
+    slug = models.CharField(max_length=250, blank=True, verbose_name="Урл")
+    name = models.CharField(max_length=200, verbose_name=u"Автор статьи транслитом", blank=True, default="", unique=True)
+    author_title = models.CharField(max_length=200, verbose_name=u"Автор статьи", blank=True, default="", unique=True)
     parent = TreeForeignKey('self', related_name="children", blank=True, null=True, db_index=True, verbose_name="Родительский класс")
 
     class Meta:
@@ -60,6 +63,15 @@ class Author(MPTTModel):
 
     def __str__(self):
         return self.author_title
+
+
+    def pic_slug(self):
+        if self.slug:
+            return u'<img src="%s" width="70"/>' % self.slug
+        else:
+            return '(none)'
+    pic_slug.short_description = u'Фото эксперта'
+    pic_slug.allow_tags = True       
 
     class MPTTMeta:
         # level_attr = 'mptt_level'
@@ -83,24 +95,25 @@ class Tag(models.Model):
 
 
 class Article(models.Model):
-    article_title = models.CharField(max_length=250, verbose_name="Название статьи")
-    article_date = models.DateTimeField(verbose_name="Дата публикации статьи")
+    article_title = models.CharField(max_length=250, verbose_name=u"Название статьи")
+    article_date = models.DateTimeField(verbose_name=u"Дата публикации статьи")
     # article_number = models.IntegerField(default=0, verbose_name="Номер статьи", blank=True, null=True)
-    article_likes = models.IntegerField(default=0, verbose_name="Лайки")
+    # article_likes = models.IntegerField(default=0, verbose_name="Лайки")
     article_tag = models.ManyToManyField(Tag, related_name="tags", related_query_name="tags", verbose_name=u"Теги")
     article_category = TreeForeignKey(Category, related_name="articles", verbose_name="Категории", default="", blank=True)
     article_author = TreeForeignKey(Author, related_name="autor", max_length=200, verbose_name="Автор статьи", blank=True, default="")
-    short_text_ru = RichTextUploadingField(blank=True, verbose_name="Короткое описание RU")
-    short_text_en = RichTextUploadingField(blank=True, verbose_name="Короткое описание EN")
-    video = models.CharField(max_length=250, blank=True, verbose_name="Видео id в кратком описании")
+    short_text_ru = RichTextUploadingField(blank=True, verbose_name=u"Короткое описание RU")
+    short_text_en = RichTextUploadingField(blank=True, verbose_name=u"Короткое описание EN")
+    video = models.CharField(max_length=250, blank=True, verbose_name=u"Видео id в кратком описании")
     image = ThumbnailerImageField(upload_to=make_upload_path, blank=True, verbose_name="Изображение")
-    full_text_ru = RichTextUploadingField(blank=True, verbose_name="Полное описание RU")
-    full_text_en = RichTextUploadingField(blank=True, verbose_name="Полное описание EN")
-    article_video = EmbedVideoField(verbose_name='Видео', blank=True, help_text='URL video', null=True)
+    full_text_ru = RichTextUploadingField(blank=True, verbose_name=u"Полное описание RU")
+    full_text_en = RichTextUploadingField(blank=True, verbose_name=u"Полное описание EN")
+    article_video = EmbedVideoField(verbose_name=u'Видео', blank=True, help_text='URL video', null=True)
     video_published = models.BooleanField( blank=True, default="")
     text_published = models.BooleanField( blank=True, default="")
     video_only = models.BooleanField( blank=True, default="")
     written_only = models.BooleanField( blank=True, default="")
+    slug = models.CharField(max_length=250, blank=True, verbose_name=u"Урл")
 
 
     class Meta:
@@ -109,14 +122,17 @@ class Article(models.Model):
         verbose_name_plural = "Статьи"
         ordering = ['article_date']
 
-    # def __str__(self):
-    #     return self.article_title
+    def __str__(self):
+        return self.article_title
 
-    # def prev_art(self):
-    #     return self.article_number - 1   
-
-    # def next_art(self):
-    #     return self.article_number + 1         
+   
+    def pic_slug(self):
+        if self.slug:
+            return u'<img src="%s" width="70"/>' % self.slug
+        else:
+            return '(none)'
+    pic_slug.short_description = u'Картинка статьи'
+    pic_slug.allow_tags = True               
 
 
 # class Comments(models.Model):
