@@ -244,17 +244,19 @@
     {% recursetree authors %}
         <li>
         {% if node == article.article_author %}
-          {% if node.slug %}
+            {% if node.slug %}
           <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pca>
            <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img src="{{ node.slug }}" height="140px" width="140px" alt="" class="roundpca"></a></h8></pca>
-          
+           <p><pcaq><h8><a  href="/contact/author/{{ node.id }}/" title="{% blocktrans with project=node %}Задать вопрос {{ node }}{% endblocktrans %}">Задать вопрос автору</a></h8></pcaq></p>
+         <p></p>
           
           
           {% else %}
 
           <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pca>
           <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img src="{% static 'blog/img/image_fix.png' %}" height="140px"  width="140px" alt="" class="roundpca"></a></h8></pca>
-          
+         <p><pcaq><h8><a  href="/contact/author/{{ node.id }}/" title="{% blocktrans with project=node %}Задать вопрос {{ node }}{% endblocktrans %}">Задать вопрос автору</a></h8></pcaq></p>
+         <p></p>
            {% endif %}
 
         {% else %}
