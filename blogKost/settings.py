@@ -31,7 +31,8 @@ SECRET_KEY = '(@#jf4_s95tp@=69l!30zzv$_0czq&&vruvm65r7_%6ts!43)o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['blogkost.herokuapp.com', "127.0.0.1"]
+# ALLOWED_HOSTS = ['blogkost.herokuapp.com', "127.0.0.1"]
+ALLOWED_HOSTS = ['blogkost.herokuapp.com']
 
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
