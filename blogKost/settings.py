@@ -29,7 +29,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = '(@#jf4_s95tp@=69l!30zzv$_0czq&&vruvm65r7_%6ts!43)o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['blogkost.herokuapp.com', "127.0.0.1"]
 
