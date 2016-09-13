@@ -9,10 +9,10 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^articles/', include("article.urls")),
     url(r'^auth/', include("loginsys.urls")),
-    url(r'^$', slider),
-    url(r'^tutorials/', tutorials),
+    url(r'^$', main),
+    # url(r'^tutorials/', tutorials),
     url(r'^contact/', contact),
-    url(r'^portfolio/', portfolio),
+    # url(r'^portfolio/', portfolio),
 
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     

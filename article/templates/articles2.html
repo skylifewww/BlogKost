@@ -1,0 +1,236 @@
+
+{% extends "index.html" %}
+{% load staticfiles %}
+{% load embed_video_tags %}
+{% load i18n mptt_tags %}
+{% load thumbnail %}
+
+{% block article %}
+
+    <div class="article">
+    <div class="content">
+
+
+<div class="txt">
+{% for article in articles %}
+
+<div class="img">
+
+{% if article.video_published %}
+    
+            {% video article.article_video '220x160' %}
+{% else %} 
+
+    {% if article.slug %}
+
+        {% if current_category or current_author or current_tag %}
+
+            <img src="{{ article.slug }}" width="220px" height="160px">
+
+        {% else %} 
+
+            <img src="{{ article.slug }}" width="220px" height="160px">
+            {# <img src="{{MEDIA_URL}}{{ article.image.url}}" width="220px" height="160px"> #}
+
+        {% endif %}    
+            
+    {% else %}    
+
+            <img src="{% static 'blog/img/image_fix.png' %}" width="220px" height="160px">    
+
+    {% endif %}
+    
+{% endif %}
+
+    </div>
+<div class="text">
+
+<h8><a href="http://www.facebook.com/sharer/sharer.php?u=http://blogkost.herokuapp.com/articles/videos/get/{{ article.article_category.id }}/{{ article.id }}/" target="_blank" title="Facebook"><img src="{% static 'blog/img/icons/facebook_butt.png' %}" width="27px" height="27px"></a></h8>
+
+<h8><a href="https://twitter.com/home?status=New%20IOS%20tutorial:%20{{article.article_title }}%20blogkost.herokuapp.com/articles/videos/get/{{ article.article_category.id }}/{{ article.id }}/" target="_blank" title="Twitter"><img src="{% static 'blog/img/icons/twitter_button.png' %}" width="27px" height="27px"></a></h8>
+
+<h8><a href="http://vk.com/share.php?url=http://blogkost.herokuapp.com/articles/videos/get/{{ article.article_category.id }}/{{ article.id }}/" target="_blank" title="VKontakte"><img src="{% static 'blog/img/icons/vk_button.png' %}" width="27px" height="27px"></a></h8>
+
+
+{# <div class="clear"></div>   #}
+
+{# <h8><r><a href="/articles/videos/only/"><img src="{% static 'blog/img/icons/video.png' %}" width="27px" height="27px"></a></r></h8> #}
+
+{# <h8><r><a href="/articles/writtens/only/"><img src="{% static 'blog/img/icons/written.png' %}" width="27px" height="27px"></a></r></h8> #}
+
+{% if article.video_only %}
+<h8><r><img src="{% static 'blog/img/icons/video.png' %}" width="27px" height="27px" title="Video tutorial"></r></h8>
+{% endif %}
+
+{% if article.written_only %}
+<h8><r><img src="{% static 'blog/img/icons/written.png' %}" width="27px" height="27px" title="Written tutorial"></r></h8>
+{% endif %}
+
+
+<div class="clear"></div>  
+    
+    {# <h8><l>Дата публикации: {{ article.article_date }}</l></h8> #}
+         <h8><r>Автор публикации: <a href="/articles/author/get/{{ article.article_author.id }}/">{{ article.article_author }}</a></r></h8>
+         <div class="clear"></div>
+        <h8><r>Курс: <a href="/articles/category/get/{{ article.article_category.id }}/">{{ article.article_category }}</a></r></h8>
+        <div class="clear"></div>  
+        
+{% if article.text_published %}
+    <h6><a href="/articles/videos/get/{{ article.article_category.id }}/{{ article.id }}/">{{ article.article_title }}</a></h6>
+    {% else %}
+    <h6>{{ article.article_title }}</h6>
+    {% endif %}
+        <h10>{{ article.short_text_ru|safe }}</h10>
+
+    
+</div>
+
+<div class="clear"></div>
+
+<p></p>
+            {% endfor %}
+
+    {# <ul class="txt-center" role="menubar" aria-label="Pagination"> #}
+
+                {# {% if not articles %} #}
+                {# <h10>Материалов по этой теме пока еще нет.</h10> #}
+                {# {% else %} #}
+                {# {% if articles.has_previous %} #}
+                {# <li class="arrow"><a href="/articles/videos/page/{{ articles.previous_page_number }}/">&laquo; Назад</a></li> #}
+                {# {% else %} #}
+                {# <li class="arrow_unavailable"><a href="">&laquo;</a></li> #}
+                {# {% endif %} #}
+                {# {% for page in articles.paginator.page_range %} #}
+                    {# {% if page == articles.number %} #}
+                        {# <li class="current"><a href="/articles/videos/page/{{ page }}/">{{ page }}</a></li> #}
+                    {# {% else %} #}
+                        {# <li class="current_not"><a href="/articles/videos/page/{{ page }}/">{{ page }}</a></li> #}
+                    {# {% endif %} #}
+                {# {% endfor %} #}
+                {# {% if articles.has_next %} #}
+                {# <li class="arrow"><a href="/articles/videos/page/{{ articles.next_page_number }}/">Вперед &raquo;</a></li> #}
+                {# {% else %} #}
+                {# <li class="arrow_unavailable"><a href="">&raquo;</a></li> #}
+                {# {% endif %} #}
+                 {# {% endif %} #}
+    {# </ul>                #}
+</div>
+
+<ul class="nav">
+<ul class="author">
+<h6>Courses:</h6>
+
+    {% recursetree categories %}
+        <li>
+        {% if node == current_category %}
+          <pca><h8><a  href="/articles/category/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pca>
+          {% else %}
+          <pa><h8><a  href="/articles/category/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pa>
+           {% endif %}
+
+            {% if node.is_root_node %}
+                {% ifequal node.id root_category_id %}
+                    {% if not node.is_leaf_node %}
+                        <ul class="child">
+                            <h10>{{ children }}</h10>
+                        </ul>
+                    {% endif %}
+                {% endifequal %}
+            {% else %}
+                {% if not node.is_leaf_node %}
+                    {% if current_category.id == node.id %}
+                        <ul class="child">
+                            <h10>{{ children }}</h10>
+                        </ul>
+                    {% elif node.level < current_category.level %}
+                        <ul class="child">
+                            <h10>{{ children }}</h10>
+                        </ul>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+       </li>
+    {% endrecursetree %}
+
+<p></p>
+
+<h6>Our authors:</h6>
+
+    {% recursetree authors %}
+        <li>
+        {% if node == current_author %}
+
+          {% if node.slug %}
+          <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pca>
+           <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img src="{{ node.slug }}" height="140px" width="140px" alt="" class="roundpca"></a></h8></pca>
+           <p><pcaq><h8><a  href="/contact/author/{{ node.id }}/" title="{% blocktrans with project=node %}Задать вопрос {{ node }}{% endblocktrans %}">Задать вопрос автору</a></h8></pcaq></p>
+         <p></p>
+          
+          
+          {% else %}
+
+          <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pca>
+          <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img src="{% static 'blog/img/image_fix.png' %}" height="140px"  width="140px" alt="" class="roundpca"></a></h8></pca>
+         <p><pcaq><h8><a  href="/contact/author/{{ node.id }}/" title="{% blocktrans with project=node %}Задать вопрос {{ node }}{% endblocktrans %}">Задать вопрос автору</a></h8></pcaq></p>
+         <p></p>
+           {% endif %}
+
+        {% else %}
+
+        {% if node.slug %}
+
+        <pa><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pa>
+        <pa><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img src="{{ node.slug }}" height="40px" width="40px" alt="" class="roundpa"></a></h8></pa>       
+          {# <p></p> #}
+          {% else %}
+          <pa><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pa>
+        <pa><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img src="{% static 'blog/img/image_fix.png' %}" height="40px" width="40px" alt="" class="roundpa"></a></h8></pa> 
+        {# <p></p> #}
+
+          {% endif %}
+        {% endif %}
+
+            {% if node.is_root_node %}
+                {% ifequal node.id root_author_id %}
+                    {% if not node.is_leaf_node %}
+                        <ul class="child">
+                            <h10>{{ children }}</h10>
+                        </ul>
+                    {% endif %}
+                {% endifequal %}
+            {% else %}
+                {% if not node.is_leaf_node %}
+                    {% if current_author.id == node.id %}
+                        <ul class="child">
+                            <h10>{{ children }}</h10>
+                        </ul>
+                    {% elif node.level < current_author.level %}
+                        <ul class="child">
+                            <h10>{{ children }}</h10>
+                        </ul>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+</ul>
+
+<p></p>
+ <h6>Tags:</h6>
+
+ <ul> 
+{% for tag in tags %}
+{% if tag == current_tag %}
+<pct><h10><a href="/articles/tag/get/{{ tag.id }}/">{{ tag }}</a></h10></pct>
+{% else %}
+<pt><h10><a href="/articles/tag/get/{{ tag.id }}/">{{ tag }}</a></h10></pt>
+ {% endif %}
+ {# {% if not forloop.last %},{% endif %} #}
+ {% endfor %}  
+ </ul>
+ </ul>
+         
+    </div>
+    </div>
+    
+{% endblock %}

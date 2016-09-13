@@ -14,7 +14,7 @@ urlpatterns = [
 
     url(r'^writtens/only/$', article.views.written_only),
 
-    url(r'^article/page/(?P<art_page_number>\d+)/(?P<left_right>\d+)/$', article.views.article_left_right),
+    url(r'^article/page/(?P<category_id>\d+)/(?P<art_page_number>\d+)/(?P<left_right>\d+)/$', article.views.article_left_right),
 
     url(r'^$', article.views.articles),
 

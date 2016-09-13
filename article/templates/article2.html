@@ -1,0 +1,322 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+{% load mptt_tags %}s
+{% load i18n mptt_tags %}
+{% load embed_video_tags %}
+
+{% block article_id %}
+
+
+
+<div class="article">
+<div class="content">
+<div class="txt">
+
+
+<h8><a href="http://www.facebook.com/sharer/sharer.php?u=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Facebook"><img src="{% static 'blog/img/icons/facebook_butt.png' %}" width="35px" height="35px"></a></h8>
+
+<h8><a href="https://twitter.com/home?status=New%20IOS%20tutorial:%20{{article.article_title }}%20blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Twitter"><img src="{% static 'blog/img/icons/twitter_button.png' %}" width="35px" height="35px"></a></h8>
+
+<h8><a href="http://vk.com/share.php?url=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="VKontakte"><img src="{% static 'blog/img/icons/vk_button.png' %}" width="35px" height="35px"></a></h8>
+
+{% if article.video_only %}
+<h8><img src="{% static 'blog/img/icons/video.png' %}" width="35px" height="35px" title="Video tutorial"></h8>
+{% endif %}
+
+{% if article.written_only %}
+<h8><img src="{% static 'blog/img/icons/written.png' %}" width="35px" height="35px" title="Written tutorial"></h8>
+{% endif %}
+
+<div class="clear"></div>  
+
+<div class="column-one">
+
+           {% if article_number > 1 %}
+        <a href="/articles/article/page/{{ article_number }}/{{ 0 }}/" title="Назад"><div class="circle-one"></div></a>
+            {% else %}
+         <h10></h10>
+             {% endif %}
+    
+</div>
+
+
+<div class="column-two">
+
+          {% if article_number < len_dict %}
+      <a href="/articles/article/page/{{ article_number }}/{{ 1 }}/" title="Вперед"><div class="circle-two"></div></a>
+            {% else %}
+       <h10></h10>
+             {% endif %}
+    
+</div>      
+ <div class="clear"></div>     
+
+<h8>Дата публикации: {{ article.article_date }}</h8>
+
+<div class="clear"></div>  
+
+<h8>Курс: <a href="/articles/category/get/{{ article.article_category.id }}/">{{ article.article_category }}</a></h8>
+
+<div class="clear"></div>  
+
+<h8>Автор публикации: <a href="/articles/author/get/{{ article.article_author.id }}/">{{ article.article_author }}</a></h8>
+
+<div class="clear"></div>  
+<p></p>
+
+<h1>{{ article.article_title }}</h1>
+
+<div class="clear"></div>  
+<p></p>
+
+<p>{{ article.short_text_ru|safe }}</p>
+
+<div class="clear"></div>  
+{# <p></p> #}
+
+
+{% if article.video_published %}
+    
+            {% video article.article_video '690x460' %}
+
+            {% endif %}
+
+<p>{{ article.full_text_ru|safe }}</p>
+<hr>
+
+
+<h8><a href="http://www.facebook.com/sharer/sharer.php?u=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Facebook"><img src="{% static 'blog/img/icons/facebook_butt.png' %}" width="35px" height="35px"></a></h8>
+
+<h8><a href="https://twitter.com/home?status=New%20IOS%20tutorial:%20{{article.article_title }}%20blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Twitter"><img src="{% static 'blog/img/icons/twitter_button.png' %}" width="35px" height="35px"></a></h8>
+
+<h8><a href="http://vk.com/share.php?url=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="VKontakte"><img src="{% static 'blog/img/icons/vk_button.png' %}" width="35px" height="35px"></a></h8>
+
+<div class="clear"></div>  
+
+
+<div class="column-one">
+
+           {% if article_number > 1 %}
+        <a href="/articles/article/page/{{ article_number }}/{{ 0 }}/" title="Назад"><div class="circle-one"></div></a>
+            {% else %}
+         <h10></h10>
+             {% endif %}
+    
+</div>
+
+
+<div class="column-two">
+
+          {% if article_number < len_dict %}
+      <a href="/articles/article/page/{{ article_number }}/{{ 1 }}/" title="Вперед"><div class="circle-two"></div></a>
+            {% else %}
+       <h10></h10>
+             {% endif %}
+    
+</div>      
+ 
+{# <p>Комментарии: {% if username %} #}
+    {# <h10></h10> #}
+    {# {% else %} #}
+    {# <h10>Чтобы оставить комментарий зайдите на сайт или зарегистрируйтесь</h10> #}
+    {# {% endif %}</p> #}
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//iosdevcourse.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+<h8><a href="http://www.facebook.com/sharer/sharer.php?u=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Facebook"><img src="{% static 'blog/img/icons/facebook_butt.png' %}" width="35px" height="35px"></a></h8>
+
+<h8><a href="https://twitter.com/home?status=New%20IOS%20tutorial:%20{{article.article_title }}%20blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Twitter"><img src="{% static 'blog/img/icons/twitter_button.png' %}" width="35px" height="35px"></a></h8>
+
+<h8><a href="http://vk.com/share.php?url=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="VKontakte"><img src="{% static 'blog/img/icons/vk_button.png' %}" width="35px" height="35px"></a></h8>
+
+<div class="clear"></div>  
+
+
+<div class="column-one">
+
+         {% if article_number > 1 %}
+        <a href="/articles/article/page/{{ article_number }}/{{ 0 }}/" title="Назад"><div class="circle-one"></div></a>
+            {% else %}
+         <h10></h10>
+             {% endif %}
+    
+</div>
+
+
+<div class="column-two">
+
+          {% if article_number < len_dict %}
+      <a href="/articles/article/page/{{ article_number }}/{{ 1 }}/" title="Вперед"><div class="circle-two"></div></a>
+            {% else %}
+       <h10></h10>
+             {% endif %}
+    
+</div>      
+
+{# {% for comment in comments %} #}
+
+    {# <div class="comments_user"> #}
+ {# <h4>{{ comment.comments_user }}:</h4> #}
+    {# <h8>{{ comment.comments_create }}</h8> #}
+      {# </div> #}
+    {# <div class="comment_text"> #}
+    {# <h4>{{ comment.comments_text }}</h4> #}
+    {# </div> #}
+{# <p></p> #}
+{# {% endfor %} #}
+
+    {# {% if username %} #}
+    {# <form action="/articles/article/addcomment/{{ article.id }}/" method="post"> #}
+        {# {% csrf_token %} #}
+        {# {{ form }} #}
+        {# <input type="submit" class="button" value="Комментировать"> #}
+    {# </form> #}
+    {# {% endif %} #}
+
+
+</div>
+
+
+
+
+<ul class="nav">
+
+<h6>Courses:</h6>
+<ul class="author">
+    {% recursetree categories %}
+        <li>
+        {% if node == article.article_category %}
+          <pca><h8><a  href="/articles/category/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pca>
+          {% else %}
+          <pa><h8><a  href="/articles/category/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pa>
+           {% endif %}
+
+            {% if node.is_root_node %}
+                {% ifequal node.id root_category_id %}
+                    {% if not node.is_leaf_node %}
+                        <ul class="child">
+                            <h10>{{ children }}</h10>
+                        </ul>
+                    {% endif %}
+                {% endifequal %}
+            {% else %}
+                {% if not node.is_leaf_node %}
+                    {% if current_category.id == node.id %}
+                        <ul class="child">
+                            <h10>{{ children }}</h10>
+                        </ul>
+                    {% elif node.level < current_category.level %}
+                        <ul class="child">
+                            <h10>{{ children }}</h10>
+                        </ul>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+
+<p></p>
+{# </ul> #}
+
+<h6>Our authors:</h6>
+{# <ul class="author"> #}
+    {% recursetree authors %}
+        <li>
+        {% if node == article.article_author %}
+            {% if node.slug %}
+          <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pca>
+           <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img src="{{ node.slug }}" height="140px" width="140px" alt="" class="roundpca"></a></h8></pca>
+           <p><pcaq><h8><a  href="/contact/author/{{ node.id }}/" title="{% blocktrans with project=node %}Задать вопрос {{ node }}{% endblocktrans %}">Задать вопрос автору</a></h8></pcaq></p>
+         <p></p>
+          
+          
+          {% else %}
+
+          <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pca>
+          <pca><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img src="{% static 'blog/img/image_fix.png' %}" height="140px"  width="140px" alt="" class="roundpca"></a></h8></pca>
+         <p><pcaq><h8><a  href="/contact/author/{{ node.id }}/" title="{% blocktrans with project=node %}Задать вопрос {{ node }}{% endblocktrans %}">Задать вопрос автору</a></h8></pcaq></p>
+         <p></p>
+           {% endif %}
+
+        {% else %}
+
+        {% if node.slug %}
+
+        <pa><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pa>
+        <pa><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img src="{{ node.slug }}" height="40px" width="40px" alt="" class="roundpa"></a></h8></pa>       
+          
+          {% else %}
+          <pa><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}">{{ node }}</a></h8></pa>
+        <pa><h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img src="{% static 'blog/img/image_fix.png' %}" height="40px" width="40px" alt="" class="roundpa"></a></h8></pa> 
+
+          {% endif %}
+        {% endif %}
+
+            {% if node.is_root_node %}
+                {% ifequal node.id root_author_id %}
+                    {% if not node.is_leaf_node %}
+                        <ul class="child">
+                            <h10>{{ children }}</h10>
+                        </ul>
+                    {% endif %}
+                {% endifequal %}
+            {% else %}
+                {% if not node.is_leaf_node %}
+                    {% if current_author.id == node.id %}
+                        <ul class="child">
+                            <h10>{{ children }}</h10>
+                        </ul>
+                    {% elif node.level < current_author.level %}
+                        <ul class="child">
+                            <h10>{{ children }}</h10>
+                        </ul>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+</ul>
+
+<p></p>
+ <h6>Tags:</h6>
+ <ul> 
+{% for tag in tags %}
+{% if tag == current_tag %}
+<pct><h10><a href="/articles/tag/get/{{ tag.id }}/">{{ tag }}</a></h10></pct>
+{% else %}
+<pt><h10><a href="/articles/tag/get/{{ tag.id }}/">{{ tag }}</a></h10></pt>
+ {% endif %}
+ {# {% if not forloop.last %},{% endif %} #}
+ {% endfor %}  
+ </ul>
+ 
+</ul>  
+
+    </div>
+</div>
+
+{% endblock %}
+
+
+

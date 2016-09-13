@@ -1,0 +1,111 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+{% load embed_video_tags %}
+{% load i18n mptt_tags %}
+{% load thumbnail %}
+
+{% block main %}
+
+<!-- Top Background Image Wrapper -->
+<div class="bgded overlay" style="background-image:url('/static/blog/img/background/start-page.jpg');"> 
+  <!-- ################################################################################################ -->
+  <div class="wrapper">
+    <header id="header" class="hoc clear">
+      
+      <nav id="mainav" class="clear"> 
+        <!-- ################################################################################################ -->
+        <ul class="clear">
+        
+        {# <li><a href="/">HOME</a></li> #}
+      
+        <li><a href="/articles/videos/page/">TUTORIALS</a></li>
+        
+        <li><a href="/contact/">CONTACT</a></li>
+          {% if username %}
+                <li><a href="/auth/logout/">LOGOUT ({{ username }})</a></li>
+            {% else %}
+                <li><a href="/auth/login/">LOGIN</a></li>
+            {% endif %}
+        
+        </ul>
+        <!-- ################################################################################################ -->
+      </nav>
+            <h6></h6>
+<div class="clear"></div> 
+      <h6></h6>
+<div class="clear"></div> 
+        <h6></h6>
+<div class="clear"></div> 
+      <h6></h6>
+<div class="clear"></div> 
+      <div id="logo"> 
+<div class="logo"><img src="{% static 'blog/img/logo_1.png' %}"></div>
+        <!-- ################################################################################################ -->
+      </div>
+      
+    </header>
+    {# <div class="logo"><img src="{% static 'blog/img/logo_1.png' %}"></div> #}
+  </div>
+
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <div id="pageintro" class="hoc clear"> 
+
+ 
+    <!-- ################################################################################################ -->
+    <article><em></em>
+      <h2 class="heading">IOS Dev Course</h2>
+      <p>Create IOS apps with us</p>
+      <footer><a class="btn" href="/articles/">Let's Join!</a></footer>
+    </article>
+    <!-- ################################################################################################ -->
+  </div>
+  <!-- ################################################################################################ -->
+</div>
+<!-- End Top Background Image Wrapper -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <section class="hoc container clear">
+    <!-- ################################################################################################ -->
+    <div class="center btmspace-80">
+    <p class="nospace">Create IOS apps with us</p>
+      <h3 class="heading">TUTORIALS</h3>
+      
+    </div>
+    <ul class="nospace group cta">
+      <li class="one_third first">
+        <article><a href="/articles/videos/only/"><img src="{% static 'blog/img/icons/responsive.png' %}" alt=""></a>
+          <p></p>
+          <h3 class="heading"><footer><a href="/articles/videos/only/">VIDEO &raquo;</a></footer></h3>
+        </article>
+      </li>
+      <li class="one_third">
+        <article><a href="/articles/writtens/only/"><img src="{% static 'blog/img/icons/free.png' %}" alt=""></a>
+          <p></p>
+          <h3 class="heading"><footer><a href="/articles/writtens/only/">ARTICLES &raquo;</a></footer></h3>
+        </article>
+      </li>
+      <li class="one_third">
+        <article><a href="/articles/videos/page/"><img src="{% static 'blog/img/icons/minimalist.png' %}" alt=""></a>
+          <p></p>
+          <h3 class="heading"><footer><a href="/articles/videos/page/">HOW TO &raquo;</a></footer></h3>
+        </article>
+      </li>
+    </ul>
+    <!-- ################################################################################################ -->
+    <div class="clear"></div>
+  </section>
+</div>
+{% endblock %}

@@ -12,6 +12,7 @@ from django.template import loader, Context, RequestContext
 
 # Create your views here.
 articles_of_course = {} 
+current_category = 0  
 
 
 def return_path_f(request):
@@ -67,6 +68,14 @@ def articles(request):
 
 
 def article(request, category_id, article_id=1):
+
+    global current_category
+
+    global articles_of_course 
+
+    article_id = int(article_id)
+
+    articles_of_course.clear()  
     
     # all_comments = Comments.objects.filter(comments_article_id=article_id)
     current_category = Category.objects.get(id=category_id)
@@ -106,7 +115,7 @@ def article(request, category_id, article_id=1):
     return render_to_response("article.html", args, context_instance=RequestContext(request))
 
 
-def article_left_right(request, art_page_number, left_right):
+def article_left_right(request, category_id, art_page_number, left_right):
 
     article_number = 1
     left_right = int(left_right)
@@ -120,7 +129,7 @@ def article_left_right(request, art_page_number, left_right):
     
     article = articles_of_course[article_number]
     article_id = article.id
-    current_category = Category.objects.filter(id=article_id)
+    current_category = Category.objects.get(id=category_id)
     # all_comments = Comments.objects.filter(comments_article_id=article_id)
    
     args = {}
@@ -144,6 +153,12 @@ def article_left_right(request, art_page_number, left_right):
 
 
 def category(request, category_id=1):
+
+    global current_category
+
+    global articles_of_course 
+
+    articles_of_course.clear()  
     
     current_category = Category.objects.get(id=category_id)
     root_category_id = current_category.get_root().id
@@ -162,6 +177,10 @@ def category(request, category_id=1):
 
 def authors(request, author_id=1):
 
+    global articles_of_course 
+
+    articles_of_course.clear()  
+
     current_author = Author.objects.get(id=author_id)
     root_author_id = current_author.get_root().id
     args = {}
@@ -177,6 +196,10 @@ def authors(request, author_id=1):
 
 
 def tags(request, tag_id=1):
+
+    global articles_of_course 
+
+    articles_of_course.clear()  
     
     current_tag = Tag.objects.get(id=tag_id)
     args = {}

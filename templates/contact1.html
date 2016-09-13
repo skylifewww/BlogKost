@@ -1,0 +1,99 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+
+{% block contact %}
+
+<!-- Top Background Image Wrapper -->
+<div class="bgded overlay" style="background-image:url('/static/pharmacognosy/images/backgrounds/01.png');"> 
+  <!-- ################################################################################################ -->
+  <div class="wrapper">
+    <header id="headerArticle" class="hoc clear">
+      {# <div id="logo">  #}
+        <!-- ################################################################################################ -->
+        {# <h1><a href="/">pharmacognosy</a></h1> #}
+        {# <p>risus luctus eget</p> #}
+        <!-- ################################################################################################ -->
+      {# </div> #}
+      <nav id="mainav" class="clear"> 
+        <!-- ################################################################################################ -->
+        <ul class="clear">
+           <li><a href="/">Home</a></li>
+          <li><a href="/articles/">Лекции</a></li>
+          {# <li><a href="/contact/">Контакты</a></li> #}
+        </ul>
+        <!-- ################################################################################################ -->
+      </nav>
+    </header>
+  </div>
+  <!-- ################################################################################################ -->
+</div>
+<!-- End Top Background Image Wrapper -->
+
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <div class="content three_quarter first"> 
+      
+    
+      <div id="comments">
+        
+        <h2>Задайте вопрос преподавателю</h2>
+        <form action="/contact/" role="form" method="post">
+
+        {% csrf_token %}
+
+          <div class="one_third first">
+            <label for="name">Ваше имя <span>*</span></label>
+            <input name="contact_name" id="name" required placeholder="Как к вам обращаться"  size="22" required>
+          </div>
+          <div class="one_third">
+            <label for="email">Ваш eMail <span>*</span></label>
+            <input name="contact_email" required placeholder="адрес электронной почты" name="email" id="email" value="" size="22" required>
+          </div>
+          {# <div class="one_third"> #}
+            {# <label for="url">Website</label> #}
+            {# <input type="url" name="url" id="url" value="" size="22"> #}
+          {# </div> #}
+          <div class="block clear">
+            <label for="comment">Ваш вопрос</label>
+            <textarea id="message" name="content" value="" cols="25" rows="10"></textarea>
+          </div>
+          <div>
+            <input class="button" id="submit" name="submit" type="submit"  value="Задать вопрос">
+            {# &nbsp; #}
+            {# <input type="reset" name="reset" value="Reset Form"> #}
+          </div>
+        </form>
+      </div>
+      <!-- ################################################################################################ -->
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+     <div class="clear"></div>  
+      <p></p>
+      <h6></h6>
+       <p></p>
+      <h6></h6>
+<div class="clear"></div>  
+   <p></p>
+      <h6></h6>
+<div class="clear"></div>  
+ <div class="clear"></div>  
+      <p></p>
+      <h6></h6>
+       <p></p>
+      <h6></h6>
+<div class="clear"></div>  
+   <p></p>
+      <h6></h6>
+<div class="clear"></div>  
+  </main>
+</div>
+
+{% endblock %}

@@ -19,11 +19,11 @@ from django.template import Context
 
 
 # Create your views here.
-def slider(request):
+def main(request):
 
     return_path_f(request)
 
-    return render_to_response("slider.html", {'username': auth.get_user(request).username})
+    return render_to_response("main.html", {'username': auth.get_user(request).username})
 
 
 def tutorials(request):
