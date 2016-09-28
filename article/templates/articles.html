@@ -179,7 +179,7 @@
         <article>
           <h6>Our authors:</h6>
            {% recursetree authors %}
-           {% if node.id != 11 %}
+{% if node.id not 11 %}
         <li>
         {% if node == current_author %}
 
