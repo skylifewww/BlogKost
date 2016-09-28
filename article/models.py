@@ -24,8 +24,7 @@ def make_upload_path(instance, filename, prefix=False):
 
 # Create your models here.
 class Category(MPTTModel):
-    name = models.CharField(max_length=250, verbose_name="Название категории транслитом", blank=True, default="", unique=True)
-    category_title = models.CharField(max_length=250, verbose_name="Имя категории", blank=True, default="")
+    name = models.CharField(max_length=250, verbose_name=u"Имя категории", blank=True, default="", unique=True)
     parent = TreeForeignKey('self', related_name="children", blank=True, null=True, db_index=True, verbose_name="Родительский класс")
 
     class Meta:
@@ -34,8 +33,8 @@ class Category(MPTTModel):
         verbose_name_plural = "Категории"
         ordering = ('tree_id','level')
 
-    def __str__(self):
-        return self.category_title
+    def __unicode__(self):
+        return self.name
 
 
 
@@ -50,7 +49,7 @@ mptt.register(Category, order_insertion_by=['name'])
 
 
 class Author(MPTTModel):
-    slug = models.CharField(max_length=250, blank=True, verbose_name="Урл")
+    slug = models.CharField(max_length=250, blank=True, verbose_name=u"Урл")
     name = models.CharField(max_length=200, verbose_name=u"Автор статьи", blank=True, default="", unique=True)
     parent = TreeForeignKey('self', related_name="children", blank=True, null=True, db_index=True, verbose_name="Родительский класс")
 
@@ -60,7 +59,7 @@ class Author(MPTTModel):
         verbose_name_plural = "Авторы"
         ordering = ('tree_id', 'level')
 
-    def __str__(self):
+    def __unicode__(self):
         return self.name
 
 
@@ -81,14 +80,14 @@ mptt.register(Author, order_insertion_by=['name'])
 
 
 class Tag(models.Model):
-    tag_name = models.CharField(max_length=50, verbose_name="Название тега")
+    tag_name = models.CharField(max_length=50, verbose_name=u"Название тега")
 
     class Meta:
         db_table = "tags"
         verbose_name = "теги"
         verbose_name_plural = "тег"
 
-    def __str__(self):
+    def __unicode__(self):
         return self.tag_name
 
 
@@ -98,12 +97,12 @@ class Article(models.Model):
     # article_number = models.IntegerField(default=0, verbose_name="Номер статьи", blank=True, null=True)
     # article_likes = models.IntegerField(default=0, verbose_name="Лайки")
     article_tag = models.ManyToManyField(Tag, related_name="tags", related_query_name="tags", verbose_name=u"Теги")
-    article_category = TreeForeignKey(Category, related_name="articles", verbose_name="Категории", default="", blank=True)
+    article_category = TreeForeignKey(Category, related_name="articles", verbose_name=u"Категории", default="", blank=True)
     article_author = TreeForeignKey(Author, related_name="autor", max_length=200, verbose_name="Автор статьи", blank=True, default="")
     short_text_ru = RichTextUploadingField(blank=True, verbose_name=u"Короткое описание RU")
     short_text_en = RichTextUploadingField(blank=True, verbose_name=u"Короткое описание EN")
     video = models.CharField(max_length=250, blank=True, verbose_name=u"Видео id в кратком описании")
-    image = ThumbnailerImageField(upload_to=make_upload_path, blank=True, verbose_name="Изображение")
+    image = ThumbnailerImageField(upload_to=make_upload_path, blank=True, verbose_name=u"Изображение")
     full_text_ru = RichTextUploadingField(blank=True, verbose_name=u"Полное описание RU")
     full_text_en = RichTextUploadingField(blank=True, verbose_name=u"Полное описание EN")
     article_video = EmbedVideoField(verbose_name=u'Видео', blank=True, help_text='URL video', null=True)
@@ -120,7 +119,7 @@ class Article(models.Model):
         verbose_name_plural = "Статьи"
         ordering = ['article_date']
 
-    def __str__(self):
+    def __unicode__(self):
         return self.article_title
 
    
