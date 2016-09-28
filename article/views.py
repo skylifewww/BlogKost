@@ -12,7 +12,7 @@ from django.template import loader, Context, RequestContext
 
 # Create your views here.
 articles_of_course = {} 
-current_category = 0  
+# current_category = 0  
 
 
 def return_path_f(request):
@@ -29,6 +29,8 @@ def video_only(request):
 
     return_path_f(request)
 
+    # args.update(csrf(request))
+
     args = {}
     args['tags'] = Tag.objects.all()
     args['articles'] = Article.objects.filter(video_only=1)
@@ -43,6 +45,8 @@ def written_only(request):
 
     return_path_f(request)
 
+    # args.update(csrf(request))
+
     args = {}
     args['tags'] = Tag.objects.all()
     args['articles'] = Article.objects.filter(written_only=1)
@@ -56,6 +60,8 @@ def written_only(request):
 def articles(request):
 
     return_path_f(request)
+
+    # args.update(csrf(request))
 
     args = {}
     args['tags'] = Tag.objects.all()
@@ -154,9 +160,11 @@ def article_left_right(request, category_id, art_page_number, left_right):
 
 def category(request, category_id=1):
 
-    global current_category
+    # global current_category
 
     global articles_of_course 
+
+    # args.update(csrf(request))
 
     articles_of_course.clear()  
     
@@ -179,6 +187,8 @@ def authors(request, author_id=1):
 
     global articles_of_course 
 
+    # args.update(csrf(request))
+
     articles_of_course.clear()  
 
     current_author = Author.objects.get(id=author_id)
@@ -197,7 +207,11 @@ def authors(request, author_id=1):
 
 def tags(request, tag_id=1):
 
+    tag_id = int(tag_id)
+
     global articles_of_course 
+
+    # args.update(csrf(request))
 
     articles_of_course.clear()  
     

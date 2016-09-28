@@ -1,0 +1,72 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+
+{% block contact %}
+    <!-- Contact-->
+
+    <section class="contact" id="contact">
+        <h1>Contact</h1>
+        <hr/>
+
+        <div class="content">
+
+          <div class="form">
+
+            <form method="post" action="/contact/" role="form" name="kontakt">
+
+            {% csrf_token %}
+
+            <div class="column">
+            YOUR NAME<br/><br/>
+            <input name="contact_name" id="name" required placeholder="Как к вам обращаться"  value="" />
+            </div>
+            
+            <div class="column-2">
+            YOUR E-MAIL<br/><br/>
+            <input name="contact_email" required placeholder="адрес электронной почты"  id="email" value="" />
+            </div>
+
+
+            <div class="column-3">
+            MESSAGE<br/><br/>
+            <textarea id="message" name="content" value=""></textarea>
+            </div>
+
+              <div class="button">
+                <span><input class="button" id="submit" name="submit" type="submit" value="SEND"></span>
+              </div>
+
+            </form>
+
+          </div>
+
+
+          <div class="contact-text">
+
+          Задайте вопрос Константину Кокорину<br/>
+          на e-mail<br/><br/>
+
+          Или свяжитесь с ним через соцсети:<br/>
+
+          <h8><a href="https://new.vk.com/kokorinkonstantin"><img alt="Vkontakte" src="{% static 'blog/img/icons/vk_button.png' %}" width="27px" height="27px"/></a></h8><br/>
+          <h8><a href="https://www.facebook.com/kkokorin1/"><img alt="Facebook" src="{% static 'blog/img/icons/facebook_butt.png' %}" width="27px" height="27px"/></a></h8><br/>
+          <h8><a href="https://www.youtube.com/channel/UC-jehhhrJM9abVzAbxcoEPQ"><img alt="Facebook" src="{% static 'blog/img/icons/youtube.png' %}" width="27px" height="27px"/></a></h8><br/>
+          <h8><a href="https://plus.google.com/u/0/+КонстантинКокорин/posts"><img alt="Facebook" src="{% static 'blog/img/icons/google.png' %}" width="27px" height="27px"/></a></h8><br/>
+         
+          
+
+          {# <strong>Konstantin Kokorin</strong><br/><br/> #}
+
+          {# e-mail: <strong>virer2007@mail.ru</strong><br/> #}
+           {# skype: <strong>virer2011</strong><br/> #}
+          
+
+          </div>
+
+
+        </div>
+
+    </section>
+
+{% endblock %}

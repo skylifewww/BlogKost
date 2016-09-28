@@ -11,7 +11,7 @@ urlpatterns = [
     url(r'^auth/', include("loginsys.urls")),
     url(r'^$', main),
     # url(r'^tutorials/', tutorials),
-    url(r'^contact/', contact),
+    url(r'^contact/(?P<author_id>\d+)/$', contact),
     # url(r'^portfolio/', portfolio),
 
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),

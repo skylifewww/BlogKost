@@ -83,7 +83,7 @@ mptt.register(Author, order_insertion_by=['name'])
 
 class Tag(models.Model):
     tag_name = models.CharField(max_length=50, verbose_name="Название тега транслитом")
-    tag_title = models.CharField(max_length=50, verbose_name="Имя тега")
+    # tag_title = models.CharField(max_length=50, verbose_name="Имя тега")
 
     class Meta:
         db_table = "tags"
@@ -91,7 +91,7 @@ class Tag(models.Model):
         verbose_name_plural = "тег"
 
     def __str__(self):
-        return self.tag_title
+        return self.tag_name
 
 
 class Article(models.Model):

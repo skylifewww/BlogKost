@@ -7,17 +7,10 @@
 {% block article %}
 <!-- Top Background Image Wrapper -->
 
-{# <div class="bgded overlay" style="background-image: url({{ article.slug }})">  #}
 <div class="bgded overlay" style="background-image:url('/static/blog/img/background/start-page.jpg');"> 
   <!-- ################################################################################################ -->
   <div class="wrapper">
     <header id="headerArticle" class="hoc clear">
-      {# <div id="logo">  #}
-        <!-- ################################################################################################ -->
-        {# <h1><a href="../index.html">Penyler</a></h1> #}
-        {# <p>risus luctus eget</p> #}
-        <!-- ################################################################################################ -->
-      {# </div> #}
       <nav id="mainav" class="clear"> 
         <!-- ################################################################################################ -->
         <ul class="clear">
@@ -25,7 +18,7 @@
       
         <li><a href="/articles/videos/page/">TUTORIALS</a></li>
         
-        <li><a href="/contact/">CONTACT</a></li>
+        <li><a href="/contact/{{ 1 }}/">CONTACT</a></li>
           {% if username %}
                 <li><a href="/auth/logout/">LOGOUT ({{ username }})</a></li>
             {% else %}
@@ -44,12 +37,17 @@
 <!-- ################################################################################################ -->
 <div class="wrapper row3">
   <main class="hoc container clear"> 
-  <div class="content three_quarter first"> 
+
+   <div class="content three_quarter first"> 
+
+  {% for article in articles %}
+
+  <div class="content two_quarter"> 
     <!-- main body -->
     <!-- ################################################################################################ -->
 
 
-    {% for article in articles %}
+    
 
       <!-- ################################################################################################ -->
 <h8>Course: <a href="/articles/category/get/{{ article.article_category.id }}/">{{ article.article_category }}</a></h8>
@@ -64,7 +62,37 @@
      
       <p>{{ article.short_text_ru|safe }}</p>
       <div class="clear"></div>  
-      
+</div>   
+
+<div class="content one_quarter second">   
+
+{% if article.video_published %}
+    
+            {% video article.article_video '220x160' %}
+{% else %} 
+
+    {% if article.slug %}
+
+        {% if current_category or current_author or current_tag %}
+
+            <img src="{{ article.slug }}" width="220px" height="160px">
+
+        {% else %} 
+
+            <img src="{{ article.slug }}" width="220px" height="160px">
+            {# <img src="{{MEDIA_URL}}{{ article.image.url}}" width="220px" height="160px"> #}
+
+        {% endif %}    
+            
+    {% else %}    
+
+            <img src="{% static 'blog/img/image_fix.png' %}" width="220px" height="160px">    
+
+    {% endif %}
+    
+{% endif %}
+
+</div>  
 
       
       <h6></h6>
@@ -72,20 +100,17 @@
    
       <h6></h6>
 <div class="clear"></div>  
-      
-     {% endfor %}
 
-  
+      <h6></h6>
+<div class="clear"></div>  
 
-    <!-- main body -->
-    <!-- ################################################################################################ -->
-    
-      <!-- ################################################################################################ -->
+
+
+ {% endfor %}
       
-     
-     
-      <!-- ################################################################################################ -->
-    </div>
+</div>
+
+   
     <!-- ################################################################################################ -->
     <!-- ################################################################################################ -->
     <div class="sidebar one_quarter"> 

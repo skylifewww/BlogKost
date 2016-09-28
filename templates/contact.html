@@ -3,70 +3,104 @@
 
 
 {% block contact %}
-    <!-- Contact-->
 
-    <section class="contact" id="contact">
-        <h1>Contact</h1>
-        <hr/>
+<!-- Top Background Image Wrapper -->
+<div class="bgded overlay" style="background-image:url('/static/blog/img/background/start-page.jpg');">  
+  <!-- ################################################################################################ -->
+  <div class="wrapper">
+    <header id="headerArticle" class="hoc clear">
+      {# <div id="logo">  #}
+        <!-- ################################################################################################ -->
+        {# <h1><a href="/">pharmacognosy</a></h1> #}
+        {# <p>risus luctus eget</p> #}
+        <!-- ################################################################################################ -->
+      {# </div> #}
+      <nav id="mainav" class="clear"> 
+        <!-- ################################################################################################ -->
+         <ul class="clear">
+           <li><a href="/">HOME</a></li>
+      
+        <li><a href="/articles/videos/page/">TUTORIALS</a></li>
+        
+        {# <li><a href="/contact/">CONTACT</a></li> #}
+          {% if username %}
+                <li><a href="/auth/logout/">LOGOUT ({{ username }})</a></li>
+            {% else %}
+                <li><a href="/auth/login/">LOGIN</a></li>
+            {% endif %}
+        </ul>
+        <!-- ################################################################################################ -->
+      </nav>
+    </header>
+  </div>
+  <!-- ################################################################################################ -->
+</div>
+<!-- End Top Background Image Wrapper -->
 
-        <div class="content">
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <div class="content three_quarter first"> 
+      
+    
+      <div id="comments">
+        
+        <h2>Ask {{ author }} </h2>
+        <form action="/contact/{{ author.id }}/" role="form" method="post">
 
-          <div class="form">
+        {% csrf_token %}
 
-            <form method="post" action="/contact/" role="form" name="kontakt">
-
-            {% csrf_token %}
-
-            <div class="column">
-            YOUR NAME<br/><br/>
-            <input name="contact_name" id="name" required placeholder="Как к вам обращаться"  value="" />
-            </div>
-            
-            <div class="column-2">
-            YOUR E-MAIL<br/><br/>
-            <input name="contact_email" required placeholder="адрес электронной почты"  id="email" value="" />
-            </div>
-
-
-            <div class="column-3">
-            MESSAGE<br/><br/>
-            <textarea id="message" name="content" value=""></textarea>
-            </div>
-
-              <div class="button">
-                <span><input class="button" id="submit" name="submit" type="submit" value="SEND"></span>
-              </div>
-
-            </form>
-
+          <div class="one_third first">
+            <label for="name">YOUR NAME <span>*</span></label>
+            <input name="contact_name" id="name" required placeholder="Как к вам обращаться"  size="22" required>
           </div>
-
-
-          <div class="contact-text">
-
-          Задайте вопрос Константину Кокорину<br/>
-          на e-mail<br/><br/>
-
-          Или свяжитесь с ним через соцсети:<br/>
-
-          <h8><a href="https://new.vk.com/kokorinkonstantin"><img alt="Vkontakte" src="{% static 'blog/img/icons/vk_button.png' %}" width="27px" height="27px"/></a></h8><br/>
-          <h8><a href="https://www.facebook.com/kkokorin1/"><img alt="Facebook" src="{% static 'blog/img/icons/facebook_butt.png' %}" width="27px" height="27px"/></a></h8><br/>
-          <h8><a href="https://www.youtube.com/channel/UC-jehhhrJM9abVzAbxcoEPQ"><img alt="Facebook" src="{% static 'blog/img/icons/youtube.png' %}" width="27px" height="27px"/></a></h8><br/>
-          <h8><a href="https://plus.google.com/u/0/+КонстантинКокорин/posts"><img alt="Facebook" src="{% static 'blog/img/icons/google.png' %}" width="27px" height="27px"/></a></h8><br/>
-         
-          
-
-          {# <strong>Konstantin Kokorin</strong><br/><br/> #}
-
-          {# e-mail: <strong>virer2007@mail.ru</strong><br/> #}
-           {# skype: <strong>virer2011</strong><br/> #}
-          
-
+          <div class="one_third">
+            <label for="email">YOUR E-MAIL <span>*</span></label>
+            <input name="contact_email" required placeholder="адрес электронной почты" name="email" id="email" value="" size="22" required>
           </div>
-
-
-        </div>
-
-    </section>
+          {# <div class="one_third"> #}
+            {# <label for="url">Website</label> #}
+            {# <input type="url" name="url" id="url" value="" size="22"> #}
+          {# </div> #} 
+          <div class="block clear">
+            <label for="comment">MESSAGE</label>
+            <textarea id="message" name="content" value="" cols="25" rows="10"></textarea>
+          </div>
+          <div>
+            <input class="button" id="submit" name="submit" type="submit"  value="Ask a Question">
+            {# &nbsp; #}
+            {# <input type="reset" name="reset" value="Reset Form"> #}
+          </div>
+        </form>
+      </div>
+      <!-- ################################################################################################ -->
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+     <div class="clear"></div>  
+      <p></p>
+      <h6></h6>
+       <p></p>
+      <h6></h6>
+<div class="clear"></div>  
+   <p></p>
+      <h6></h6>
+<div class="clear"></div>  
+ <div class="clear"></div>  
+      <p></p>
+      <h6></h6>
+       <p></p>
+      <h6></h6>
+<div class="clear"></div>  
+   <p></p>
+      <h6></h6>
+<div class="clear"></div>  
+  </main>
+</div>
 
 {% endblock %}

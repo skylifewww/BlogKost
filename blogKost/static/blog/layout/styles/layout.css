@@ -1,12 +1,4 @@
 @charset "utf-8";
-/*
-Template Name: Penyler
-Author: <a href="http://www.os-templates.com/">OS Templates</a>
-Author URI: http://www.os-templates.com/
-Licence: Free to use under our free template licence terms
-Licence URI: http://www.os-templates.com/template-terms
-File: Layout CSS
-*/
 
 @import url("fontawesome-4.6.3.min.css");
 @import url("framework.css");
@@ -63,7 +55,7 @@ File: Layout CSS
 .services li figure:hover figcaption{opacity:1;}
 
 .cta{}
-.cta article{padding-top:20px; text-align:center;}
+.cta article{padding-top:0px; text-align:center;}
 .cta article *{margin:0; padding:0;}
 .cta article span{display:block; position:relative; width:100px; height:100px; margin:0 auto 60px; line-height:100px; font-size:40px; font-weight:400; z-index:1;}
 .cta article span::before, .cta article span::after{position:absolute; top:0; right:0; bottom:0; left:0; content:""; border:1px solid; transform:rotate(-90deg); z-index:-1;}
@@ -97,14 +89,14 @@ File: Layout CSS
 
 /* Footer
 --------------------------------------------------------------------------------------------------------------- */
-#footer{padding:80px 0; border-bottom:1px solid;}
+#footer{padding:26px 0; border-bottom:1px solid;}
 
 
 /* Copyright
 --------------------------------------------------------------------------------------------------------------- */
-#copyright{padding:30px 0;}
+#copyright{padding:20px 0;}
 #copyright *{margin:0; padding:0;}
-#copyright p:first-of-type{margin-bottom:10px;}
+#copyright p:first-of-type{margin-bottom:5px;}
 #copyright p:last-of-type{font-size:.8rem;}
 
 
@@ -240,7 +232,7 @@ td{border-width:0 1px;}
 --------------------------------------------------------------------------------------------------------------- */
 body{color:#FFFFFF; background-color:#000000;}
 a{color:#888888;}
-a:hover{color:#A3C9D3;}
+a:hover{color:#ada074;}
 a:active, a:focus{background:transparent;}/* IE10 + 11 Bugfix - prevents grey background */
 hr, .borderedbox{border-color:#D7D7D7;}
 label span{color:#FF0000; background-color:inherit;}
@@ -253,8 +245,8 @@ input:focus, textarea:focus, *:required:focus{border-color:#A3C9D3;}
     background-color: inherit;
     color: #ffffff;
 }
-.btn, .btn.inverse:hover{color:#FFFFFF; background-color:#A3C9D3; border-color:#A3C9D3;}
-.btn:hover, .btn.inverse{color:inherit; background-color:transparent; border-color:inherit;}
+.btn, .btn.inverse:hover{color:#FFFFFF; background-color:transparent; border-color:inherit;}
+.btn:hover, .btn.inverse{color:inherit; background-color:#ada074; border-color:#ada074;}
 /* Rows */
 /*.wrapper a{color:#76C38F; background-color:transparent;}*/
 .row11{color:#979797; border-color:#76C38F;}
@@ -269,7 +261,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#A3C9D3;}
 
 
 /* Header */
-#header #logo a{color:inherit;}
+#header #logo a{color:#ada074;}
 
 
 /* Content Area */
@@ -277,7 +269,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#A3C9D3;}
 .services li figure figcaption{color:#FFFFFF;}
 
 .cta article .heading a{color:inherit;}
-.cta article:hover .heading a{color:#A3C9D3;}
+.cta article:hover .heading a{color:#ada074;}
 .cta article span{color:#FFFFFF;}
 .cta article span::before, .cta article span::after{background-color:#A3C9D3; border-color:#A3C9D3;}
 .cta article:hover span::after{border-color:inherit;}
@@ -288,12 +280,12 @@ input:focus, textarea:focus, *:required:focus{border-color:#A3C9D3;}
 
 
 /* Copyright */
-#copyright a{color:inherit;}
+#copyright a{color:#ada074;}
 
 
 /* Navigation */
 #mainav li a{color:inherit;}
-#mainav .active a, #mainav a:hover, #mainav li:hover > a{color:#A3C9D3; background-color:inherit;}
+#mainav .active a, #mainav a:hover, #mainav li:hover > a{color:#ada074; background-color:inherit;}
 #mainav li li a, #mainav .active li a{color:#FFFFFF; background-color:rgba(0,0,0,.6); border-color:rgba(0,0,0,.6);}
 #mainav li li:hover > a, #mainav .active .active > a{color:#FFFFFF; background-color:#A3C9D3;}
 #mainav form select{color:#FFFFFF; background-color:#1F1F1F; border-color:#000000;}
@@ -302,7 +294,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#A3C9D3;}
 #breadcrumb li:last-child a{color:#A3C9D3;}
 
 .container .sidebar nav a{color:inherit; border-color:#D7D7D7;}
-.container .sidebar nav a:hover{color:#A3C9D3;}
+.container .sidebar nav a:hover{color:#ada074;}
 
 .pagination a, .pagination strong{border-color:#D7D7D7;}
 .pagination .current *{color:#FFFFFF; background-color:#A3C9D3;}
@@ -314,7 +306,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#A3C9D3;}
 table, th, td, #comments .avatar, #comments input, #comments textarea{border-color:#D7D7D7;}
 #comments input:focus, #comments textarea:focus, #comments *:required:focus{border-color:#A3C9D3;}
 th{color:#FFFFFF; background-color:#373737;}
-tr, #comments li, #comments input[type="submit"], #comments input[type="reset"]{color:inherit; background-color:#FBFBFB;}
+tr, #comments li, #comments input[type="submit"], #comments input[type="reset"]{color:inherit; background-color:#FBFBFB;}, #comments input[type="reset"]:hover {color:#ada074; background-color:#ada074; border-color:#ada074;}
 tr:nth-child(even), #comments li:nth-child(even){color:inherit; background-color:#F7F7F7;}
 table a, #comments a{background-color:inherit;}
 

@@ -4,6 +4,7 @@
 from django.contrib import auth
 
 from article.views import return_path_f
+from article.models import Author
 
 
 from django.views.generic import TemplateView
@@ -47,7 +48,9 @@ def portfolio(request):
     return render_to_response("portfolio.html", {'username': auth.get_user(request).username})
 
 
-def contact(request):
+def contact(request, author_id=1):
+
+    current_author = Author.objects.get(id=author_id)
 
     form_class = ContactForm
 
@@ -87,5 +90,5 @@ def contact(request):
             # return redirect('/')
             return redirect(request.META.get('HTTP_REFERER', '/'))
 
-    return render(request, 'contact.html', {
+    return render(request, 'contact.html', {'author': current_author,
         'form': form_class, 'username': auth.get_user(request).username})

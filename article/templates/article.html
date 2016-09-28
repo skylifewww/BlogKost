@@ -19,7 +19,7 @@
       
         <li><a href="/articles/videos/page/">TUTORIALS</a></li>
         
-        <li><a href="/contact/">CONTACT</a></li>
+        <li><a href="/contact/{{ 1 }}/">CONTACT</a></li>
           {% if username %}
                 <li><a href="/auth/logout/">LOGOUT ({{ username }})</a></li>
             {% else %}
@@ -46,11 +46,11 @@
     <div class="content three_quarter first"> 
 
 
-<a href="http://www.facebook.com/sharer/sharer.php?u=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Facebook"><img src="{% static 'blog/img/icons/facebook_butt.png' %}" width="30px" height="30px"></a>
+<a href="http://www.facebook.com/sharer/sharer.php?u=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Facebook"><img class="imgSocialSmall" src="{% static 'blog/img/icons/facebook_butt.png' %}"></a>
 
-<a href="https://twitter.com/home?status=New%20IOS%20tutorial:%20{{article.article_title }}%20blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Twitter"><img src="{% static 'blog/img/icons/twitter_button.png' %}" width="30px" height="30px"></a>
+<a href="https://twitter.com/home?status=New%20IOS%20tutorial:%20{{article.article_title }}%20blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Twitter"><img class="imgSocialSmall" src="{% static 'blog/img/icons/twitter_button.png' %}"></a>
 
-<a href="http://vk.com/share.php?url=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="VKontakte"><img src="{% static 'blog/img/icons/vk_button.png' %}" width="30px" height="30px"></a>
+<a href="http://vk.com/share.php?url=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="VKontakte"><img class="imgSocialSmall" src="{% static 'blog/img/icons/vk_button.png' %}"></a>
 
 <p></p>
 <h6> </h6>
@@ -111,11 +111,11 @@
 <p></p>
 <h6> </h6>      
 
-<a href="http://www.facebook.com/sharer/sharer.php?u=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Facebook"><img src="{% static 'blog/img/icons/facebook_butt.png' %}" width="30px" height="30px"></a>
+<a href="http://www.facebook.com/sharer/sharer.php?u=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Facebook"><img class="imgSocialSmall" src="{% static 'blog/img/icons/facebook_butt.png' %}"></a>
 
-<a href="https://twitter.com/home?status=New%20IOS%20tutorial:%20{{article.article_title }}%20blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Twitter"><img src="{% static 'blog/img/icons/twitter_button.png' %}" width="30px" height="30px"></a>
+<a href="https://twitter.com/home?status=New%20IOS%20tutorial:%20{{article.article_title }}%20blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Twitter"><img class="imgSocialSmall" src="{% static 'blog/img/icons/twitter_button.png' %}"></a>
 
-<a href="http://vk.com/share.php?url=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="VKontakte"><img src="{% static 'blog/img/icons/vk_button.png' %}" width="30px" height="30px"></a>
+<a href="http://vk.com/share.php?url=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="VKontakte"><img class="imgSocialSmall" src="{% static 'blog/img/icons/vk_button.png' %}"></a>
 
 <p></p>
 <h6> </h6>
@@ -206,11 +206,11 @@ var disqus_config = function () {
 </div>      
  <div class="clear"></div>    
 
-<a href="http://www.facebook.com/sharer/sharer.php?u=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Facebook"><img src="{% static 'blog/img/icons/facebook_butt.png' %}" width="30px" height="30px"></a>
+<a href="http://www.facebook.com/sharer/sharer.php?u=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Facebook"><img class="imgSocialSmall" src="{% static 'blog/img/icons/facebook_butt.png' %}"></a>
 
-<a href="https://twitter.com/home?status=New%20IOS%20tutorial:%20{{article.article_title }}%20blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Twitter"><img src="{% static 'blog/img/icons/twitter_button.png' %}" width="30px" height="30px"></a>
+<a href="https://twitter.com/home?status=New%20IOS%20tutorial:%20{{article.article_title }}%20blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="Twitter"><img class="imgSocialSmall" src="{% static 'blog/img/icons/twitter_button.png' %}"></a>
 
-<a href="http://vk.com/share.php?url=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="VKontakte"><img src="{% static 'blog/img/icons/vk_button.png' %}" width="30px" height="30px"></a>
+<a href="http://vk.com/share.php?url=http://blogkost.herokuapp.com{{ request.get_full_path|urlencode }}" target="_blank" title="VKontakte"><img class="imgSocialSmall" src="{% static 'blog/img/icons/vk_button.png' %}"></a>
 
 
         {# <ul> #}
@@ -301,14 +301,14 @@ var disqus_config = function () {
           {% if node.slug %}
           <a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}" class="articleTitle">{{ node }}</a>
           <a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img class="imgAutorBig border-radius-120" src="{{ node.slug }}" height="140px" width="140px" alt="" class="roundpca"></a></h8>
-           <p><a  href="/contact/" title="{% blocktrans with project=node %}Задать вопрос {{ node }}{% endblocktrans %}" class="authorQs">Ask a Question!</a></p>
+           <p><a  href="/contact/{{ node.id }}/" title="{% blocktrans with project=node %}Задать вопрос {{ node }}{% endblocktrans %}" class="authorQs">Ask a Question!</a></p>
          <p></p>
          <h6> </h6>
           {% else %}
 
           <h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}" class="articleTitle">{{ node }}</a></h8>
           <h8><a  href="/articles/author/get/{{ node.id }}/" title="{% blocktrans with project=node %}Show all entries in {{ node }}{% endblocktrans %}"><img class="imgAutorBig border-radius: 120px" src="{% static 'blog/img/avatar.png' %}"  height="140px"  width="140px" alt="" class="roundpca"></a></h8>
-         <p><a  href="/contact/" title="{% blocktrans with project=node %}Задать вопрос {{ node }}{% endblocktrans %}" class="authorQs">Ask a Question!</a></p>
+         <p><a  href="/contact/{{ node.id }}/" title="{% blocktrans with project=node %}Задать вопрос {{ node }}{% endblocktrans %}" class="authorQs">Ask a Question!</a></p>
          <p></p>
          <h6> </h6>
            {% endif %}
