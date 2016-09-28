@@ -46,6 +46,8 @@ img{width:auto; max-width:100%; height:auto; margin:0; padding:0; border:none; l
 .imgSocialSmall{width:35px; height:35px; opacity: 0.5;}
 .imgSocialSmall:hover{width:35px; height:35px; opacity: 1;}
 
+.imgVidWrit{width:25px; height:25px; opacity: 0.5;}
+
 .imgGroundArt{width:auto; height:25px; position:relative; text-align:center;}
 
 .article .content .txt .column-one{

@@ -51,8 +51,7 @@ mptt.register(Category, order_insertion_by=['name'])
 
 class Author(MPTTModel):
     slug = models.CharField(max_length=250, blank=True, verbose_name="Урл")
-    name = models.CharField(max_length=200, verbose_name=u"Автор статьи транслитом", blank=True, default="", unique=True)
-    author_title = models.CharField(max_length=200, verbose_name=u"Автор статьи", blank=True, default="", unique=True)
+    name = models.CharField(max_length=200, verbose_name=u"Автор статьи", blank=True, default="", unique=True)
     parent = TreeForeignKey('self', related_name="children", blank=True, null=True, db_index=True, verbose_name="Родительский класс")
 
     class Meta:
@@ -62,7 +61,7 @@ class Author(MPTTModel):
         ordering = ('tree_id', 'level')
 
     def __str__(self):
-        return self.author_title
+        return self.name
 
 
     def pic_slug(self):
@@ -82,8 +81,7 @@ mptt.register(Author, order_insertion_by=['name'])
 
 
 class Tag(models.Model):
-    tag_name = models.CharField(max_length=50, verbose_name="Название тега транслитом")
-    # tag_title = models.CharField(max_length=50, verbose_name="Имя тега")
+    tag_name = models.CharField(max_length=50, verbose_name="Название тега")
 
     class Meta:
         db_table = "tags"
