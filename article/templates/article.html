@@ -295,6 +295,7 @@ var disqus_config = function () {
         <article>
           <h6>Our authors:</h6>
            {% recursetree authors %}
+           {% if not node.id == 11 %}
         <li>
         {% if node == current_author %}
 
@@ -350,6 +351,7 @@ var disqus_config = function () {
                         </ul>
                     {% endif %}
                 {% endif %}
+            {% endif %}
             {% endif %}
         </li>
     {% endrecursetree %}
